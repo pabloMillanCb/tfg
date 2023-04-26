@@ -86,22 +86,33 @@ function onWindowResize()
 
 function onMouseDown( e : any )
 {
-  if (e.button == 0) {
+  if (e.button == 0) 
+  {
     raycaster.setFromCamera( mouse, camera );
     const intersection = raycaster.intersectObjects( scene.getObjectArray(), true)
     
-     if (intersection.length > 0 && !transformControls.dragging) {
+     if (intersection.length > 0 && !transformControls.dragging)
+     {
+
+      if (!key_pressed['control'])
+      {
+        scene.unSelectAll()
+      }
 
       scene.selectObject(intersection[0].object)
+      console.log("se lo paso al controller")
       transformControls.attach(scene.getSelectGroup())
       
-      if (key_pressed['d']){
+      if (key_pressed['d'])
+      {
         transformControls.detach()
         scene.removeObject(intersection[0].object)
       }
     }
     
-    else if (!transformControls.dragging){
+    else if (!transformControls.dragging)
+    {
+      console.log("quitando")
       transformControls.detach()
       scene.unSelectAll()
     }
@@ -113,15 +124,18 @@ function onKeyDown(ev : any)
 {
   key_pressed[ev.key.toLowerCase()] = true;
 
-  if (key_pressed['i']) {
+  if (key_pressed['i']) 
+  {
     transformControls.setMode("translate")
   }
 
-  if (key_pressed['o']) {
+  if (key_pressed['o']) 
+  {
     transformControls.setMode("rotate")
   }
 
-  if (key_pressed['p']) {
+  if (key_pressed['p']) 
+  {
     transformControls.setMode("scale")
   }
 }

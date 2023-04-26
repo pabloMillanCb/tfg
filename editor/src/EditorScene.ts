@@ -7,7 +7,9 @@ export default class EditorScene extends THREE.Scene
 
     // Lista de objetos en la escena
     private liveObjects: THREE.Group = new THREE.Group
-    private selectedObject: THREE.Object3D = new THREE.Object3D
+    private selectionHelper: THREE.Object3D = new THREE.Object3D
+    private selectionHelperAux: THREE.Object3D = new THREE.Object3D
+    private selectedList: THREE.Object3D[] = []
 
     initialize()
     {
@@ -24,18 +26,40 @@ export default class EditorScene extends THREE.Scene
         sphere.position.x = 1
         sphere.position.z = 3
 
-        this.addObjetct(cube)
-        this.addObjetct(sphere)
+        this.addObject(cube)
+        this.addObject(sphere)
 
         this.add(this.liveObjects)
+        this.add(this.selectionHelper)
 
         this.createBasics()
     }
 
     update()
     {
-        console.log("live: "+this.liveObjects.children.length)
-        console.log("scene: "+this.children.length)
+        if (this.selectedList.length >= 2)
+        {
+            let position = {x: this.selectionHelper.position.x - this.selectionHelperAux.position.x,
+                            y: this.selectionHelper.position.y - this.selectionHelperAux.position.y,
+                            z: this.selectionHelper.position.z - this.selectionHelperAux.position.z}
+            let rotation = {x: this.selectionHelper.rotation.x - this.selectionHelperAux.rotation.x,
+                            y: this.selectionHelper.rotation.y - this.selectionHelperAux.rotation.y,
+                            z: this.selectionHelper.rotation.z - this.selectionHelperAux.rotation.z}
+            let scale = {x: this.selectionHelper.scale.x - this.selectionHelperAux.scale.x,
+                        y: this.selectionHelper.scale.y - this.selectionHelperAux.scale.y,
+                        z: this.selectionHelper.scale.z - this.selectionHelperAux.scale.z}
+
+            for (let i = 0; i < this.selectedList.length; i++)
+            {
+                this.transformObject(this.selectedList[i], "translate", position.x, position.y, position.z)
+                this.transformObject(this.selectedList[i], "rotate", rotation.x, rotation.y, rotation.z)
+                this.transformObject(this.selectedList[i], "scale", scale.x, scale.y, scale.z)
+            }
+
+            this.selectionHelperAux.copy(this.selectionHelper)
+        }
+
+        
     }
 
     createBasics()
@@ -55,7 +79,7 @@ export default class EditorScene extends THREE.Scene
         this.add( axesHelper );
     }
 
-    addObjetct(obj: THREE.Object3D)
+    addObject(obj: THREE.Object3D)
     {
         obj.name = "alive"
         this.liveObjects.add(obj)
@@ -67,7 +91,7 @@ export default class EditorScene extends THREE.Scene
 
             obj = obj.parent!
         }
-        
+
         obj.removeFromParent()
     }
 
@@ -78,7 +102,16 @@ export default class EditorScene extends THREE.Scene
 
     getSelectGroup(): THREE.Object3D
     {
-        return this.selectedObject
+        if (this.selectedList.length < 2)
+        {
+            return this.selectedList[0]
+        }
+        else
+        {
+            console.log("devuelve grupo")
+            return this.selectionHelper
+        }
+        
     }
 
     selectObject(obj: THREE.Object3D)
@@ -88,12 +121,56 @@ export default class EditorScene extends THREE.Scene
             obj = obj.parent!
         }
 
-        this.selectedObject = obj
+        this.selectionHelper.removeFromParent()
+        this.selectionHelper = new THREE.Object3D
+        this.selectionHelperAux.copy(this.selectionHelper)
+        this.add(this.selectionHelper)
+
+
+        if (!this.selectedList.includes(obj))
+        {
+            this.selectedList.push(obj)
+        }
+        
+        console.log("tamaño lista " + this.selectedList.length)
     }
 
     unSelectAll()
     {
-        this.selectedObject = new THREE.Object3D
+        const n = this.selectionHelper.children.length
+        for (let i = 0; i < n; i++)
+        {
+            let obj = this.selectionHelper.children[0]
+            obj.removeFromParent()
+            this.addObject(obj)
+        }
+
+        this.selectedList = []
+    }
+
+    transformObject(obj: THREE.Object3D, mode: string, x: number, y: number, z: number)
+    {
+        if (mode == "translate")
+        {
+            console.log("moviendo")
+            obj.position.x += x
+            obj.position.y += y
+            obj.position.z += z
+        }
+
+        if (mode == "rotate")
+        {
+            obj.rotation.x += x
+            obj.rotation.y += y
+            obj.rotation.z += z
+        }
+
+        if (mode == "scale")
+        {
+            obj.scale.x += x
+            obj.scale.y += y
+            obj.scale.z += z
+        }
     }
 
 }
