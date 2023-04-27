@@ -16,9 +16,15 @@
         display: block;
         background-color: aqua;
       }
+      #glbfile {
+        display: none;
+      }
+      
     </style>
   </head>
   <body>
+    <input type="file" id="glbfile" name="glbfile"> 
+    <button id="newFile">Cargar nuevo modelo</button>
     <canvas id="app"></canvas>
     <script type="module" src="/src/main.ts"></script>
   </body>

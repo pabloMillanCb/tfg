@@ -1,20 +1,25 @@
 import * as THREE from 'three'
-import { Box3, Object3D } from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+//import { Box3, Object3D } from 'three';
 
 
 export default class EditorScene extends THREE.Scene
 {
 
-    // Lista de objetos en la escena
+    // Lista de objetos seleccionables en la escena
     private liveObjects: THREE.Group = new THREE.Group
+
+    // Objetos seleccionados
+    private selectedList: THREE.Object3D[] = []
+
+    // Dummies para controlar las selecciones múltiples
     private selectionHelper: THREE.Object3D = new THREE.Object3D
     private selectionHelperAux: THREE.Object3D = new THREE.Object3D
-    private selectedList: THREE.Object3D[] = []
+    
 
     initialize()
     {
         var cube: THREE.Object3D = new THREE.Object3D() 
-        const edges = new THREE.EdgesGeometry( new THREE.BoxGeometry() );
         cube.add(new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshPhongMaterial({color: 0xFFAD00})))
         cube.position.y = 0.5
         cube.position.x = -3
@@ -37,17 +42,21 @@ export default class EditorScene extends THREE.Scene
 
     update()
     {
+        // Si tenemos varios objetos seleccionados trackeamos la posición del dummie para
+        // aplicar a todos las mismas transformaciones
         if (this.selectedList.length >= 2)
         {
-            let position = {x: this.selectionHelper.position.x - this.selectionHelperAux.position.x,
-                            y: this.selectionHelper.position.y - this.selectionHelperAux.position.y,
-                            z: this.selectionHelper.position.z - this.selectionHelperAux.position.z}
-            let rotation = {x: this.selectionHelper.rotation.x - this.selectionHelperAux.rotation.x,
-                            y: this.selectionHelper.rotation.y - this.selectionHelperAux.rotation.y,
-                            z: this.selectionHelper.rotation.z - this.selectionHelperAux.rotation.z}
-            let scale = {x: this.selectionHelper.scale.x - this.selectionHelperAux.scale.x,
-                        y: this.selectionHelper.scale.y - this.selectionHelperAux.scale.y,
-                        z: this.selectionHelper.scale.z - this.selectionHelperAux.scale.z}
+            const position = {x: this.selectionHelper.position.x - this.selectionHelperAux.position.x,
+                              y: this.selectionHelper.position.y - this.selectionHelperAux.position.y,
+                              z: this.selectionHelper.position.z - this.selectionHelperAux.position.z}
+
+            const rotation = {x: this.selectionHelper.rotation.x - this.selectionHelperAux.rotation.x,
+                              y: this.selectionHelper.rotation.y - this.selectionHelperAux.rotation.y,
+                              z: this.selectionHelper.rotation.z - this.selectionHelperAux.rotation.z}
+
+            const scale = {x: this.selectionHelper.scale.x - this.selectionHelperAux.scale.x,
+                           y: this.selectionHelper.scale.y - this.selectionHelperAux.scale.y,
+                           z: this.selectionHelper.scale.z - this.selectionHelperAux.scale.z}
 
             for (let i = 0; i < this.selectedList.length; i++)
             {
@@ -59,7 +68,8 @@ export default class EditorScene extends THREE.Scene
             this.selectionHelperAux.copy(this.selectionHelper)
         }
 
-        
+        //console.log("Elementos escena " + this.children.length)
+        //console.log("Elementos vivos " + this.liveObjects.children.length)
     }
 
     createBasics()
@@ -87,8 +97,8 @@ export default class EditorScene extends THREE.Scene
 
     removeObject(obj: THREE.Object3D)
     {
-        while (obj.name != "alive"){
-
+        while (obj.name != "alive")
+        {
             obj = obj.parent!
         }
 
@@ -116,33 +126,36 @@ export default class EditorScene extends THREE.Scene
 
     selectObject(obj: THREE.Object3D)
     {
-        while (obj.name != "alive"){
-
+        while (obj.name != "alive")
+        {
             obj = obj.parent!
         }
 
+        console.log("Hijos de la seleccion: " + obj.children.length)
+
+        // Se resetea el dummie para las selecciones múltiples
         this.selectionHelper.removeFromParent()
         this.selectionHelper = new THREE.Object3D
         this.selectionHelperAux.copy(this.selectionHelper)
         this.add(this.selectionHelper)
 
-
         if (!this.selectedList.includes(obj))
         {
             this.selectedList.push(obj)
+            //const objMaterial : THREE.MeshPhongMaterial = (<THREE.MeshPhongMaterial>(<THREE.Mesh>obj.children[0]).material)
+            //objMaterial.emissive.setHex(0x444444)
         }
-        
-        console.log("tamaño lista " + this.selectedList.length)
     }
 
     unSelectAll()
     {
-        const n = this.selectionHelper.children.length
+        const n = this.selectedList.length
         for (let i = 0; i < n; i++)
         {
-            let obj = this.selectionHelper.children[0]
-            obj.removeFromParent()
-            this.addObject(obj)
+            const obj = this.selectedList[i]
+            //const objMaterial : THREE.MeshPhongMaterial = (<THREE.MeshPhongMaterial>(<THREE.Mesh>obj.children[0]).material)
+            //objMaterial.emissive.setHex(0x000000)
+            
         }
 
         this.selectedList = []
@@ -152,7 +165,6 @@ export default class EditorScene extends THREE.Scene
     {
         if (mode == "translate")
         {
-            console.log("moviendo")
             obj.position.x += x
             obj.position.y += y
             obj.position.z += z
@@ -173,4 +185,21 @@ export default class EditorScene extends THREE.Scene
         }
     }
 
+    loadModel(url: string)
+    {
+        const loader = new GLTFLoader();
+        const scene = this
+
+        loader.load( url, function ( gltf ) {
+
+            scene.addObject( gltf.scene );
+
+        }, undefined, function ( error ) {
+
+            console.error( error );
+
+        } );
+    }
+
 }
+
