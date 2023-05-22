@@ -125,8 +125,6 @@ class SceneController {
         this.delete_mode = false
         this.transformControls.setMode(mode)
       }
-      
-
     }
 
     // Funciones para la interacción por teclado y ratón
@@ -152,11 +150,11 @@ class SceneController {
         const intersection = this.raycaster.intersectObjects(
           this.scene.getObjectArray(),
           true
-        );
+        )
 
         if (intersection.length > 0 && !this.transformControls.dragging) {
           if (!this.key_pressed["control"]) {
-            this.scene.unSelectAll();
+            this.scene.unSelectAll()
           }
 
           this.scene.selectObject(intersection[0].object);
@@ -171,8 +169,8 @@ class SceneController {
 
         // Si no se clica nada y no se está arrastrando, deseleccionar
         else if (!this.transformControls.dragging) {
-          this.transformControls.detach();
-          this.scene.unSelectAll();
+          this.transformControls.detach()
+          this.scene.unSelectAll()
         }
       }
     }
@@ -196,6 +194,14 @@ class SceneController {
     stopAudio() {
       this.audio.pause()
       this.audio.currentTime = 0
+    }
+
+    playAnimation() {
+      this.scene.playAnimations()
+    }
+
+    stopAnimation() {
+      this.scene.stopAnimation()
     }
 
 }

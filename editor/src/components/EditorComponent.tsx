@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import SceneController from "./Scene/SceneController"
 import "../styles/EditorComponent.css"
 import { Stack, Button, IconButton, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveAltIcon from '@material-ui/icons/SaveAlt'
 import OpenWithIcon from '@material-ui/icons/OpenWith';
@@ -14,9 +16,26 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 function EditorComponent(): JSX.Element {
 
   const [tipoEscena, setTipoEscena] = useState('')
+  const [reproduciendo, setReproduciendo] = useState(false)
   const [animaciones, setAnimaciones] = useState('No')
   const [herrSelec, setHerramienta] = useState('translate')
   const [sceneController] = useState<SceneController>(new SceneController())
+
+  const handlePlay = (playing: boolean) => {
+
+    setReproduciendo(playing)
+
+    if (playing){
+      sceneController.playAudio()
+      if (animaciones == "Si") {
+        sceneController.playAnimation()
+      }
+    }
+    else {
+      sceneController.stopAudio()
+      sceneController.stopAnimation()
+    }
+  }
 
   const handleTipoEscena = (event: SelectChangeEvent) => {
 
@@ -39,6 +58,9 @@ function EditorComponent(): JSX.Element {
   }
 
   const handleAnimaciones = (event: SelectChangeEvent) => {
+    if (animaciones == 'Si'){
+      sceneController.stopAnimation()
+    }
     setAnimaciones(event.target.value as string);
   }
 
@@ -80,7 +102,6 @@ function EditorComponent(): JSX.Element {
     if (extension === "mp3" || extension === "ogg") {
       const url = URL.createObjectURL(file)
       controller.loadAudio(url)
-      controller.playAudio()
     }
     
     else {
@@ -125,6 +146,7 @@ function EditorComponent(): JSX.Element {
               <IconButton className="boton-herramienta" size="large" color={herrSelec=="rotate" ? "primary" : "default"} onClick={() => handleTools('rotate')}> <Rotate90DegreesCcwIcon/></IconButton>
               <IconButton className="boton-herramienta" size="large" color={herrSelec=="scale" ? "primary" : "default"} onClick={() => handleTools('scale')}> <AspectRatioIcon/></IconButton>
               <IconButton className="boton-herramienta" size="large" color={herrSelec=="delete" ? "primary" : "default"} onClick={() => handleTools('delete')}> <DeleteIcon/></IconButton>
+              <IconButton className="boton-play" size="large" color="success" onClick={() => handlePlay(!reproduciendo)}> {reproduciendo ? <PauseCircleFilledIcon/> : <PlayCircleFilledIcon/>}</IconButton>
           </div>
           <div className="contenedor-subir-archivo">
             <Button variant="contained" component="label" color="secondary">

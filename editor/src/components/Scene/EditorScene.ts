@@ -15,6 +15,9 @@ export default class EditorScene extends THREE.Scene
     // Dummies para controlar las selecciones múltiples
     private selectionHelper: THREE.Object3D = new THREE.Object3D
     private selectionHelperAux: THREE.Object3D = new THREE.Object3D
+
+    private mixer: THREE.AnimationMixer[] = []
+    private clock = new THREE.Clock()
     
 
     initialize()
@@ -31,8 +34,8 @@ export default class EditorScene extends THREE.Scene
         sphere.position.x = 1
         sphere.position.z = 3
 
-        this.addObject(cube)
-        this.addObject(sphere)
+        //this.addObject(cube)
+        //this.addObject(sphere)
 
         this.add(this.liveObjects)
         this.add(this.selectionHelper)
@@ -68,8 +71,12 @@ export default class EditorScene extends THREE.Scene
             this.selectionHelperAux.copy(this.selectionHelper)
         }
 
-        //console.log("Elementos escena " + this.children.length)
-        //console.log("Elementos vivos " + this.liveObjects.children.length)
+        // Control de animaciones
+        const c = this.clock.getDelta()
+        for (let i = 0; i < this.mixer.length; i++)
+        {
+            this.mixer[i].update( c )
+        }
     }
 
     createBasics()
@@ -187,18 +194,51 @@ export default class EditorScene extends THREE.Scene
 
     loadModel(url: string)
     {
-        const loader = new GLTFLoader();
+        const loader = new GLTFLoader()
         const scene = this
 
         loader.load( url, function ( gltf ) {
 
-            scene.addObject( gltf.scene );
+            gltf.scene.animations = gltf.animations
+            scene.addObject( gltf.scene )
 
         }, undefined, function ( error ) {
 
-            console.error( error );
+            console.error( error )
 
         } );
+    }
+
+    playAnimations()
+    {
+        this.mixer = []
+
+        for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
+
+            if (this.liveObjects.children[i].animations.length > 0)
+            {
+                this.mixer.push(new THREE.AnimationMixer( this.liveObjects.children[i] ))
+                var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[0])
+                j++
+                action.play()
+            }
+        }
+    }
+
+    stopAnimation()
+    {
+
+        for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
+
+            if (this.liveObjects.children[i].animations.length > 0)
+            {
+                var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[0])
+                j++
+                action.reset()
+                action.stop()
+            }
+        }
+        this.mixer = []
     }
 
 }

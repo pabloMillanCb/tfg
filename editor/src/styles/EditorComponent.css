@@ -79,6 +79,10 @@
     z-index: -2;
 }
 
+.boton-play{
+    
+}
+
 .contenedor-subir-imagen {
     display: none;
     flex-direction: row;
