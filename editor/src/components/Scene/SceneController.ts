@@ -204,6 +204,29 @@ class SceneController {
       this.scene.stopAnimation()
     }
 
+    generateJSON(name, typeScene, audio) {
+
+      /*
+        "name": "",
+        "scene_type": "marcador | suelo | geoespacial",
+        "sound": "door",
+        "loop": true,
+        "image_url": "https://i.etsystatic.com/11428764/r/il/674430/2793364320/il_fullxfull.2793364320_asy7.jpg",
+        "latitud" : "",
+        "longitud" : "",
+        "altura" : "",
+        
+        "models": [
+          { //imagen
+            "model": "https://sceneview.github.io/assets/models/DamagedHelmet.glb",
+            "scale": 0.1,
+            "rotation": "0.0,0.8,0.2",
+            "position": "0.0,3.0,3.1",
+        ]
+      */
+
+    }
+
 }
 
 export default SceneController

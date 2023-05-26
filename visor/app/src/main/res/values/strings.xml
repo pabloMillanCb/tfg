@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ARView</string>
+    <string name="place_object">Colocar objeto</string>
+    <string name="new_object">Añadir objeto</string>
+</resources>

@@ -77,6 +77,14 @@ export default class EditorScene extends THREE.Scene
         {
             this.mixer[i].update( c )
         }
+
+        for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
+
+            if (this.liveObjects.children[i].animations.length > 0)
+            {
+                console.log(this.liveObjects.children[i].position)
+            }
+        }
     }
 
     createBasics()
@@ -227,8 +235,7 @@ export default class EditorScene extends THREE.Scene
 
     stopAnimation()
     {
-
-        for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
+        for (let i = 0, j = 0; i < this.liveObjects.children.length && j < this.mixer.length; i++){
 
             if (this.liveObjects.children[i].animations.length > 0)
             {

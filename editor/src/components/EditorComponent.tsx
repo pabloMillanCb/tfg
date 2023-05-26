@@ -15,7 +15,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function EditorComponent(): JSX.Element {
 
-  const [tipoEscena, setTipoEscena] = useState('')
+  const [tipoEscena, setTipoEscena] = useState('Marcador')
   const [reproduciendo, setReproduciendo] = useState(false)
   const [animaciones, setAnimaciones] = useState('No')
   const [herrSelec, setHerramienta] = useState('translate')
