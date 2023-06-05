@@ -19,12 +19,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import com.google.android.gms.auth.api.signin.internal.Storage
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.ar.core.Anchor
 import com.google.ar.core.AugmentedImage
 import com.google.ar.core.AugmentedImageDatabase
 import com.google.ar.core.Config
 import com.google.ar.core.TrackingState
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.google.gson.Gson
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.arcore.ArSession
@@ -56,9 +61,13 @@ class ArActivity : AppCompatActivity()
     var playedAnimations :Boolean = false
     lateinit var imageBitmap: Bitmap
 
+    lateinit var urlImagen : String
+
     var modelNode = ArrayList<ArModelNode>()
     var modelNodeGround : ArModelNode? = null
     var modelIndex = 0
+
+    lateinit var storageRef: StorageReference
 
     var isLoading = false
         set(value) {
@@ -74,6 +83,10 @@ class ArActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ar)
+
+        // Inicializamos Google Firebase
+        val firebase = FirebaseStorage.getInstance()
+        storageRef = firebase.reference
 
         setFullScreen(
             findViewById(R.id.rootView),
@@ -97,6 +110,8 @@ class ArActivity : AppCompatActivity()
         placeModelButton = findViewById<ExtendedFloatingActionButton>(R.id.placeModelButton).apply {
             setOnClickListener { placeModelNodeGround() }
         }
+        newModelButton.isVisible = false
+        placeModelButton.isVisible = false
 
         val jsonData = applicationContext.resources.openRawResource(
             applicationContext.resources.getIdentifier(
@@ -106,20 +121,34 @@ class ArActivity : AppCompatActivity()
         ).bufferedReader().use{it.readText()}
         parameters = gson.fromJson(jsonData, SceneParameters::class.java )
 
+        isLoading = true
+
+        storageRef.child(parameters.image_url).downloadUrl.addOnSuccessListener { documents ->
+            urlImagen = documents.toString()
+            setUpScene()}
+            .addOnFailureListener { Log.d("firebase", "Fracaso") }
+    }
+
+    fun setUpScene()
+    {
         if (parameters.sound != "")
         {
-            audio = MediaPlayer.create(this, Uri.parse(parameters.sound))
-            // Se activa la reproducción automática de audios al finalizar si el contenido loopea
-            if (parameters.loop == true) {
-                audio!!.setOnCompletionListener {
-                    audio!!.start()
+            storageRef.child(parameters.sound).downloadUrl.addOnSuccessListener { documents ->
+                var urlAudio = documents.toString()
+                audio = MediaPlayer.create(this, Uri.parse(parameters.sound))
+                // Se activa la reproducción automática de audios al finalizar si el contenido loopea
+                if (parameters.loop == true) {
+                    audio!!.setOnCompletionListener {
+                        audio!!.start()
+                    }
                 }
-            }
+                }
+                .addOnFailureListener { Log.d("firebase", "Fracaso") }
         }
 
         if (parameters.type == "augmented_images")
         {
-            loadImage(parameters.image_url)
+            loadImage(urlImagen)
             createModelNodes(true)
             sceneView.instructions.searchPlaneInfoNode.isVisible = false
 
@@ -181,7 +210,6 @@ class ArActivity : AppCompatActivity()
             }
         }
     }
-
     fun createModelNodes(poseRotation: Boolean)
     {
         Log.d("Geo", "Creando nodos")
@@ -194,24 +222,29 @@ class ArActivity : AppCompatActivity()
                     it.destroy()
                 }
             }*/
+            var urlModel = ""
+            storageRef.child(model.model_url).downloadUrl.addOnSuccessListener { documents ->
+                urlModel = documents.toString()
 
-            modelNode.add( ArModelNode(PlacementMode.PLANE_VERTICAL).apply {
-                applyPoseRotation = poseRotation
-                loadModelGlbAsync(
-                    context = this@ArActivity,
-                    lifecycle = lifecycle,
-                    glbFileLocation = model.model_url,
-                    autoAnimate = false,
-                    scaleToUnits = model.scale,
-                    // Place the model origin at the bottom center
-                    centerOrigin = Position(model.position[0], model.position[1], model.position[2])
-                ) {
-                    sceneView.planeRenderer.isVisible = false
-                    isLoading = false
-                }
+                modelNode.add( ArModelNode(PlacementMode.PLANE_VERTICAL).apply {
+                    applyPoseRotation = false
+                    loadModelGlbAsync(
+                        context = this@ArActivity,
+                        lifecycle = lifecycle,
+                        glbFileLocation = urlModel,
+                        autoAnimate = false,
+                        scaleToUnits = model.scale,
+                        // Place the model origin at the bottom center
+                        centerOrigin = Position(model.position[0], model.position[1], model.position[2])
+                    ) {
+                        sceneView.planeRenderer.isVisible = false
+                        isLoading = false
+                    }
 
-                modelRotation = Rotation(model.rotation[0], model.rotation[1], model.rotation[2])
-            })
+                    modelRotation = Rotation(model.rotation[0], model.rotation[1], model.rotation[2])
+                })
+            }
+                .addOnFailureListener { Log.d("firebase", "Fracaso") }
         }
     }
 
@@ -229,30 +262,35 @@ class ArActivity : AppCompatActivity()
             newModelButton.isVisible = false
         }
 
-        modelNodeGround = ArModelNode(PlacementMode.BEST_AVAILABLE).apply {
-            applyPoseRotation = false
-            loadModelGlbAsync(
-                context = this@ArActivity,
-                lifecycle = lifecycle,
-                glbFileLocation = model.model_url,
-                autoAnimate = false,
-                scaleToUnits = model.scale,
-                centerOrigin = Position(model.position[0], model.position[1], model.position[2])
-            ) {
-                sceneView.planeRenderer.isVisible = true
-                isLoading = false
-            }
-            onAnchorChanged = { node, _ ->
-                placeModelButton.isGone = node.isAnchored
-            }
-            onHitResult = { node, _ ->
-                placeModelButton.isGone = !node.isTracking
-            }
-        }
+        var urlModel = ""
+        storageRef.child(model.model_url).downloadUrl.addOnSuccessListener { documents ->
+            urlModel = documents.toString()
 
-        sceneView.addChild(modelNodeGround!!)
-        // Select the model node by default (the model node is also selected on tap)
-        sceneView.selectedNode = modelNodeGround
+            modelNodeGround = ArModelNode(PlacementMode.BEST_AVAILABLE).apply {
+                applyPoseRotation = false
+                loadModelGlbAsync(
+                    context = this@ArActivity,
+                    lifecycle = lifecycle,
+                    glbFileLocation = model.model_url,
+                    autoAnimate = false,
+                    scaleToUnits = model.scale,
+                    centerOrigin = Position(model.position[0], model.position[1], model.position[2])
+                ) {
+                    sceneView.planeRenderer.isVisible = true
+                    isLoading = false
+                }
+                onAnchorChanged = { node, _ ->
+                    placeModelButton.isGone = node.isAnchored
+                }
+                onHitResult = { node, _ ->
+                    placeModelButton.isGone = !node.isTracking
+                }
+            }
+            sceneView.addChild(modelNodeGround!!)
+            // Select the model node by default (the model node is also selected on tap)
+            sceneView.selectedNode = modelNodeGround
+        }
+            .addOnFailureListener { Log.d("firebase", "Fracaso") }
     }
 
     fun createNodesGeospatial()

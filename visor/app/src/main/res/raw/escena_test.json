@@ -1,9 +1,9 @@
 {
   "name": "Escema de test",
   "type": "augmented_images",
-  "sound": "https://aumentur.s3.eu-central-1.amazonaws.com/public/aumentur_convento_carmelitas_descalzas/82fa2781-787e-4955-aad8-7d4d5dde7fcf.mp3",
+  "sound": "audio/octopath.mp3",
   "loop": false,
-  "image_url": "https://www.aumentur.app/ra/test/articleJPG.jpg",
+  "image_url": "images/kitten.png",
   "coordinates": [
     37.19684078,
     -3.62350248,
@@ -11,7 +11,7 @@
   ],
   "models": [
     {
-      "model_url": "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb",
+      "model_url": "models/robot.glb",
       "scale": 0.05,
       "rotation": [
         90.0,
@@ -26,7 +26,7 @@
       "animation": ""
     },
     {
-      "model_url": "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/BoxAnimated/glTF-Binary/BoxAnimated.glb",
+      "model_url": "models/robot.glb",
       "scale": 0.05,
       "rotation": [
         0.0,
