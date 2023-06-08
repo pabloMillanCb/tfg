@@ -370,7 +370,11 @@ class ArActivity : AppCompatActivity()
             {
                 Log.d("Debug", "Dentro de played animations")
                 val count = model.animator?.animationCount ?: 0
-                if (count > 0) { model.playAnimation(0, parameters.loop) }
+                if (count > 0) {
+                    model.playAnimation("Dance", parameters.loop)
+                    model.playAnimation("animation_0", parameters.loop)
+                }
+                //model.playAnimation("name", parameters.loop)
             }
             playedAnimations = true
         }

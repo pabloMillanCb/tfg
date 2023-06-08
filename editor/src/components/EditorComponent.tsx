@@ -15,7 +15,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function EditorComponent(): JSX.Element {
 
-  const [tipoEscena, setTipoEscena] = useState('Marcador')
+  const [tipoEscena, setTipoEscena] = useState('Superficie')
   const [reproduciendo, setReproduciendo] = useState(false)
   const [animaciones, setAnimaciones] = useState('No')
   const [herrSelec, setHerramienta] = useState('translate')
@@ -121,6 +121,15 @@ function EditorComponent(): JSX.Element {
     })
   }
 
+  const exportScene = () => {
+    console.log("exportando")
+    sceneController.exportScene()
+  }
+
+  const displayAnimationSelector = (display: string) => {
+    
+  }
+
   return (
     <div className="main-div">
       <div className="editor-header">
@@ -133,7 +142,7 @@ function EditorComponent(): JSX.Element {
         </div>
         <div className="contenedor-botones-cabecera">
           <Stack spacing={2} direction="row">
-            <Button variant="contained" color="secondary" className="boton-guardado" endIcon={<SaveAltIcon />}>Exportar</Button>
+            <Button onClick={() => exportScene()} variant="contained" color="secondary" className="boton-guardado" endIcon={<SaveAltIcon />}>Exportar</Button>
             <Button variant="contained" className="boton-guardado" endIcon={<CloudUploadIcon />}>Guardar</Button>
           </Stack>     
         </div>
@@ -165,6 +174,7 @@ function EditorComponent(): JSX.Element {
             <Box sx={{ minWidth: 200 }}>
               <FormControl fullWidth>
               <InputLabel id="activar-animaciones" >Animaciones</InputLabel>
+              
               <Select
                 id="seleccion-animaciones"
                 value={animaciones}
@@ -177,8 +187,13 @@ function EditorComponent(): JSX.Element {
               </FormControl>
             </Box>
             </>
+            
           </div>
-          
+
+          <div id="contenedor-boton-animaciones">
+            <Button variant="contained" component="label" color="secondary">Cambiar Animación</Button>
+          </div>
+
           <div className="contenedor-selector">
             <>
             <Box sx={{ minWidth: 200 }}>

@@ -35,10 +35,14 @@ class SceneController {
 
     private audio: HTMLAudioElement = new Audio()
 
+    private animationButton: HTMLElement|null
+
     constructor() {
 
       this.width = window.innerWidth;
       this.height = window.innerHeight;
+
+      this.animationButton = null
 
       this.renderer = new THREE.WebGLRenderer()
       this.renderer.setSize(this.width, this.height);
@@ -72,6 +76,8 @@ class SceneController {
     }
 
     setCanvas = (): void => {
+
+      this.animationButton = document.getElementById("contenedor-boton-animaciones")!
 
       this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 500);
       this.camera.position.set(7, 10, 10);
@@ -144,6 +150,7 @@ class SceneController {
     }
 
     onMouseDown = (e: any): void => {
+      this.animationButton!.style.display = "none"
       // Selección de objeto con raycaster
       if (e.button == 0) {
         this.raycaster.setFromCamera(this.mouse, this.camera);
@@ -159,6 +166,16 @@ class SceneController {
 
           this.scene.selectObject(intersection[0].object);
           this.transformControls.attach(this.scene.getSelectGroup());
+          console.log(this.scene.getSelectGroup().animations.length)
+          if (this.scene.getSelectGroup().animations.length > 0)
+          {
+            console.log(document.getElementById("contenedor-boton-animaciones")!.style.display)
+            this.animationButton!.style.display = "flex"
+          }
+          else {
+            this.animationButton!.style.display = "none"
+          }
+          
 
           // Función de eliminar
           if (this.delete_mode) {
@@ -177,6 +194,10 @@ class SceneController {
 
     onKeyUp = (ev: any): void => {
       this.key_pressed[ev.key.toLowerCase()] = false;
+    }
+
+    loadScene(url: string) {
+      this.scene.loadScene(url)
     }
 
     loadModel(url: string) {
@@ -204,26 +225,26 @@ class SceneController {
       this.scene.stopAnimation()
     }
 
-    generateJSON(name, typeScene, audio) {
+    exportScene() {
+      this.scene.exportScene()
+    }
 
-      /*
-        "name": "",
-        "scene_type": "marcador | suelo | geoespacial",
-        "sound": "door",
+    generateJSON(name: String, typeScene: String) {
+
+      var modelJSON = []
+
+      const sceneJSON = {
+        "name": name,
+        "scene_type": typeScene,
+        "sound": "sonido",
         "loop": true,
-        "image_url": "https://i.etsystatic.com/11428764/r/il/674430/2793364320/il_fullxfull.2793364320_asy7.jpg",
-        "latitud" : "",
+        "image_url": "http",
+        "coordinates" : "",
         "longitud" : "",
         "altura" : "",
-        
-        "models": [
-          { //imagen
-            "model": "https://sceneview.github.io/assets/models/DamagedHelmet.glb",
-            "scale": 0.1,
-            "rotation": "0.0,0.8,0.2",
-            "position": "0.0,3.0,3.1",
-        ]
-      */
+
+        "models": this.scene.getModelJson().models
+      }
 
     }
 

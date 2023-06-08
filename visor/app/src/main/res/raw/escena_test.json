@@ -1,8 +1,8 @@
 {
   "name": "Escema de test",
   "type": "augmented_images",
-  "sound": "audio/octopath.mp3",
-  "loop": false,
+  "sound": "",
+  "loop": true,
   "image_url": "images/kitten.png",
   "coordinates": [
     37.19684078,
@@ -11,31 +11,16 @@
   ],
   "models": [
     {
-      "model_url": "models/robot.glb",
-      "scale": 0.05,
+      "model_url": "models/objeto(1).glb",
+      "scale": 0.1,
       "rotation": [
         90.0,
-        90.0,
-        0.0
-      ],
-      "position": [
-        0.0,
-        0.0,
-        0.0
-      ],
-      "animation": ""
-    },
-    {
-      "model_url": "models/robot.glb",
-      "scale": 0.05,
-      "rotation": [
-        0.0,
         0.0,
         0.0
       ],
       "position": [
         0.0,
-        0.0,
+        -1.2,
         0.0
       ],
       "animation": ""

@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-//import { Box3, Object3D } from 'three';
+import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
 
 
 export default class EditorScene extends THREE.Scene
@@ -18,25 +18,12 @@ export default class EditorScene extends THREE.Scene
 
     private mixer: THREE.AnimationMixer[] = []
     private clock = new THREE.Clock()
+
+    private exporter: GLTFExporter = new GLTFExporter()
     
 
     initialize()
     {
-        var cube: THREE.Object3D = new THREE.Object3D() 
-        cube.add(new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshPhongMaterial({color: 0xFFAD00})))
-        cube.position.y = 0.5
-        cube.position.x = -3
-        cube.position.z = -1
-
-        var sphere: THREE.Object3D = new THREE.Object3D() 
-        sphere.add(new THREE.Mesh(new THREE.SphereGeometry(), new THREE.MeshPhongMaterial({color: 0xFFAD00})))
-        sphere.position.y = 0.5
-        sphere.position.x = 1
-        sphere.position.z = 3
-
-        //this.addObject(cube)
-        //this.addObject(sphere)
-
         this.add(this.liveObjects)
         this.add(this.selectionHelper)
 
@@ -78,12 +65,27 @@ export default class EditorScene extends THREE.Scene
             this.mixer[i].update( c )
         }
 
-        for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
+        // Limita las escalas para que sean uniformes en todos los ejes
+        for (let i = 0; i < this.liveObjects.children.length; i++){
 
-            if (this.liveObjects.children[i].animations.length > 0)
-            {
-                console.log(this.liveObjects.children[i].position)
+            var objectScale = this.liveObjects.children[i].scale
+            var scale
+
+            //Se comprueba si ha cambiado la escala en x, y o z
+            if (objectScale.x != objectScale.y && objectScale.x != objectScale.z){
+                scale = objectScale.x
             }
+            else if (objectScale.y != objectScale.x && objectScale.y != objectScale.z){
+                scale = objectScale.y
+            }
+            else {
+                scale = objectScale.z
+            }
+
+            // Se aplica la escala alterada al resto de ejes
+            this.liveObjects.children[i].scale.x = scale
+            this.liveObjects.children[i].scale.y = scale
+            this.liveObjects.children[i].scale.z = scale
         }
     }
 
@@ -133,7 +135,6 @@ export default class EditorScene extends THREE.Scene
         }
         else
         {
-            console.log("devuelve grupo")
             return this.selectionHelper
         }
         
@@ -145,8 +146,6 @@ export default class EditorScene extends THREE.Scene
         {
             obj = obj.parent!
         }
-
-        console.log("Hijos de la seleccion: " + obj.children.length)
 
         // Se resetea el dummie para las selecciones múltiples
         this.selectionHelper.removeFromParent()
@@ -200,6 +199,28 @@ export default class EditorScene extends THREE.Scene
         }
     }
 
+    loadScene(url: string)
+    {
+        console.log("load scene")
+        const loader = new GLTFLoader()
+        const scene = this
+
+        loader.load( url, function ( gltf ) {
+
+            gltf.scene.animations = gltf.animations
+
+            for (let i = 0; i < gltf.scene.children.length; i++)
+            {
+                scene.addObject(gltf.scene.children[i])
+            }
+
+        }, undefined, function ( error ) {
+
+            console.error( error )
+
+        } );
+    }
+
     loadModel(url: string)
     {
         const loader = new GLTFLoader()
@@ -235,8 +256,8 @@ export default class EditorScene extends THREE.Scene
 
     stopAnimation()
     {
-        for (let i = 0, j = 0; i < this.liveObjects.children.length && j < this.mixer.length; i++){
-
+        for (let i = 0, j = 0; i < this.liveObjects.children.length && j < this.mixer.length; i++)
+        {
             if (this.liveObjects.children[i].animations.length > 0)
             {
                 var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[0])
@@ -247,6 +268,92 @@ export default class EditorScene extends THREE.Scene
         }
         this.mixer = []
     }
+
+    getModelJson()
+    {
+
+        var models: any[] = []
+
+        for (let i = 0; i < this.liveObjects.children.length; i++)
+        {
+            models.push(
+                {
+                    "model_url": "",
+                    "scale": this.liveObjects.children[i].scale.x,
+                    "position": [
+                        this.liveObjects.children[i].position.x,
+                        this.liveObjects.children[i].position.y,
+                        this.liveObjects.children[i].position.z
+                    ],
+                    "animation": ""
+                }
+            )
+        }
+
+        return {models}
+    }
+
+    // Funciones extraidas y adaptades de:
+        // https://github.com/mrdoob/three.js/blob/master/editor/js/Menubar.File.js#L513
+        // https://threejs.org/docs/index.html?q=expor#examples/en/exporters/GLTFExporter
+
+    exportScene()
+    {
+        const options = {
+            binary: true
+        };
+
+        const that = this
+
+        const animations = this.getAnimations( this.liveObjects );
+
+        this.exporter.parse( this.liveObjects, function ( result ) {
+
+			that.saveArrayBuffer( result, 'objeto.glb' );
+
+		}, function ( error ) { console.log( 'An error happened' ) }, 
+        { binary: true, animations: animations } 
+        );
+    }
+
+    private saveArrayBuffer( buffer: any, filename: any ) //buscar tipos
+    {
+
+		this.save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
+
+	}
+
+    private save( blob: any, filename: any ) {
+        const link = document.createElement( 'a' );
+
+		if ( link.href ) {
+
+			URL.revokeObjectURL( link.href );
+
+		}
+
+		link.href = URL.createObjectURL( blob );
+		link.download = filename || 'data.json';
+		link.dispatchEvent( new MouseEvent( 'click' ) );
+
+	}
+
+    getAnimations( scene: THREE.Object3D ) {
+
+		const animations: any = [];
+
+		scene.traverse( function ( object ) {
+
+			animations.push( ... object.animations );
+            if (object.animations[0] != undefined) {
+                console.log("EYYYY " + object.animations[0].name)
+            }
+            
+		} );
+
+		return animations;
+
+	}
 
 }
 

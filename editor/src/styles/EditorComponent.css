@@ -64,6 +64,14 @@
     margin-top: 30px;
 }
 
+#contenedor-boton-animaciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
 .contenedor-selector {
     display: flex;
     flex-direction: row;
