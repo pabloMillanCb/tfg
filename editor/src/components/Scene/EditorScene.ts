@@ -28,6 +28,9 @@ export default class EditorScene extends THREE.Scene
         this.add(this.selectionHelper)
 
         this.createBasics()
+
+        //this.addImage("src/assets/uanpi.jpg")
+        this.removeImage()
     }
 
     update()
@@ -106,9 +109,32 @@ export default class EditorScene extends THREE.Scene
         this.add( axesHelper );
     }
 
+    addImage(url: string) {
+
+        this.removeImage()
+
+        var map = new THREE.TextureLoader().load( url );
+        var material = new THREE.MeshBasicMaterial( { map: map, color: 0xffffff } );
+        var geometry = new THREE.PlaneGeometry( 10, 10 );
+        var plane = new THREE.Mesh(geometry, material)
+        plane.rotateX(-90*Math.PI/180)
+        plane.translateZ(-0.1)
+        plane.translateX(-0.01)
+        plane.translateY(-0.1)
+        plane.name = "marcador"
+
+        this.add( plane );
+    }
+
+    removeImage()
+    {
+        this.getObjectByName("marcador")?.removeFromParent()
+    }
+
     addObject(obj: THREE.Object3D)
     {
         obj.name = "alive"
+        obj.userData = {"animationIndex" : 0}
         this.liveObjects.add(obj)
     }
 
@@ -137,7 +163,6 @@ export default class EditorScene extends THREE.Scene
         {
             return this.selectionHelper
         }
-        
     }
 
     selectObject(obj: THREE.Object3D)
@@ -174,6 +199,8 @@ export default class EditorScene extends THREE.Scene
 
         this.selectedList = []
     }
+
+    
 
     transformObject(obj: THREE.Object3D, mode: string, x: number, y: number, z: number)
     {
@@ -247,7 +274,7 @@ export default class EditorScene extends THREE.Scene
             if (this.liveObjects.children[i].animations.length > 0)
             {
                 this.mixer.push(new THREE.AnimationMixer( this.liveObjects.children[i] ))
-                var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[0])
+                var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[this.liveObjects.children[i].userData["animationIndex"]])
                 j++
                 action.play()
             }
@@ -267,6 +294,20 @@ export default class EditorScene extends THREE.Scene
             }
         }
         this.mixer = []
+    }
+
+    changeAnimationSelectedObjects()
+    {
+        for (let i = 0; i < this.selectedList.length; i++)
+        {
+            const numAnimations = this.selectedList[i].animations.length
+            if (numAnimations > 1)
+            {
+                this.selectedList[i].userData["animationIndex"] = (this.selectedList[i].userData["animationIndex"] + 1) % numAnimations
+            }
+        }
+        this.stopAnimation()
+        this.playAnimations()
     }
 
     getModelJson()
@@ -292,6 +333,8 @@ export default class EditorScene extends THREE.Scene
 
         return {models}
     }
+
+    
 
     // Funciones extraidas y adaptades de:
         // https://github.com/mrdoob/three.js/blob/master/editor/js/Menubar.File.js#L513
@@ -354,6 +397,23 @@ export default class EditorScene extends THREE.Scene
 		return animations;
 
 	}
+
+    getSelectedAnimations() 
+    {
+        const animations: any = []
+
+        for (let i = 0; i < this.liveObjects.children.length; i++)
+        {
+            const obj = this.liveObjects.children[i]
+
+            if (obj.animations.length > 0)
+            {
+                animations.push(obj.animations[obj.userData["animationIndex"]].name)
+            }
+        }
+
+        return animations
+    }
 
 }
 

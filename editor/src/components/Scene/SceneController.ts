@@ -208,6 +208,21 @@ class SceneController {
       this.audio = new Audio(url)
     }
 
+    loadImage(url: string){
+      console.log("cargandoImagen")
+      this.scene.addImage(url)
+    }
+
+    manageImage(mode: string)
+    {
+      if (this.scene.getObjectByName("marcador") != undefined)
+      {
+        console.log("existe")
+        console.log(mode)
+        this.scene.getObjectByName("marcador")!!.visible = (mode == "Marcador")
+      }
+    }
+
     playAudio() {
       this.audio.play()
     }
@@ -223,6 +238,10 @@ class SceneController {
 
     stopAnimation() {
       this.scene.stopAnimation()
+    }
+
+    changeAnimationSelectedObjects() {
+      this.scene.changeAnimationSelectedObjects()
     }
 
     exportScene() {
@@ -243,8 +262,11 @@ class SceneController {
         "longitud" : "",
         "altura" : "",
 
-        "models": this.scene.getModelJson().models
+        "model_url": "",
+        "animations": this.scene.getSelectedAnimations()
       }
+
+      console.log(JSON.stringify(sceneJSON))
 
     }
 

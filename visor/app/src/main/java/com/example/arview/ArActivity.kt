@@ -95,6 +95,8 @@ class ArActivity : AppCompatActivity()
             fitsSystemWindows = false
         )
 
+        Log.d("Ground", "Hola")
+
         // Cargamos elementos de la UI
         sceneView = findViewById(R.id.sceneView)
         loadingView = findViewById(R.id.loadingView)
@@ -146,6 +148,8 @@ class ArActivity : AppCompatActivity()
                 .addOnFailureListener { Log.d("firebase", "Fracaso") }
         }
 
+        Log.d("Ground", parameters.type)
+
         if (parameters.type == "augmented_images")
         {
             loadImage(urlImagen)
@@ -153,8 +157,6 @@ class ArActivity : AppCompatActivity()
             sceneView.instructions.searchPlaneInfoNode.isVisible = false
 
             // Sceneview config
-            newModelButton.isVisible = false
-            placeModelButton.isVisible = false
             sceneView.configureSession(this::initialiseSceneViewSession)
             sceneView.planeFindingMode = Config.PlaneFindingMode.DISABLED
             sceneView.onAugmentedImageUpdate += this::checkAugmentedImageUpdate
@@ -163,8 +165,12 @@ class ArActivity : AppCompatActivity()
         }
         else if (parameters.type == "ground")
         {
+            Log.d("Ground", "Configurando ground")
             // Esta funcion debe ejecutarse una vez al principio antes de poder colocar nodos
             placeModelNodeGround();
+
+            newModelButton.isVisible = true
+            isLoading = false
 
             // Texto que aparece cuando se busca un plano en AugmentedGround
             sceneView.apply {
@@ -213,7 +219,6 @@ class ArActivity : AppCompatActivity()
     fun createModelNodes(poseRotation: Boolean)
     {
         Log.d("Geo", "Creando nodos")
-        for (model in parameters.models) {
 
             /*isLoading = true
             if(modelNode?.size!! > i) {
@@ -223,7 +228,7 @@ class ArActivity : AppCompatActivity()
                 }
             }*/
             var urlModel = ""
-            storageRef.child(model.model_url).downloadUrl.addOnSuccessListener { documents ->
+            storageRef.child(parameters.model_url).downloadUrl.addOnSuccessListener { documents ->
                 urlModel = documents.toString()
 
                 modelNode.add( ArModelNode(PlacementMode.PLANE_VERTICAL).apply {
@@ -233,37 +238,33 @@ class ArActivity : AppCompatActivity()
                         lifecycle = lifecycle,
                         glbFileLocation = urlModel,
                         autoAnimate = false,
-                        scaleToUnits = model.scale,
+                        scaleToUnits = 0.1f,
                         // Place the model origin at the bottom center
-                        centerOrigin = Position(model.position[0], model.position[1], model.position[2])
+                        centerOrigin = Position(0.0f, -1.2f, 0.0f)
                     ) {
                         sceneView.planeRenderer.isVisible = false
                         isLoading = false
                     }
 
-                    modelRotation = Rotation(model.rotation[0], model.rotation[1], model.rotation[2])
+                    modelRotation = Rotation(90.0f, 0.0f, 0.0f)
                 })
             }
                 .addOnFailureListener { Log.d("firebase", "Fracaso") }
-        }
     }
 
     private fun createModelNodeGround()
     {
+        Log.d("Ground", "Creando nodo")
         isLoading = true
         modelNodeGround?.takeIf { !it.isAnchored }?.let {
             sceneView.removeChild(it)
             it.destroy()
         }
 
-        val model = parameters.models[modelIndex]
         modelIndex = modelIndex + 1
-        if (modelIndex == parameters.models.size){
-            newModelButton.isVisible = false
-        }
-
+        newModelButton.isVisible = false
         var urlModel = ""
-        storageRef.child(model.model_url).downloadUrl.addOnSuccessListener { documents ->
+        storageRef.child(parameters.model_url).downloadUrl.addOnSuccessListener { documents ->
             urlModel = documents.toString()
 
             modelNodeGround = ArModelNode(PlacementMode.BEST_AVAILABLE).apply {
@@ -271,10 +272,10 @@ class ArActivity : AppCompatActivity()
                 loadModelGlbAsync(
                     context = this@ArActivity,
                     lifecycle = lifecycle,
-                    glbFileLocation = model.model_url,
+                    glbFileLocation = urlModel,
                     autoAnimate = false,
-                    scaleToUnits = model.scale,
-                    centerOrigin = Position(model.position[0], model.position[1], model.position[2])
+                    scaleToUnits = 0.2f,
+                    centerOrigin = Position(0.0f, 0.0f, 0.0f)
                 ) {
                     sceneView.planeRenderer.isVisible = true
                     isLoading = false
@@ -330,10 +331,17 @@ class ArActivity : AppCompatActivity()
         sceneView.planeRenderer.isVisible = false
         //modelNode.remove(modelNode[0])
 
-
         audio?.let {
             if (!audio!!.isPlaying){
                 audio!!.start()
+            }
+        }
+
+        val count = modelNodeGround?.animator?.animationCount ?: 0
+        if (count > 0) {
+            for (animation in parameters.animations)
+            {
+                modelNodeGround?.playAnimation(animation, parameters.loop)
             }
         }
     }
@@ -348,6 +356,7 @@ class ArActivity : AppCompatActivity()
             config.augmentedImageDatabase = imageDatabase
         }
         session.configure(config)
+
     }
 
     private fun checkAugmentedImageUpdate(augmentedImage: AugmentedImage)
@@ -371,8 +380,10 @@ class ArActivity : AppCompatActivity()
                 Log.d("Debug", "Dentro de played animations")
                 val count = model.animator?.animationCount ?: 0
                 if (count > 0) {
-                    model.playAnimation("Dance", parameters.loop)
-                    model.playAnimation("animation_0", parameters.loop)
+                    for (animation in parameters.animations)
+                    {
+                        model.playAnimation(animation, parameters.loop)
+                    }
                 }
                 //model.playAnimation("name", parameters.loop)
             }

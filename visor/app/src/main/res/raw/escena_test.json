@@ -1,6 +1,6 @@
 {
   "name": "Escema de test",
-  "type": "augmented_images",
+  "type": "ground",
   "sound": "",
   "loop": true,
   "image_url": "images/kitten.png",
@@ -9,21 +9,6 @@
     -3.62350248,
     680.0
   ],
-  "models": [
-    {
-      "model_url": "models/objeto(1).glb",
-      "scale": 0.1,
-      "rotation": [
-        90.0,
-        0.0,
-        0.0
-      ],
-      "position": [
-        0.0,
-        -1.2,
-        0.0
-      ],
-      "animation": ""
-    }
-  ]
+  "model_url": "models/objeto(1).glb",
+  "animations" : ["Death","animation_0"]
 }

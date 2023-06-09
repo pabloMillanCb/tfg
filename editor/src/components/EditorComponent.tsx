@@ -40,6 +40,7 @@ function EditorComponent(): JSX.Element {
   const handleTipoEscena = (event: SelectChangeEvent) => {
 
     setTipoEscena(event.target.value as string);
+    sceneController.manageImage(event.target.value as string)
 
     if (event.target.value as string == "Marcador"){
       document.getElementById("subir-imagen")!.style.display = "flex"
@@ -103,6 +104,11 @@ function EditorComponent(): JSX.Element {
       const url = URL.createObjectURL(file)
       controller.loadAudio(url)
     }
+
+    if (extension === "jpg" || extension === "png" || extension === "svg") {
+      const url = URL.createObjectURL(file)
+      controller.loadImage(url)
+    }
     
     else {
       console.log("Formato de archivo equivocado")
@@ -126,8 +132,12 @@ function EditorComponent(): JSX.Element {
     sceneController.exportScene()
   }
 
-  const displayAnimationSelector = (display: string) => {
-    
+  const changeAnimation = () => {
+    sceneController.changeAnimationSelectedObjects()
+  }
+
+  const generateJSON = () => {
+    sceneController.generateJSON("nomber", tipoEscena)
   }
 
   return (
@@ -143,7 +153,7 @@ function EditorComponent(): JSX.Element {
         <div className="contenedor-botones-cabecera">
           <Stack spacing={2} direction="row">
             <Button onClick={() => exportScene()} variant="contained" color="secondary" className="boton-guardado" endIcon={<SaveAltIcon />}>Exportar</Button>
-            <Button variant="contained" className="boton-guardado" endIcon={<CloudUploadIcon />}>Guardar</Button>
+            <Button onClick={() => generateJSON()} variant="contained" className="boton-guardado" endIcon={<CloudUploadIcon />}>Guardar</Button>
           </Stack>     
         </div>
       </div>
@@ -191,7 +201,7 @@ function EditorComponent(): JSX.Element {
           </div>
 
           <div id="contenedor-boton-animaciones">
-            <Button variant="contained" component="label" color="secondary">Cambiar Animación</Button>
+            <Button onClick={() => changeAnimation()} variant="contained" component="label" color="secondary">Cambiar Animación</Button>
           </div>
 
           <div className="contenedor-selector">
@@ -216,7 +226,7 @@ function EditorComponent(): JSX.Element {
           <div className="contenedor-subir-imagen" id="subir-imagen">
             <Button variant="contained" component="label" id="boton-carga-imagen" color="secondary">
               Cargar imagen
-              <input hidden multiple type="file" />
+              <input hidden type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["png", "jpg", "svg"]) }/>
             </Button>
           </div>
           <div className="contenedor-coordenadas" id="coordenadas">
