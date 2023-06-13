@@ -15,5 +15,11 @@ class MainActivity : AppCompatActivity() {
                 val myIntent = Intent(this, ArActivity::class.java)
                 startActivity(myIntent)
             }
+
+        findViewById<Button>(R.id.selectButton)
+            .setOnClickListener {
+                val myIntent = Intent(this, SceneSelect::class.java)
+                startActivity(myIntent)
+            }
     }
 }

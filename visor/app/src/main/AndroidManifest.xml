@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,15 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ARView"
         tools:targetApi="31">
+        <activity
+            android:name=".SceneSelect"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.ar.API_KEY"
             android:value="AIzaSyCZZSsa-ZLs4e2EcQ_9qmgnkmq7VPK-D44" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCZZSsa-ZLs4e2EcQ_9qmgnkmq7VPK-D44" />
-
 
         <activity
             android:name=".ArActivity"
@@ -35,9 +40,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
