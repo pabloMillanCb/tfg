@@ -1,6 +1,6 @@
 {
-  "name": "Escena del gatito",
-  "type": "augmented_images",
+  "name": "Escena en la ETSIIT",
+  "type": "geospatial",
   "sound": "",
   "loop": true,
   "image_url": "images/kitten.png",

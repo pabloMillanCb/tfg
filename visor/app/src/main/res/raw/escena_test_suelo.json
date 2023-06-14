@@ -1,6 +1,6 @@
 {
-  "name": "Escena del gatito",
-  "type": "augmented_images",
+  "name": "Colocar en el suelo",
+  "type": "ground",
   "sound": "",
   "loop": true,
   "image_url": "images/kitten.png",

@@ -21,19 +21,32 @@ class SceneSelect : AppCompatActivity() {
 
         // obtención de lista de escenas del usuario
         var gson = Gson()
-        val jsonData = applicationContext.resources.openRawResource(
+        var jsonData = applicationContext.resources.openRawResource(
             applicationContext.resources.getIdentifier(
                 "escena_test",
                 "raw", applicationContext.packageName
             )
         ).bufferedReader().use{it.readText()}
         var parameters = gson.fromJson(jsonData, SceneParameters::class.java )
+        listaEscenas.add(parameters)
 
-        Log.d("Recycler", parameters.name)
+        jsonData = applicationContext.resources.openRawResource(
+            applicationContext.resources.getIdentifier(
+                "escena_test_geo",
+                "raw", applicationContext.packageName
+            )
+        ).bufferedReader().use{it.readText()}
+        parameters = gson.fromJson(jsonData, SceneParameters::class.java )
+        listaEscenas.add(parameters)
 
-        for (i in 0..20){
-            listaEscenas.add(parameters)
-        }
+        jsonData = applicationContext.resources.openRawResource(
+            applicationContext.resources.getIdentifier(
+                "escena_test_suelo",
+                "raw", applicationContext.packageName
+            )
+        ).bufferedReader().use{it.readText()}
+        parameters = gson.fromJson(jsonData, SceneParameters::class.java )
+        listaEscenas.add(parameters)
 
         var recyclerview = findViewById<RecyclerView>(R.id.recyclerViewEscenas)
         var adapter = SceneRecyclerViewAdapter(this, listaEscenas)

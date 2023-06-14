@@ -1,6 +1,7 @@
 package com.example.arview
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -10,6 +11,7 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -46,6 +48,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.InputStream
+import java.io.Serializable
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -74,8 +77,6 @@ class ArActivity : AppCompatActivity()
             field = value
             loadingView.isGone = !value
         }
-
-    var gson = Gson()
 
     var posicionFijada: Boolean = false
 
@@ -121,7 +122,7 @@ class ArActivity : AppCompatActivity()
                 "raw", applicationContext.packageName
             )
         ).bufferedReader().use{it.readText()}
-        parameters = gson.fromJson(jsonData, SceneParameters::class.java )
+        parameters = getSerializable(this, "parameters",  SceneParameters::class.java)!!
 
         isLoading = true
 
@@ -144,8 +145,7 @@ class ArActivity : AppCompatActivity()
                         audio!!.start()
                     }
                 }
-                }
-                .addOnFailureListener { Log.d("firebase", "Fracaso") }
+            }.addOnFailureListener { Log.d("firebase", "Fracaso") }
         }
 
         Log.d("Ground", parameters.type)
@@ -356,7 +356,6 @@ class ArActivity : AppCompatActivity()
             config.augmentedImageDatabase = imageDatabase
         }
         session.configure(config)
-
     }
 
     private fun checkAugmentedImageUpdate(augmentedImage: AugmentedImage)
@@ -364,13 +363,11 @@ class ArActivity : AppCompatActivity()
         sceneView.instructions.searchPlaneInfoNode.isVisible = false
 
         // Reproduce audio asociado si procede
-
         audio?.let {
             if (!audio!!.isPlaying){
                 audio!!.start()
             }
         }
-
 
         if (!playedAnimations)
         {
@@ -385,23 +382,9 @@ class ArActivity : AppCompatActivity()
                         model.playAnimation(animation, parameters.loop)
                     }
                 }
-                //model.playAnimation("name", parameters.loop)
             }
             playedAnimations = true
         }
-
-        /*
-        // Reproduce la animación del modelo en caso de tener
-        if (playedAnimations[augmentedImage.index] == false) {
-            Log.d("Debug", augmentedImage.index.toString())
-            Log.d("Debug", modelNode.size.toString())
-            var count = modelNode[augmentedImage.index].animator?.animationCount ?: 0
-            if (count > 0) {
-                modelNode[augmentedImage.index].playAnimation(0, loop[augmentedImage.index])
-            }
-            playedAnimations[augmentedImage.index] = true
-        }
-         */
 
         // Ajusta el modelo a la imagen si está siendo trackeada
         if(augmentedImage.isTracking) {
@@ -421,7 +404,6 @@ class ArActivity : AppCompatActivity()
 
     suspend fun getBitmapFromURL(src: String?): Bitmap?
     {
-
         if (lifecycle != null) {
             val url = URL(src)
             val connection: HttpURLConnection = url
@@ -449,7 +431,7 @@ class ArActivity : AppCompatActivity()
                     // Only approximate location access granted.
                 } else -> {
                 // No location access granted.
-            }
+                }
             }
         }
         when {
@@ -465,5 +447,14 @@ class ArActivity : AppCompatActivity()
                     Manifest.permission.CAMERA))
             }
         }
+    }
+
+    //from https://stackoverflow.com/questions/72571804/getserializableextra-and-getparcelableextra-deprecated-what-is-the-alternative
+    fun <T : Serializable?> getSerializable(activity: Activity, name: String, clazz: Class<T>): T
+    {
+        return if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            activity.intent.getSerializableExtra(name, clazz)!!
+        else
+            activity.intent.getSerializableExtra(name) as T
     }
 }
