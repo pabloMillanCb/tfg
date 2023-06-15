@@ -12,30 +12,11 @@
         android:layout_height="wrap_content"
         android:text="Visor de escenas AR"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/devButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/devButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abrir dev"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
-
-    <Button
-        android:id="@+id/selectButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abrir seleccion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/devButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

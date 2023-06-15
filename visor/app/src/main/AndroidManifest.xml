@@ -17,6 +17,9 @@
         android:theme="@style/Theme.ARView"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SceneSelect"
             android:exported="false" />
 

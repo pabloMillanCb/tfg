@@ -30,32 +30,33 @@
                 app:layout_constraintStart_toStartOf="@id/tarjeta"
                 app:layout_constraintVertical_bias="0.1"
                 app:layout_constraintHorizontal_bias="0.1"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:text="Titulo de Escena" />
 
             <TextView
                 android:id="@+id/tipoEscena"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Marcador"
                 android:textSize="20dp"
-                app:layout_constraintTop_toTopOf="@+id/tarjeta"
                 app:layout_constraintBottom_toBottomOf="@id/tarjeta"
-                app:layout_constraintStart_toStartOf="@id/tarjeta"
                 app:layout_constraintEnd_toEndOf="@+id/tarjeta"
-                app:layout_constraintVertical_bias="0.8"
-                app:layout_constraintHorizontal_bias="0.1"
-                android:text="Marcador" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tituloEscena"
+                app:layout_constraintTop_toTopOf="@+id/tarjeta"
+                app:layout_constraintVertical_bias="0.6" />
 
             <Button
                 android:id="@+id/botonIniciarEscena"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Reproducir"
-                app:layout_constraintVertical_bias="0.8"
+                app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tituloEscena"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.8" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
