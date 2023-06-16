@@ -29,8 +29,6 @@ class SceneController {
 
     private key_pressed: { [key: string]: boolean }
 
-    //const newInput: HTMLElement = document.getElementById("newFile")!;
-
     private delete_mode: boolean = false
 
     private audio: HTMLAudioElement = new Audio()
@@ -79,7 +77,7 @@ class SceneController {
 
       this.animationButton = document.getElementById("contenedor-boton-animaciones")!
 
-      this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 500);
+      this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 5000); //ultimo parametro distancia de renderizado, cambiar a 500
       this.camera.position.set(7, 10, 10);
 
       this.renderer = new THREE.WebGLRenderer({
@@ -209,7 +207,6 @@ class SceneController {
     }
 
     loadImage(url: string){
-      console.log("cargandoImagen")
       this.scene.addImage(url)
     }
 
@@ -217,8 +214,6 @@ class SceneController {
     {
       if (this.scene.getObjectByName("marcador") != undefined)
       {
-        console.log("existe")
-        console.log(mode)
         this.scene.getObjectByName("marcador")!!.visible = (mode == "Marcador")
       }
     }
@@ -249,8 +244,6 @@ class SceneController {
     }
 
     generateJSON(name: String, typeScene: String) {
-
-      var modelJSON = []
 
       const sceneJSON = {
         "name": name,

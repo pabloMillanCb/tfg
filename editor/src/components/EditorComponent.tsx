@@ -2,15 +2,15 @@ import { useEffect, useState } from "react"
 import SceneController from "./Scene/SceneController"
 import "../styles/EditorComponent.css"
 import { Stack, Button, IconButton, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import SaveAltIcon from '@material-ui/icons/SaveAlt'
-import OpenWithIcon from '@material-ui/icons/OpenWith';
-import Rotate90DegreesCcwIcon from '@material-ui/icons/Rotate90DegreesCcw';
-import AspectRatioIcon from '@material-ui/icons/AspectRatio';
-import DeleteIcon from '@material-ui/icons/Delete';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+import PauseCircleFilledIcon from '@mui/icons-material/PauseCircleFilled';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
+import OpenWithIcon from '@mui/icons-material/OpenWith';
+import Rotate90DegreesCcwIcon from '@mui/icons-material/Rotate90DegreesCcw';
+import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 function EditorComponent(): JSX.Element {
@@ -77,13 +77,14 @@ function EditorComponent(): JSX.Element {
     sceneController.update()
   }, []);
 
-  const handleLoad = (selectorFiles: FileList, type: string[]) => {
+  const handleLoad = (selectorFiles: FileList, type: string[], sceneLoad: Boolean) => {
     console.log("Entra en handler")
     console.log(selectorFiles[0].name.split(".").pop()!.toLowerCase())
-    console.log(type)
+
     if (type.includes(selectorFiles[0].name.split(".").pop()!.toLowerCase())) {
+      loadFile(selectorFiles[0], sceneController, sceneLoad)
       console.log("Formato correcto")
-      loadFile(selectorFiles[0], sceneController)
+      
     }
     else {
       console.log("Formato incorrecto")
@@ -91,21 +92,24 @@ function EditorComponent(): JSX.Element {
     
   }
 
-  const loadFile = (file: File, controller: SceneController) => {
+  const loadFile = (file: File, controller: SceneController, sceneLoad: Boolean) => {
     const filename = file.name;
     const extension = filename.split(".").pop()!.toLowerCase();
 
+    console.log("Entrando en loadfile")
+
     if (extension === "glb") {
       const url = URL.createObjectURL(file)
-      controller.loadModel(url)
+      if (sceneLoad) { controller.loadScene(url) }
+      else { controller.loadModel(url) }
     } 
 
-    if (extension === "mp3" || extension === "ogg") {
+    else if (extension === "mp3" || extension === "ogg") {
       const url = URL.createObjectURL(file)
       controller.loadAudio(url)
     }
 
-    if (extension === "jpg" || extension === "png" || extension === "svg") {
+    else if (extension === "jpg" || extension === "png" || extension === "svg") {
       const url = URL.createObjectURL(file)
       controller.loadImage(url)
     }
@@ -123,7 +127,7 @@ function EditorComponent(): JSX.Element {
 
     document.addEventListener("drop", function (event: any) {
       event.preventDefault();
-      loadFile(event.dataTransfer!.files[0], sceneController)
+      loadFile(event.dataTransfer!.files[0], sceneController, false)
     })
   }
 
@@ -170,13 +174,19 @@ function EditorComponent(): JSX.Element {
           <div className="contenedor-subir-archivo">
             <Button variant="contained" component="label" color="secondary">
               Cargar modelo
-              <input hidden multiple type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["glb"]) }/>
+              <input hidden multiple type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["glb"], false) }/>
+            </Button>
+          </div>
+          <div className="contenedor-subir-archivo">
+            <Button variant="contained" component="label" color="secondary">
+              Cargar Escena
+              <input hidden multiple type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["glb"], true) }/>
             </Button>
           </div>
           <div className="contenedor-subir-archivo">
             <Button variant="contained" component="label" color="secondary">
               Cargar audio
-              <input hidden multiple type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["mp3", "ogg"]) } />
+              <input hidden multiple type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["mp3", "ogg"], false) } />
             </Button>
           </div>
           <div className="contenedor-selector">
@@ -226,7 +236,7 @@ function EditorComponent(): JSX.Element {
           <div className="contenedor-subir-imagen" id="subir-imagen">
             <Button variant="contained" component="label" id="boton-carga-imagen" color="secondary">
               Cargar imagen
-              <input hidden type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["png", "jpg", "svg"]) }/>
+              <input hidden type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["png", "jpg", "svg"], false) }/>
             </Button>
           </div>
           <div className="contenedor-coordenadas" id="coordenadas">

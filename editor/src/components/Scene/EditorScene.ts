@@ -27,6 +27,8 @@ export default class EditorScene extends THREE.Scene
         this.add(this.liveObjects)
         this.add(this.selectionHelper)
 
+        this.liveObjects.name = "arliveobjects"
+
         this.createBasics()
 
         //this.addImage("src/assets/uanpi.jpg")
@@ -90,6 +92,7 @@ export default class EditorScene extends THREE.Scene
             this.liveObjects.children[i].scale.y = scale
             this.liveObjects.children[i].scale.z = scale
         }
+
     }
 
     createBasics()
@@ -136,6 +139,8 @@ export default class EditorScene extends THREE.Scene
         obj.name = "alive"
         obj.userData = {"animationIndex" : 0}
         this.liveObjects.add(obj)
+
+        obj.userData["animationList"] = obj.animations
     }
 
     removeObject(obj: THREE.Object3D)
@@ -228,7 +233,6 @@ export default class EditorScene extends THREE.Scene
 
     loadScene(url: string)
     {
-        console.log("load scene")
         const loader = new GLTFLoader()
         const scene = this
 
@@ -236,9 +240,10 @@ export default class EditorScene extends THREE.Scene
 
             gltf.scene.animations = gltf.animations
 
-            for (let i = 0; i < gltf.scene.children.length; i++)
+            while (gltf.scene.children[0].children.length > 0)
             {
-                scene.addObject(gltf.scene.children[i])
+                scene.loadAnimation(gltf.scene.children[0].children[0] , gltf.scene.animations)
+                scene.addObject( gltf.scene.children[0].children[0] )
             }
 
         }, undefined, function ( error ) {
@@ -246,6 +251,20 @@ export default class EditorScene extends THREE.Scene
             console.error( error )
 
         } );
+    }
+
+    loadAnimation(obj: THREE.Object3D, animations: THREE.AnimationClip[])
+    {
+        for (var clipUser in obj.userData["animationList"])
+        {
+            for (var clipAnimation in animations)
+            {
+                if (obj.userData["animationList"][clipUser].name == animations[clipAnimation].name)
+                {
+                    obj.animations.push(animations[clipAnimation].clone())
+                }
+            }
+        }
     }
 
     loadModel(url: string)
@@ -342,28 +361,26 @@ export default class EditorScene extends THREE.Scene
 
     exportScene()
     {
-        const options = {
-            binary: true
-        };
-
         const that = this
+        const animations = this.getAnimations( this );
 
-        const animations = this.getAnimations( this.liveObjects );
+        this.exporter.parse( 
+            
+            this.liveObjects, 
 
-        this.exporter.parse( this.liveObjects, function ( result ) {
+            function ( result ) {
+			    that.saveArrayBuffer( result, 'objeto.glb' );
+            },
 
-			that.saveArrayBuffer( result, 'objeto.glb' );
+            function ( error ) { console.log( 'An error happened' ) }, 
 
-		}, function ( error ) { console.log( 'An error happened' ) }, 
-        { binary: true, animations: animations } 
+            { binary: true, animations: animations } 
         );
     }
 
     private saveArrayBuffer( buffer: any, filename: any ) //buscar tipos
     {
-
 		this.save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
-
 	}
 
     private save( blob: any, filename: any ) {
@@ -388,9 +405,6 @@ export default class EditorScene extends THREE.Scene
 		scene.traverse( function ( object ) {
 
 			animations.push( ... object.animations );
-            if (object.animations[0] != undefined) {
-                console.log("EYYYY " + object.animations[0].name)
-            }
             
 		} );
 
