@@ -136,11 +136,51 @@ export default class EditorScene extends THREE.Scene
 
     addObject(obj: THREE.Object3D)
     {
-        obj.name = "alive"
-        obj.userData = {"animationIndex" : 0}
-        this.liveObjects.add(obj)
+        if (this.isAnimatedObjectDuplicate(obj))
+        {
+            //console.log("RENOMBRAMOS")
+            this.renameObjectNodes(obj, obj.id)
+            for (var i in obj.animations)
+            {
+                obj.animations[i].name = obj.id + "#" + obj.animations[i].name
+                for (var j in obj.animations[i].tracks){
+                    obj.animations[i].tracks[j].name = obj.id + "#" + obj.animations[i].tracks[j].name
+                }
+            }
+        }
 
         obj.userData["animationList"] = obj.animations
+
+        this.liveObjects.add(obj)
+        obj.name = "alive"
+        obj.userData["animationIndex"] = 0
+
+        //(this.liveObjects)
+    }
+
+    renameObjectNodes(obj: THREE.Object3D, id: number)
+    {
+        obj.name = id + "#" + obj.name
+        obj.userData["name"] = obj.name
+        for (var i in obj.children)
+        {
+            this.renameObjectNodes(obj.children[i], id)
+        }
+    }
+
+
+    isAnimatedObjectDuplicate(obj: THREE.Object3D)
+    {
+        const animations = this.getAnimations(this.liveObjects)
+
+        for (var i in obj.animations)
+        {
+            if (animations.filter((e: any) => e.name === obj.animations[i].name).length > 0)
+            {
+                return true
+            }
+        }
+        return false
     }
 
     removeObject(obj: THREE.Object3D)
@@ -255,6 +295,7 @@ export default class EditorScene extends THREE.Scene
 
     loadAnimation(obj: THREE.Object3D, animations: THREE.AnimationClip[])
     {
+        var count = 0
         for (var clipUser in obj.userData["animationList"])
         {
             for (var clipAnimation in animations)
@@ -262,6 +303,7 @@ export default class EditorScene extends THREE.Scene
                 if (obj.userData["animationList"][clipUser].name == animations[clipAnimation].name)
                 {
                     obj.animations.push(animations[clipAnimation].clone())
+                    count++
                 }
             }
         }
@@ -289,7 +331,8 @@ export default class EditorScene extends THREE.Scene
         this.mixer = []
 
         for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
-
+            console.log(this.liveObjects.children[i])
+            console.log("Un modelo tiene: " + this.liveObjects.children[i].animations.length)
             if (this.liveObjects.children[i].animations.length > 0)
             {
                 this.mixer.push(new THREE.AnimationMixer( this.liveObjects.children[i] ))
@@ -306,7 +349,7 @@ export default class EditorScene extends THREE.Scene
         {
             if (this.liveObjects.children[i].animations.length > 0)
             {
-                var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[0])
+                var action = this.mixer[j].clipAction (this.liveObjects.children[i].animations[this.liveObjects.children[i].userData["animationIndex"]])
                 j++
                 action.reset()
                 action.stop()
@@ -317,6 +360,7 @@ export default class EditorScene extends THREE.Scene
 
     changeAnimationSelectedObjects()
     {
+        this.stopAnimation()
         for (let i = 0; i < this.selectedList.length; i++)
         {
             const numAnimations = this.selectedList[i].animations.length
@@ -325,7 +369,6 @@ export default class EditorScene extends THREE.Scene
                 this.selectedList[i].userData["animationIndex"] = (this.selectedList[i].userData["animationIndex"] + 1) % numAnimations
             }
         }
-        this.stopAnimation()
         this.playAnimations()
     }
 
@@ -353,7 +396,6 @@ export default class EditorScene extends THREE.Scene
         return {models}
     }
 
-    
 
     // Funciones extraidas y adaptades de:
         // https://github.com/mrdoob/three.js/blob/master/editor/js/Menubar.File.js#L513
@@ -363,6 +405,9 @@ export default class EditorScene extends THREE.Scene
     {
         const that = this
         const animations = this.getAnimations( this );
+
+        //console.log("Funciones para exportar ")
+        //console.log(animations)
 
         this.exporter.parse( 
             
