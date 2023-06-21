@@ -11,6 +11,8 @@ import Rotate90DegreesCcwIcon from '@mui/icons-material/Rotate90DegreesCcw';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from "react-router-dom";
+
 
 
 function EditorComponent(): JSX.Element {
@@ -20,6 +22,7 @@ function EditorComponent(): JSX.Element {
   const [animaciones, setAnimaciones] = useState('No')
   const [herrSelec, setHerramienta] = useState('translate')
   const [sceneController] = useState<SceneController>(new SceneController())
+  const navigate = useNavigate();
 
   const handlePlay = (playing: boolean) => {
 
@@ -148,7 +151,7 @@ function EditorComponent(): JSX.Element {
     <div className="main-div">
       <div className="editor-header">
       <div className="contenedor-botones-cabecera">
-        <IconButton className="boton-volver"> <ArrowBackIcon/> </IconButton>
+        <IconButton className="boton-volver" onClick={() => {navigate("/")}}> <ArrowBackIcon/> </IconButton>
       </div>
       
         <div className="contenedor-titulo">

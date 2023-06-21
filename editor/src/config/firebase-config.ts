@@ -1,4 +1,7 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 // Your web app's Firebase configuration
 
@@ -20,5 +23,11 @@ const firebaseConfig = {
   
 const firebase = initializeApp(firebaseConfig); //initialize firebase app 
 
+export const firebaseAuth = getAuth(firebase)
+
+firebaseAuth.setPersistence(firebase.default)
+
+//export onAuthStateChanged
 export default firebase ; //export the app
+
 

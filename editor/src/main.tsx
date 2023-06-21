@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import "./config/firebase-config.ts"
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 

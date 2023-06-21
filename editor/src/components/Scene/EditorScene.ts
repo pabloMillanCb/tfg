@@ -26,12 +26,8 @@ export default class EditorScene extends THREE.Scene
     {
         this.add(this.liveObjects)
         this.add(this.selectionHelper)
-
         this.liveObjects.name = "arliveobjects"
-
         this.createBasics()
-
-        //this.addImage("src/assets/uanpi.jpg")
         this.removeImage()
     }
 
@@ -226,22 +222,11 @@ export default class EditorScene extends THREE.Scene
         if (!this.selectedList.includes(obj))
         {
             this.selectedList.push(obj)
-            //const objMaterial : THREE.MeshPhongMaterial = (<THREE.MeshPhongMaterial>(<THREE.Mesh>obj.children[0]).material)
-            //objMaterial.emissive.setHex(0x444444)
         }
     }
 
     unSelectAll()
     {
-        const n = this.selectedList.length
-        for (let i = 0; i < n; i++)
-        {
-            const obj = this.selectedList[i]
-            //const objMaterial : THREE.MeshPhongMaterial = (<THREE.MeshPhongMaterial>(<THREE.Mesh>obj.children[0]).material)
-            //objMaterial.emissive.setHex(0x000000)
-            
-        }
-
         this.selectedList = []
     }
 
