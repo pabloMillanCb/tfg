@@ -11,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from './config/firebase-config'
 import SignUp from './components/SignUpComponent'
 import SceneList from './components/SceneList'
+import ConfigComponent from './components/ConfigComponent'
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
   const EDITOR = "/editor"
   const LOGIN = "/login"
   const REGISTER = "/register"
-  const SCENES = "/scenes"
+  const CONFIG = "/config"
 
   const [auth, setAuth] = useState(
 		false || window.localStorage.getItem('auth') === 'true'
@@ -53,7 +54,7 @@ function App() {
           <Route element={<GuardedRoute/>}>
             <Route element={<MainPageComponent/>} path={ROOT} />
             <Route element={<EditorComponent/>} path={EDITOR} />
-            <Route element={<SceneList/>} path={SCENES} />
+            <Route element={<ConfigComponent/>} path={CONFIG} />
           </Route>
           <Route element={<SignIn/>} path={LOGIN}/>
           <Route element={<SignUp/>} path={REGISTER}/>

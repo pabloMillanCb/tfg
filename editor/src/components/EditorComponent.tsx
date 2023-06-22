@@ -12,6 +12,7 @@ import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
 
 
 
@@ -149,9 +150,9 @@ function EditorComponent(): JSX.Element {
 
   return (
     <div className="main-div">
-      <div className="editor-header">
+    <div className="editor-header">
       <div className="contenedor-botones-cabecera">
-        <IconButton className="boton-volver" onClick={() => {navigate("/")}}> <ArrowBackIcon/> </IconButton>
+        <Button onClick={() => navigate('/')} variant="contained" color="primary" className="boton-atras" ><ArrowBackIcon/></Button>
       </div>
       
         <div className="contenedor-titulo">
@@ -163,7 +164,7 @@ function EditorComponent(): JSX.Element {
             <Button onClick={() => generateJSON()} variant="contained" className="boton-guardado" endIcon={<CloudUploadIcon />}>Guardar</Button>
           </Stack>     
         </div>
-      </div>
+    </div>
 
       <div className="cuerpo-editor">
         <div className="toolbar-editor">

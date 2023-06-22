@@ -1,5 +1,12 @@
-p {
+.bienvenida-usuario {
     color: white;
     text-align: center;
     font-size: xx-large;
+    margin-left: 15px;
+}
+
+.mensaje {
+    color: white;
+    font-size: medium;
+    margin-bottom: 0;
 }

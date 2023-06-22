@@ -1,5 +1,43 @@
 .scene-list-item-container {
     background-color: rgb(71, 70, 70);
-    border-radius: 8px;
-    padding: 2%;
+
+    margin: 0.5%;
+    border-color: black;
+    padding: 1%;
+    text-align: left;
+    display: flex;
+}
+
+.titulo-escena {
+    color: white;
+    font-size: x-large;
+    margin: 0;
+}
+
+.tipo-escena {
+    color: white;
+    font-size:large;
+    margin: 0
+}
+
+.titulo-tipo {
+    flex: 4
+}
+
+.botones-escena {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex:1
+}
+
+.botones-escena div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.boton-seleccion-escena {
+    height: 30px;
+    margin: 10%;
 }
