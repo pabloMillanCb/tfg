@@ -194,12 +194,12 @@ class SceneController {
       this.key_pressed[ev.key.toLowerCase()] = false;
     }
 
-    loadScene(url: string) {
-      this.scene.loadScene(url)
+    async loadScene(url: string, setLoading: (b: boolean) => void) {
+      await this.scene.loadScene(url, setLoading)
     }
 
-    loadModel(url: string) {
-      this.scene.loadModel(url)
+    async loadModel(url: string) {
+      await this.scene.loadModel(url)
     }
 
     loadAudio(url: string) {

@@ -16,10 +16,13 @@ import HomeIcon from '@mui/icons-material/Home';
 import axios from "axios";
 import { getStorage, ref, uploadBytes, getBlob, getBytes, getStream } from "firebase/storage";
 import SceneInterface from "../interfaces/SceneInterface"
+import Loader from "./Loader";
 
 
 
 function EditorComponent(scene: SceneInterface): JSX.Element {
+
+  const [loading, setLoading] = useState(false)
 
   const [tipoEscena, setTipoEscena] = useState('Superficie')
   const [idEscena, setIdEscena] = useState('')
@@ -121,13 +124,15 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     
   }
 
-  const loadFile = (file: File, sceneLoad: Boolean) => {
+  const loadFile = async (file: File, sceneLoad: Boolean) => {
     const filename = file.name;
     const extension = filename.split(".").pop()!.toLowerCase();
 
     if (extension === "glb") {
       const url = URL.createObjectURL(file)
-      if (sceneLoad) { sceneController.loadScene(url) }
+      console.log("cargando glb")
+      setLoading(true)
+      if (sceneLoad) { sceneController.loadScene(url, setLoading) }
       else { sceneController.loadModel(url) }
     } 
 
@@ -165,7 +170,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   }
 
   const saveScene = async () => {
-
+    setLoading(true)
+    console.log(loading)
     const json = JSON.parse(sceneController.generateJSON(nombreEscena, sceneTypeHash.get(tipoEscena)!, "", "", "", []))
     json.uid = window.localStorage.getItem('uid')
 
@@ -198,14 +204,17 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     const upload = async (modelFile: Blob) => {
 
       //Subir modelo
+
       const storage = getStorage();
       const storageRef = ref(storage, 'models/' + id_escena + '.glb');
       uploadBytes(storageRef, modelFile).then((snapshot) => {
         console.log('Uploaded a model file!');
+        setLoading(false)
       });
 
 
       //OPCIONAL subir musica
+
       if (soundFile != undefined)
       {
         const soundRef = ref(storage, 'audio/' + id_escena + '.mp3');
@@ -215,6 +224,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       }
 
       //OPCIONAL subir imagen
+
       if (imagenFile != undefined)
       {
         const imagenRef = ref(storage, 'images/' + id_escena + '.jpg');
@@ -230,7 +240,9 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   }
 
   const loadScene = async () => {
-    console.log(scene.id)
+    console.log(loading)
+    setLoading(true)
+
     if (scene.id != "")
     {
       console.log("Cargando escen")
@@ -267,13 +279,15 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     }
     
     // Cargar escena
+    console.log("LOADING " + loading.toString)
     console.log(scene.model_url)
-    getBlob(ref(storage, scene.model_url))
+    await getBlob(ref(storage, scene.model_url))
       .then((blob) => {
         const file = new File([blob], "scene.glb")
         loadFile(file, true)
       })
     }
+    console.log("LOADING " + loading.toString)
 
   }
 
@@ -284,6 +298,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   return (
     <div className="main-div">
+    <Loader loading={loading}/>
     <div className="editor-header">
       <div className="contenedor-botones-cabecera">
         <Button onClick={() => navigate('/')} variant="contained" color="primary" className="boton-atras" ><ArrowBackIcon/></Button>

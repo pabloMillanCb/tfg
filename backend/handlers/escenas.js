@@ -1,4 +1,5 @@
 const { db } = require("../util/admin");
+const auth = require('../middleware');
 
 exports.get_escenas = async (req, res) => {
     const escenasRef = db.collection('escenas');    
@@ -60,7 +61,22 @@ exports.post_escena = async (req, res) => {
 
 exports.update_escena = async (req, res) => {
     try {
-        await db.collection('escenas').doc('/' + req.params.id + '/')
+        const scene = req.body
+        const id = req.params.id
+        
+        scene.model_url = "models/"+id+".glb"
+
+        if (scene.audio != "")
+        {
+            scene.audio = "audio/"+id+'.mp3'
+        }
+
+        if (scene.image_url != "")
+        {
+            scene.image_url = "images/"+id+'.jpg'
+        }
+
+        await db.collection('escenas').doc('/' + id + '/')
         .update(req.body)
         return res.status(201).send()
           
@@ -72,9 +88,15 @@ exports.update_escena = async (req, res) => {
 
 exports.delete_escena = async (req, res) => {
     try {
-        await db.collection('escenas').doc('/' + req.params.id + '/')
-        .delete()
-        return res.status(201).send()
+        if (auth.verifyUser(req)){
+            console.log("Usuario autorizado")
+            await db.collection('escenas').doc('/' + req.params.id + '/')
+            .delete()
+            return res.status(201).send()
+        }
+        else {
+            return res.status(522).send("Usr not autorized")
+        }
           
     } catch (err){
         console.log(err);

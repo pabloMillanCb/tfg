@@ -1,4 +1,4 @@
-import { Stack, Button, IconButton, Grid, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
+import { Stack, Button, Grid} from "@mui/material"
 import '../styles/SceneList.css'
 import SceneListItem from "./SceneListItem";
 import AddIcon from '@mui/icons-material/Add';
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SceneInterface from "../interfaces/SceneInterface"
+import Loader from "./Loader";
 
 interface SceneListInterface {
   setScene: (s: SceneInterface) => void
@@ -16,6 +17,7 @@ function SceneList(props: SceneListInterface) {
 
   const navigate = useNavigate();
   const [listaEscenas, setListaEscenas] = useState<SceneInterface[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
 
@@ -31,8 +33,8 @@ function SceneList(props: SceneListInterface) {
   
         },
       })
-      console.log(res.data);
       await setListaEscenas(res.data)
+      setLoading(false)
   }
 
   const newScene = async () => {
@@ -56,6 +58,7 @@ function SceneList(props: SceneListInterface) {
 
   return (
     <>
+    <Loader loading={loading}/>
     <div className="contenedor-nueva-escena">
       <Button onClick={newScene} variant="contained" color="primary" className="boton-atras" endIcon={<AddIcon/>} >Nueva escena</Button>
     </div>
@@ -69,8 +72,8 @@ function SceneList(props: SceneListInterface) {
           justifyContent="start"
           sx={{ minHeight: '100vh' }}
       >
-          {listaEscenas.map(function(object, i){
-            console.log(i)
+          {
+          listaEscenas.map(function(object, i){
             return <SceneListItem setScene={props.setScene} scene={object} key={i} />;
           })}
 

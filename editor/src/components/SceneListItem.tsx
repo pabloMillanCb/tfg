@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import SceneInterface from "../interfaces/SceneInterface"
+import axios from "axios";
 
 interface SceneListItemInterface {
   setScene: (s: SceneInterface) => void
@@ -31,14 +32,25 @@ function SceneListItem(props: SceneListItemInterface) {
     }
   }
 
-  console.log(getTypeVerbose('augmented_images'))
-
   const loadScene = async () => {
 
     await props.setScene(props.scene)
 
     navigate("/editor")
   }
+
+  const deleteScene = async () => {
+
+    const token = window.localStorage.getItem('token')
+    const res = await axios.delete('http://localhost:5000/delete/escenas/'+props.scene.id, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+  
+        },
+      })
+
+      window.location.reload()
+  } 
 
 
   return (
@@ -60,7 +72,7 @@ function SceneListItem(props: SceneListItemInterface) {
                     <Button className="boton-seleccion-escena" onClick={loadScene} variant="contained" endIcon={<EditIcon />}>Editar</Button>
                   </div>
                   <div>
-                    <Button className="boton-seleccion-escena" variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>
+                    <Button className="boton-seleccion-escena" onClick={deleteScene} variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>
                   </div>
                 </div>
             </div>

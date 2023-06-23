@@ -256,12 +256,12 @@ export default class EditorScene extends THREE.Scene
         }
     }
 
-    loadScene(url: string)
+    async loadScene(url: string, setLoading: (b: boolean) => void)
     {
         const loader = new GLTFLoader()
         const scene = this
 
-        loader.load( url, function ( gltf ) {
+        await loader.load( url, function ( gltf ) {
 
             gltf.scene.animations = gltf.animations
 
@@ -270,6 +270,8 @@ export default class EditorScene extends THREE.Scene
                 scene.loadAnimation(gltf.scene.children[0].children[0] , gltf.scene.animations)
                 scene.addObject( gltf.scene.children[0].children[0] )
             }
+            console.log("cargados")
+            setLoading(false)
 
         }, undefined, function ( error ) {
 
@@ -294,12 +296,12 @@ export default class EditorScene extends THREE.Scene
         }
     }
 
-    loadModel(url: string)
+    async loadModel(url: string)
     {
         const loader = new GLTFLoader()
         const scene = this
 
-        loader.load( url, function ( gltf ) {
+        await loader.load( url, function ( gltf ) {
 
             gltf.scene.animations = gltf.animations
             scene.addObject( gltf.scene )
