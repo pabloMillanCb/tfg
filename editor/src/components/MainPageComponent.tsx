@@ -8,27 +8,19 @@ import axios from "axios";
 import { Logout } from "@mui/icons-material";
 import SceneList from "./SceneList";
 import HeaderComponent from "./HeaderComponent";
+import SceneInterface from "../interfaces/SceneInterface";
 
-function MainPageComponent() {
+interface MainPageInterface {
+  setScene: (s: SceneInterface) => void
+}
 
-    const navigate = useNavigate();
 
-    const dev = async () => {
-        console.log("dev")
-        const token = window.localStorage.getItem('token')
-        const res = await axios.get('http://localhost:5000/get/escenas', {
-			headers: {
-				Authorization: 'Bearer ' + token,
-
-			},
-		})
-		console.log(res.data);
-    }
+function MainPageComponent(props: MainPageInterface) {
 
   return (
     <>
       <HeaderComponent name="Página principal" home={true}/>
-      <SceneList/>
+      <SceneList setScene={props.setScene}/>
     </>
   )
 }

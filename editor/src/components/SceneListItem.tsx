@@ -4,14 +4,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import SceneInterface from "../interfaces/SceneInterface"
 
-interface SceneItemInterface {
-  name: string,
-  type: string,
-  id : string
+interface SceneListItemInterface {
+  setScene: (s: SceneInterface) => void
+  scene: SceneInterface
 }
 
-function SceneListItem(props: SceneItemInterface) {
+function SceneListItem(props: SceneListItemInterface) {
 
   const navigate = useNavigate();
 
@@ -33,6 +33,13 @@ function SceneListItem(props: SceneItemInterface) {
 
   console.log(getTypeVerbose('augmented_images'))
 
+  const loadScene = async () => {
+
+    await props.setScene(props.scene)
+
+    navigate("/editor")
+  }
+
 
   return (
     <>
@@ -45,12 +52,12 @@ function SceneListItem(props: SceneItemInterface) {
         >
             <div className="scene-list-item-container">
                 <div className="titulo-tipo">
-                  <p className="titulo-escena">{props.name}</p>
-                  <p className="tipo-escena">{getTypeVerbose(props.type)}</p>
+                  <p className="titulo-escena">{props.scene.name}</p>
+                  <p className="tipo-escena">{getTypeVerbose(props.scene.scene_type)}</p>
                 </div>
                 <div className="botones-escena">
                   <div>
-                    <Button className="boton-seleccion-escena" onClick={() => {navigate("/editor")}} variant="contained" endIcon={<EditIcon />}>Editar</Button>
+                    <Button className="boton-seleccion-escena" onClick={loadScene} variant="contained" endIcon={<EditIcon />}>Editar</Button>
                   </div>
                   <div>
                     <Button className="boton-seleccion-escena" variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>

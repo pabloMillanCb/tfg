@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000
 
 const cors = require('cors')
 app.use(cors())
-app.use(auth.decodeToken)
+//app.use(auth.decodeToken)
 
 app.get('/', (req, res) => {
 res.send('This is my demo project')

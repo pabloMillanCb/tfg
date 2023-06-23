@@ -35,7 +35,7 @@ export default function HeaderComponent(props: HeaderInterface) {
             
                 <div className="contenedor-botones-cabecera">
                 <Stack spacing={2} direction="row">
-                    <Button onClick={() => navigate('/config')} variant="contained" className="boton-guardado" endIcon={<ManageAccountsIcon />}>Ajustes</Button>
+                    <Button onClick={() => navigate('/config')} variant="contained" color="secondary" className="boton-guardado" endIcon={<ManageAccountsIcon />}>Ajustes</Button>
                     <Button onClick={() => logOut()} variant="contained" color="secondary" className="boton-guardado" endIcon={<LogoutIcon />}>Cerrar sesión</Button>
                 </Stack>     
                 </div>

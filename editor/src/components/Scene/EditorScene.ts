@@ -399,7 +399,7 @@ export default class EditorScene extends THREE.Scene
             this.liveObjects, 
 
             function ( result ) {
-			    that.saveArrayBuffer( result, 'objeto.glb' );
+                that.saveArrayBuffer( result, 'objeto.glb' )
             },
 
             function ( error ) { console.log( 'An error happened' ) }, 
@@ -408,9 +408,44 @@ export default class EditorScene extends THREE.Scene
         );
     }
 
+    getBlob(upload: (blob: Blob) => void)
+    {
+        const that = this
+        const animations = this.getAnimations( this );
+
+        var blob: Blob = new Blob()
+
+        this.exporter.parse( 
+            
+            this.liveObjects, 
+
+            function ( result ) {
+                blob = that.getArrayBuffer( result )
+                upload(blob)
+            },
+
+            function ( error ) { 
+                console.log( 'An error happened' ) 
+            }, 
+
+            { binary: true, animations: animations } 
+        )
+
+    }
+
+    
+
     private saveArrayBuffer( buffer: any, filename: any ) //buscar tipos
     {
 		this.save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
+	}
+
+    private getArrayBuffer( buffer: any) //buscar tipos
+    {
+        console.log("getArrayBuffer")
+        const b = new Blob( [ buffer ], { type: 'application/octet-stream' } )
+        console.log(b)
+		return b
 	}
 
     private save( blob: any, filename: any ) {

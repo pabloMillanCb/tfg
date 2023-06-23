@@ -38,6 +38,7 @@ export default function SignIn() {
         window.localStorage.setItem('token', token)
         window.localStorage.setItem('email', user.email!)
         window.localStorage.setItem('auth', 'true')
+        window.localStorage.setItem('uid', user.uid)
         setAuth(window.localStorage.getItem('auth') === 'true')
         navigate("/")
       })
@@ -91,11 +92,7 @@ export default function SignIn() {
               Iniciar Sesión
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="/editor" variant="body2">
-                  Recuperar contraseña
-                </Link>
-              </Grid>
+
               <Grid item>
                 <Link href="/register" variant="body2">
                   {"¿No tienes cuenta? Registrate"}

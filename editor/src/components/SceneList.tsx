@@ -1,30 +1,79 @@
 import { Stack, Button, IconButton, Grid, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
 import '../styles/SceneList.css'
 import SceneListItem from "./SceneListItem";
+import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import SceneInterface from "../interfaces/SceneInterface"
 
-function SceneList() {
+interface SceneListInterface {
+  setScene: (s: SceneInterface) => void
+}
+
+
+function SceneList(props: SceneListInterface) {
 
   const navigate = useNavigate();
+  const [listaEscenas, setListaEscenas] = useState<SceneInterface[]>([])
+
+  useEffect(() => {
+
+    fetchScenes()
+          
+  }, []);
+  
+  const fetchScenes = async () => {
+    const token = window.localStorage.getItem('token')
+    const res = await axios.get('http://localhost:5000/get/escenas/'+window.localStorage.getItem('uid'), {
+        headers: {
+          Authorization: 'Bearer ' + token,
+  
+        },
+      })
+      console.log(res.data);
+      await setListaEscenas(res.data)
+  }
+
+  const newScene = async () => {
+
+    const newScene: SceneInterface = {
+      "id": "",
+      "name": "",
+      "scene_type": "",
+      "sound": "",
+      "loop": true,
+      "image_url": "",
+      "coordinates": [],
+      "model_url": "",
+      "animations" : []
+    }
+
+    await props.setScene(newScene)
+
+    navigate('/editor')
+  }
 
   return (
     <>
+    <div className="contenedor-nueva-escena">
+      <Button onClick={newScene} variant="contained" color="primary" className="boton-atras" endIcon={<AddIcon/>} >Nueva escena</Button>
+    </div>
+      
       <Grid
           container
-          marginTop={4}
+          marginTop={0}
           spacing={0}
           direction="column"
           alignItems="center"
           justifyContent="start"
           sx={{ minHeight: '100vh' }}
       >
-          <SceneListItem name="Nombre de Escena 1" type="augmented_images" id = "talcual"/>
-          <SceneListItem name="Nombre  1" type="augmented_images" id = "talcual"/>
-          <SceneListItem name="Nombre de Escenaaaaaaaaaaaaaaaaaaaaaaa 1" type="augmented_images" id = "talcual"/>
-          <SceneListItem name="n" type="augmented_images" id = "talcual"/>
-          <SceneListItem name="Nombre de Escena 1" type="augmented_images" id = "talcual"/>
-          <SceneListItem name="Nombre de Escena 1" type="augmented_images" id = "talcual"/>
-          <SceneListItem name="Nombre de Escena 1" type="augmented_images" id = "talcual"/>
+          {listaEscenas.map(function(object, i){
+            console.log(i)
+            return <SceneListItem setScene={props.setScene} scene={object} key={i} />;
+          })}
+
       </Grid>
     </>
   )

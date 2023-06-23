@@ -6,12 +6,14 @@ import GuardedRoute from './components/GuardedRoute'
 import MainPageComponent from './components/MainPageComponent'
 import './App.css'
 import { Route, Routes,BrowserRouter} from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from './config/firebase-config'
 import SignUp from './components/SignUpComponent'
 import SceneList from './components/SceneList'
 import ConfigComponent from './components/ConfigComponent'
+import SceneInterface from "./interfaces/SceneInterface"
+import { Scene } from 'three'
 
 function App() {
 
@@ -27,6 +29,21 @@ function App() {
 	const [token, setToken] = useState('');
 
   const [user, setUser] = useState(undefined)
+
+  const newScene: SceneInterface = {
+    "id": "",
+    "name": "",
+    "scene_type": "",
+    "sound": "",
+    "loop": true,
+    "image_url": "",
+    "coordinates": [],
+    "model_url": "",
+    "animations" : []
+  }
+
+  const [scene, setScene] = useState<SceneInterface>(newScene)
+  const MyContext = createContext(234)
 
   useEffect(() => {
 		onAuthStateChanged(firebaseAuth, (user) => {
@@ -45,6 +62,7 @@ function App() {
         // ...
       }
     });
+    console.log('INTERFAZ: ' + scene?.id)
 	}, []);
 
   return (
@@ -52,8 +70,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<GuardedRoute/>}>
-            <Route element={<MainPageComponent/>} path={ROOT} />
-            <Route element={<EditorComponent/>} path={EDITOR} />
+            <Route element={<MainPageComponent setScene={setScene}/>} path={ROOT} />
+            <Route element={
+              <EditorComponent
+                { ...scene }
+              />
+              } path={EDITOR} />
             <Route element={<ConfigComponent/>} path={CONFIG} />
           </Route>
           <Route element={<SignIn/>} path={LOGIN}/>

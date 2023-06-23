@@ -41,3 +41,12 @@
     height: 30px;
     margin: 10%;
 }
+
+.contenedor-nueva-escena {
+    margin: 5;
+    display: flex;
+    justify-content: right;
+    width: 89.6%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}

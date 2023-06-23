@@ -8,10 +8,14 @@ class Authentication {
 			const decodeValue = await admin.auth().verifyIdToken(token);
 			if (decodeValue) {
 				req.user = decodeValue;
+				console.log("Exito decode")
 				return next();
 			}
+			console.log("Fracaso decode")
 			return res.json({ message: 'Un authorize' });
 		} catch (e) {
+			console.log("Error decode")
+
 			return res.json({ message: 'Internal Error' });
 		}
 	}

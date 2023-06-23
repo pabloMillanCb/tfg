@@ -14,7 +14,7 @@ exports.get_escenas = async (req, res) => {
                 })
             }
             else {
-                escenasRef.where('user', '==', req.params.idusr).get().then((snapshot) => {
+                escenasRef.where('uid', '==', req.params.idusr).get().then((snapshot) => {
                     const data = snapshot.docs.map((doc) => ({
                         id: doc.id,
                         ...doc.data(),
@@ -33,8 +33,24 @@ exports.get_escenas = async (req, res) => {
 
 exports.post_escena = async (req, res) => {
     try {
-        await db.collection('escenas').add(req.body);
-        return res.status(201).send()
+        const id = db.collection('escenas').doc().id
+        const scene = req.body
+        
+        scene.model_url = "models/"+id+".glb"
+
+        if (scene.audio != "")
+        {
+            scene.audio = "audio/"+id+'.mp3'
+        }
+
+        if (scene.image_url != "")
+        {
+            scene.image_url = "images/"+id+'.jpg'
+        }
+
+        console.log(id)
+        await db.collection('escenas').doc('/' + id + '/').set(scene)
+        return res.status(201).json({idscene: id}).send()
           
     } catch (err){
         console.log(err);

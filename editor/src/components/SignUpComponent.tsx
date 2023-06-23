@@ -31,12 +31,14 @@ export default function SignUp() {
     {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, data.get("email")!.toString(), data.get("password")!.toString())
-        .then((userCredential) => {
+        .then( async (userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log({
-            email: data.get("email")
-          });
+          const token = await user.getIdToken()
+          window.localStorage.setItem('token', token)
+          window.localStorage.setItem('email', user.email!)
+          window.localStorage.setItem('auth', 'true')
+          window.localStorage.setItem('uid', user.uid)
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -100,11 +102,6 @@ export default function SignUp() {
               Iniciar Sesión
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="/editor" variant="body2">
-                  Recuperar contraseña
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="/login" variant="body2">
                   {"¿Estás registrado? Inicia Sesión"}

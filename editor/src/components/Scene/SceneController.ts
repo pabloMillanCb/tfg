@@ -219,6 +219,7 @@ class SceneController {
     }
 
     playAudio() {
+      this.audio.loop = true
       this.audio.play()
     }
 
@@ -243,24 +244,24 @@ class SceneController {
       this.scene.exportScene()
     }
 
-    generateJSON(name: String, typeScene: String) {
+    getSceneModel(upload: (blob: Blob) => void) {
+      return this.scene.getBlob(upload)
+    }
+
+    generateJSON(name: String, typeScene: String, sound: String, image_url: String, model_url: String, coordinates: []): string {
 
       const sceneJSON = {
         "name": name,
         "scene_type": typeScene,
-        "sound": "sonido",
+        "sound": sound,
         "loop": true,
-        "image_url": "http",
-        "coordinates" : "",
-        "longitud" : "",
-        "altura" : "",
-
-        "model_url": "",
+        "image_url": image_url,
+        "coordinates" : coordinates,
+        "model_url": model_url,
         "animations": this.scene.getSelectedAnimations()
       }
 
-      console.log(JSON.stringify(sceneJSON))
-
+      return JSON.stringify(sceneJSON)
     }
 
 }
