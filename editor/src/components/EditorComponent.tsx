@@ -146,6 +146,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       const url = URL.createObjectURL(file)
       setImagenFile(file)
       sceneController.loadImage(url)
+      sceneController.manageImage(tipoEscena as string)
     }
     
     else {
@@ -241,10 +242,11 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   const loadScene = async () => {
     console.log(loading)
-    setLoading(true)
+    
 
     if (scene.id != "")
     {
+      setLoading(true)
       console.log("Cargando escen")
       setIdEscena(scene.id)
 
