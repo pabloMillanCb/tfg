@@ -17,12 +17,15 @@ import axios from "axios";
 import { getStorage, ref, uploadBytes, getBlob, getBytes, getStream } from "firebase/storage";
 import SceneInterface from "../interfaces/SceneInterface"
 import Loader from "./Loader";
+import { useAuth } from "../controller/userController";
+import { postScene, updateScene } from "../controller/sceneController";
 
 
 
 function EditorComponent(scene: SceneInterface): JSX.Element {
 
   const [loading, setLoading] = useState(false)
+  const { currentUser } = useAuth()
 
   const [tipoEscena, setTipoEscena] = useState('Superficie')
   const [idEscena, setIdEscena] = useState('')
@@ -133,7 +136,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       console.log("cargando glb")
       setLoading(true)
       if (sceneLoad) { sceneController.loadScene(url, setLoading) }
-      else { sceneController.loadModel(url) }
+      else { sceneController.loadModel(url, setLoading) }
     } 
 
     else if (extension === "mp3" || extension === "ogg") {
@@ -174,15 +177,15 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     setLoading(true)
     console.log(loading)
     const json = JSON.parse(sceneController.generateJSON(nombreEscena, sceneTypeHash.get(tipoEscena)!, "", "", "", []))
-    json.uid = window.localStorage.getItem('uid')
+    json.uid = currentUser?.uid
 
     if (animaciones == "No") { json.animations = [] }
     if (soundFile != undefined) { json.sound = "true" }
     if (imagenFile != undefined) { json.image_url = "true" }
     var id_escena = idEscena
 
-    const token = window.localStorage.getItem('token')
-
+    const token = await currentUser?.getIdToken()
+    
     if (id_escena == "")
     {
       const res = await axios.post('http://localhost:5000/post/escenas', json, {

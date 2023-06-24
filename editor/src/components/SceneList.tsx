@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SceneInterface from "../interfaces/SceneInterface"
 import Loader from "./Loader";
+import { useAuth } from "../controller/userController";
 
 interface SceneListInterface {
   setScene: (s: SceneInterface) => void
@@ -18,6 +19,7 @@ function SceneList(props: SceneListInterface) {
   const navigate = useNavigate();
   const [listaEscenas, setListaEscenas] = useState<SceneInterface[]>([])
   const [loading, setLoading] = useState(true)
+  const { currentUser } = useAuth()
 
   useEffect(() => {
 
@@ -26,13 +28,15 @@ function SceneList(props: SceneListInterface) {
   }, []);
   
   const fetchScenes = async () => {
-    const token = window.localStorage.getItem('token')
-    const res = await axios.get('http://localhost:5000/get/escenas/'+window.localStorage.getItem('uid'), {
+    console.log(currentUser?.uid)
+    const token = await currentUser?.getIdToken()
+    const res = await axios.get('http://localhost:5000/get/escenas/'+currentUser?.uid, {
         headers: {
           Authorization: 'Bearer ' + token,
   
         },
       })
+      console.log(res.data)
       await setListaEscenas(res.data)
       setLoading(false)
   }

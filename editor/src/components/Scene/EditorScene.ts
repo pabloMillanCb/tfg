@@ -296,7 +296,7 @@ export default class EditorScene extends THREE.Scene
         }
     }
 
-    async loadModel(url: string)
+    async loadModel(url: string, setLoading: (b: boolean) => void)
     {
         const loader = new GLTFLoader()
         const scene = this
@@ -305,6 +305,7 @@ export default class EditorScene extends THREE.Scene
 
             gltf.scene.animations = gltf.animations
             scene.addObject( gltf.scene )
+            setLoading(false)
 
         }, undefined, function ( error ) {
 

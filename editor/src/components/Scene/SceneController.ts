@@ -198,8 +198,8 @@ class SceneController {
       await this.scene.loadScene(url, setLoading)
     }
 
-    async loadModel(url: string) {
-      await this.scene.loadModel(url)
+    async loadModel(url: string, setLoading: (b: boolean) => void) {
+      await this.scene.loadModel(url, setLoading)
     }
 
     loadAudio(url: string) {
