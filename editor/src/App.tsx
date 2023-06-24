@@ -16,6 +16,8 @@ import ConfigComponent from './components/ConfigComponent'
 import SceneInterface from "./interfaces/SceneInterface"
 import { Scene } from 'three'
 import { AuthProvider } from './controller/userController'
+import { SceneProvider } from './controller/sceneController'
+import Loader from './components/Loader'
 
 function App() {
 
@@ -25,18 +27,12 @@ function App() {
   const REGISTER = "/register"
   const CONFIG = "/config"
 
-  const [auth, setAuth] = useState(
-		false || window.localStorage.getItem('auth') === 'true'
-	);
-	const [token, setToken] = useState('');
-  const [user, setUser] = useState(undefined)
-  
 
   const newScene: SceneInterface = {
     "id": "",
     "name": "",
     "scene_type": "",
-    "sound": "",
+    "audio": "",
     "loop": true,
     "image_url": "",
     "coordinates": [],
@@ -50,6 +46,7 @@ function App() {
     <>
       <BrowserRouter>
         <AuthProvider>
+          <SceneProvider>
           <Routes>
             
             <Route element={<GuardedRoute/>}>
@@ -65,6 +62,7 @@ function App() {
             <Route element={<SignUp/>} path={REGISTER}/>
             
           </Routes>
+          </SceneProvider>
         </AuthProvider>
       </BrowserRouter>
     </>

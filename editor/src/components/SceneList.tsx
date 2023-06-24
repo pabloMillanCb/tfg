@@ -8,6 +8,7 @@ import axios from "axios";
 import SceneInterface from "../interfaces/SceneInterface"
 import Loader from "./Loader";
 import { useAuth } from "../controller/userController";
+import { useScn } from "../controller/sceneController";
 
 interface SceneListInterface {
   setScene: (s: SceneInterface) => void
@@ -18,27 +19,19 @@ function SceneList(props: SceneListInterface) {
 
   const navigate = useNavigate();
   const [listaEscenas, setListaEscenas] = useState<SceneInterface[]>([])
-  const [loading, setLoading] = useState(true)
-  const { currentUser } = useAuth()
+  const {setLoading} = useScn()
+  
+  const { getScenesFromUser } = useScn()
 
   useEffect(() => {
-
     fetchScenes()
-          
   }, []);
   
   const fetchScenes = async () => {
-    console.log(currentUser?.uid)
-    const token = await currentUser?.getIdToken()
-    const res = await axios.get('http://localhost:5000/get/escenas/'+currentUser?.uid, {
-        headers: {
-          Authorization: 'Bearer ' + token,
-  
-        },
-      })
-      console.log(res.data)
-      await setListaEscenas(res.data)
-      setLoading(false)
+    setLoading(true)
+    const data = await getScenesFromUser()
+    await setListaEscenas(data)
+    setLoading(false)
   }
 
   const newScene = async () => {
@@ -47,7 +40,7 @@ function SceneList(props: SceneListInterface) {
       "id": "",
       "name": "",
       "scene_type": "",
-      "sound": "",
+      "audio": "",
       "loop": true,
       "image_url": "",
       "coordinates": [],
@@ -62,7 +55,6 @@ function SceneList(props: SceneListInterface) {
 
   return (
     <>
-    <Loader loading={loading}/>
     <div className="contenedor-nueva-escena">
       <Button onClick={newScene} variant="contained" color="primary" className="boton-atras" endIcon={<AddIcon/>} >Nueva escena</Button>
     </div>

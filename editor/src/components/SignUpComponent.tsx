@@ -44,7 +44,7 @@ export default function SignUp() {
       await signup(data.get("email")!.toString(), data.get("password")!.toString())
       navigate('/')
     } catch {
-      setError('Ese correo electrónico ya está en uso')
+      setError('Ese correo electrónico ya está en uso o es inválido')
     }
   };
 

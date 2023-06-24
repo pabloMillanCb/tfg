@@ -55,6 +55,26 @@ body {
     justify-content: center;
 }
 
+.contenedor-eliminar-audio{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: aliceblue;
+    margin: 0;
+    margin-top: 2px;
+}
+
+.contenedor-eliminar-audio p{
+    color: aliceblue;
+    margin: 0;
+}
+
+.boton-eliminar{
+    color: aliceblue;
+    margin: 0;
+    margin-top: 10px;
+}
+
 .boton-herramienta{
     margin: 0 30px;
 }

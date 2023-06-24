@@ -13,7 +13,7 @@ function Loader({loading}: LoaderInterface) {
             <ClipLoader
                 loading={loading}
                 size={150}
-                color='#673ab7'
+                color='#ffc400'
             />
         </div>
     )

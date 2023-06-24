@@ -6,6 +6,7 @@ import { Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import SceneInterface from "../interfaces/SceneInterface"
 import axios from "axios";
+import { useScn } from "../controller/sceneController";
 
 interface SceneListItemInterface {
   setScene: (s: SceneInterface) => void
@@ -15,6 +16,7 @@ interface SceneListItemInterface {
 function SceneListItem(props: SceneListItemInterface) {
 
   const navigate = useNavigate();
+  const { deleteScene} = useScn()
 
   function getTypeVerbose(type: string)
   {
@@ -39,16 +41,9 @@ function SceneListItem(props: SceneListItemInterface) {
     navigate("/editor")
   }
 
-  const deleteScene = async () => {
+  const handleDelete = async () => {
 
-    const token = window.localStorage.getItem('token')
-    const res = await axios.delete('http://localhost:5000/delete/escenas/'+props.scene.id, {
-        headers: {
-          Authorization: 'Bearer ' + token,
-  
-        },
-      })
-
+      await deleteScene(props.scene.id)
       window.location.reload()
   } 
 
@@ -72,7 +67,7 @@ function SceneListItem(props: SceneListItemInterface) {
                     <Button className="boton-seleccion-escena" onClick={loadScene} variant="contained" endIcon={<EditIcon />}>Editar</Button>
                   </div>
                   <div>
-                    <Button className="boton-seleccion-escena" onClick={deleteScene} variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>
+                    <Button className="boton-seleccion-escena" onClick={ handleDelete } variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>
                   </div>
                 </div>
             </div>

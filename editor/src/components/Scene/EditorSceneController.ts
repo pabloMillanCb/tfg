@@ -3,7 +3,7 @@ import { TransformControls } from "three/examples/jsm/controls/TransformControls
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 import EditorScene from "./EditorScene"
 
-class SceneController {
+class EditorSceneController {
 
     private width : number
     private height : number
@@ -212,6 +212,7 @@ class SceneController {
 
     manageImage(mode: string)
     {
+      console.log("ESTAMOS EN MODO " + mode)
       if (this.scene.getObjectByName("marcador") != undefined)
       {
         this.scene.getObjectByName("marcador")!!.visible = (mode == "Marcador")
@@ -241,10 +242,12 @@ class SceneController {
     }
 
     exportScene() {
+      this.stopAnimation()
       this.scene.exportScene()
     }
 
     getSceneModel(upload: (blob: Blob) => void) {
+      this.stopAnimation()
       return this.scene.getBlob(upload)
     }
 
@@ -253,7 +256,7 @@ class SceneController {
       const sceneJSON = {
         "name": name,
         "scene_type": typeScene,
-        "sound": sound,
+        "audio": sound,
         "loop": true,
         "image_url": image_url,
         "coordinates" : coordinates,
@@ -266,4 +269,4 @@ class SceneController {
 
 }
 
-export default SceneController
+export default EditorSceneController

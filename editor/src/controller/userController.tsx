@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect, createContext } from "react"
 import { firebaseAuth } from "../config/firebase-config"
 import { User, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import { Loader } from "three"
 
 interface AuthContextInterface {
     currentUser: User | undefined,
-    login: any,
-    signup: any,
-    logout: any
+    login: (email: string, password: string) => void,
+    signup: (email: string, password: string) => void,
+    logout: () => void,
 }
 
 interface AuthContextChildren {
@@ -64,8 +65,11 @@ export function AuthProvider( props: AuthContextChildren ) {
   
 
   return (
-    <AuthContext.Provider value={value}>
-      {!loading && props.children}
-    </AuthContext.Provider>
+    <>
+      <AuthContext.Provider value={value}>
+        {!loading && props.children}
+      </AuthContext.Provider>
+    </>
+    
   )
 }

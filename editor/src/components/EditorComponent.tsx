@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import SceneController from "./Scene/SceneController"
+import EditorSceneController from "./Scene/EditorSceneController";
 import "../styles/EditorComponent.css"
 import { Stack, Button, IconButton, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
@@ -12,22 +12,37 @@ import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { json, useNavigate } from "react-router-dom";
+import ClearIcon from '@mui/icons-material/Clear';
 import HomeIcon from '@mui/icons-material/Home';
 import axios from "axios";
 import { getStorage, ref, uploadBytes, getBlob, getBytes, getStream } from "firebase/storage";
 import SceneInterface from "../interfaces/SceneInterface"
 import Loader from "./Loader";
 import { useAuth } from "../controller/userController";
-import { postScene, updateScene } from "../controller/sceneController";
-
+import { useScn } from "../controller/sceneController";
 
 
 function EditorComponent(scene: SceneInterface): JSX.Element {
 
-  const [loading, setLoading] = useState(false)
-  const { currentUser } = useAuth()
+  const sceneTypeHash = new Map<string, string>([
+    ["Superficie", "ground"],
+    ["Marcador", "augmented_images"],
+    ["Geoespacial", "geospatial"]
+  ]);
 
-  const [tipoEscena, setTipoEscena] = useState('Superficie')
+  const reverseTypeHash = new Map<string, string>([
+    ["ground", "Superficie"],
+    ["augmented_images", "Marcador"],
+    ["geospatial", "Geoespacial"],
+    ["", "Superficie"]
+    ]);
+
+  //const [loading, setLoading] = useState(false)
+  const { currentUser } = useAuth()
+  const { uploadScene, loading, setLoading } = useScn()
+
+
+  const [tipoEscena, setTipoEscena] = useState(reverseTypeHash.get(scene.scene_type)!)
   const [idEscena, setIdEscena] = useState('')
   const [nombreEscena, setNombreEscena] = useState('')
   const [imagenFile, setImagenFile] = useState<File | undefined>(undefined)
@@ -36,20 +51,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   const [reproduciendo, setReproduciendo] = useState(false)
   const [herrSelec, setHerramienta] = useState('translate')
-  const [sceneController] = useState<SceneController>(new SceneController())
+  const [sceneController] = useState<EditorSceneController>(new EditorSceneController())
   const navigate = useNavigate();
-
-  const sceneTypeHash = new Map<string, string>([
-      ["Superficie", "ground"],
-      ["Marcador", "augmented_images"],
-      ["Geoespacial", "geospatial"]
-    ]);
-
-  const reverseTypeHash = new Map<string, string>([
-    ["ground", "Superficie"],
-    ["augmented_images", "Marcador"],
-    ["geospatial", "Geoespacial"]
-    ]);
 
   useEffect(() => {
 
@@ -149,6 +152,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       const url = URL.createObjectURL(file)
       setImagenFile(file)
       sceneController.loadImage(url)
+      console.log("ENTRAMOS " + tipoEscena)
       sceneController.manageImage(tipoEscena as string)
     }
     
@@ -174,77 +178,26 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   }
 
   const saveScene = async () => {
-    setLoading(true)
-    console.log(loading)
+
     const json = JSON.parse(sceneController.generateJSON(nombreEscena, sceneTypeHash.get(tipoEscena)!, "", "", "", []))
     json.uid = currentUser?.uid
 
     if (animaciones == "No") { json.animations = [] }
-    if (soundFile != undefined) { json.sound = "true" }
+    if (soundFile != undefined) { json.audio = "true" }
     if (imagenFile != undefined) { json.image_url = "true" }
-    var id_escena = idEscena
-
-    const token = await currentUser?.getIdToken()
-    
-    if (id_escena == "")
-    {
-      const res = await axios.post('http://localhost:5000/post/escenas', json, {
-        headers: {
-          Authorization: 'Bearer ' + token,
-        }
-      })
-      console.log(res)
-      id_escena = res.data.idscene
-      setIdEscena(id_escena)
-    }
-    else {
-      const res = await axios.put('http://localhost:5000/update/escenas/'+idEscena, json, {
-        headers: {
-          Authorization: 'Bearer ' + token,
-        }
-      })
-    }
 
     const upload = async (modelFile: Blob) => {
-
-      //Subir modelo
-
-      const storage = getStorage();
-      const storageRef = ref(storage, 'models/' + id_escena + '.glb');
-      uploadBytes(storageRef, modelFile).then((snapshot) => {
-        console.log('Uploaded a model file!');
-        setLoading(false)
-      });
-
-
-      //OPCIONAL subir musica
-
-      if (soundFile != undefined)
-      {
-        const soundRef = ref(storage, 'audio/' + id_escena + '.mp3');
-        uploadBytes(soundRef, soundFile).then((snapshot) => {
-          console.log('Uploaded a sound file!');
-        });
-      }
-
-      //OPCIONAL subir imagen
-
-      if (imagenFile != undefined)
-      {
-        const imagenRef = ref(storage, 'images/' + id_escena + '.jpg');
-        uploadBytes(imagenRef, imagenFile).then((snapshot) => {
-          console.log('Uploaded a image file!');
-        });
-      }
+      uploadScene(idEscena, JSON.stringify(json), modelFile, imagenFile, soundFile)
     }
 
-    console.log("antes del getSceneModel")
-    var file = sceneController.getSceneModel(upload)
-    console.log("fuera del getSceneModel")
+    sceneController.getSceneModel(upload)
   }
 
   const loadScene = async () => {
-    console.log(loading)
+    console.log(scene)
+    console.log(scene.image_url)
+    console.log(scene.audio)
+    console.log(scene.model_url)
     
 
     if (scene.id != "")
@@ -256,7 +209,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     // Establecer nomrbe
     setNombreEscena(scene.name)
     // Establecer tipo
-    setTipoEscena(reverseTypeHash.get(scene.scene_type)!)
+    await setTipoEscena(reverseTypeHash.get(scene.scene_type)!)
+    console.log("SETEADO " + tipoEscena + reverseTypeHash.get(scene.scene_type)!)
     // Establecer animaciones
     setAnimaciones(scene.animations.length > 0 ? "Si" : "No")
 
@@ -272,11 +226,10 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       })
     }
     
-    
     // Cargar musica
-    if (scene.sound != "")
+    if (scene.audio != "")
     {
-      getBlob(ref(storage, scene.sound))
+      getBlob(ref(storage, scene.audio))
       .then((blob) => {
         const file = new File([blob], "audio.mp3")
         loadFile(file, true)
@@ -284,15 +237,12 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     }
     
     // Cargar escena
-    console.log("LOADING " + loading.toString)
-    console.log(scene.model_url)
-    await getBlob(ref(storage, scene.model_url))
+    getBlob(ref(storage, scene.model_url))
       .then((blob) => {
         const file = new File([blob], "scene.glb")
         loadFile(file, true)
       })
     }
-    console.log("LOADING " + loading.toString)
 
   }
 
@@ -303,7 +253,6 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   return (
     <div className="main-div">
-    <Loader loading={loading}/>
     <div className="editor-header">
       <div className="contenedor-botones-cabecera">
         <Button onClick={() => navigate('/')} variant="contained" color="primary" className="boton-atras" ><ArrowBackIcon/></Button>
@@ -340,6 +289,16 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
               Cargar audio
               <input hidden multiple type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["mp3", "ogg"], false) } />
             </Button>
+          </div>
+          <div className="contenedor-eliminar-audio">
+            { soundFile != undefined &&
+            <>
+              <div className="center"><p>Eliminar</p></div>
+              <div className="center">
+                <IconButton className="boton-eliminar" size="small" color="error" onClick={() => setSoundFile(undefined)} > <ClearIcon/></IconButton>
+              </div>
+            </>
+            }
           </div>
           <div className="contenedor-selector">
             <>
