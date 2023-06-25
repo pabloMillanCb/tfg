@@ -5,12 +5,12 @@ import firebase from '../config/firebase-config';
 import { useAuth } from '../controller/userController';
 
 
-const GuardedRoute = () => {
+const GuardedRouteLogin = () => {
     const { currentUser } = useAuth()
 
     return(
-        currentUser ? <Outlet/> : <Navigate to="/login"/>
+        (!currentUser) ? <Outlet/> : <Navigate to="/"/>
     )
 }
 
-export default GuardedRoute;
+export default GuardedRouteLogin;

@@ -20,6 +20,8 @@ import SceneInterface from "../interfaces/SceneInterface"
 import Loader from "./Loader";
 import { useAuth } from "../controller/userController";
 import { useScn } from "../controller/sceneController";
+import ModalComponent from "./ModalComponent";
+import { useLoading } from "../controller/loadingController";
 
 
 function EditorComponent(scene: SceneInterface): JSX.Element {
@@ -39,7 +41,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   //const [loading, setLoading] = useState(false)
   const { currentUser } = useAuth()
-  const { uploadScene, loading, setLoading } = useScn()
+  const { uploadScene } = useScn()
+  const { loading, setLoading } = useLoading()
 
 
   const [tipoEscena, setTipoEscena] = useState(reverseTypeHash.get(scene.scene_type)!)
@@ -48,6 +51,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   const [imagenFile, setImagenFile] = useState<File | undefined>(undefined)
   const [soundFile, setSoundFile] = useState<File | undefined>(undefined)
   const [animaciones, setAnimaciones] = useState('No')
+
+  const [openModal, setOpenModal] = useState(false)
 
   const [reproduciendo, setReproduciendo] = useState(false)
   const [herrSelec, setHerramienta] = useState('translate')
@@ -116,18 +121,10 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   }
 
   const handleLoad = (selectorFiles: FileList, type: string[], sceneLoad: Boolean) => {
-    console.log("Entra en handler")
-    console.log(selectorFiles[0].name.split(".").pop()!.toLowerCase())
-
     if (type.includes(selectorFiles[0].name.split(".").pop()!.toLowerCase())) {
       loadFile(selectorFiles[0], sceneLoad)
-      console.log("Formato correcto")
-      
     }
-    else {
-      console.log("Formato incorrecto")
-    }
-    
+    // TODO Aviso para formatos equivocados
   }
 
   const loadFile = async (file: File, sceneLoad: Boolean) => {
@@ -136,7 +133,6 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
     if (extension === "glb") {
       const url = URL.createObjectURL(file)
-      console.log("cargando glb")
       setLoading(true)
       if (sceneLoad) { sceneController.loadScene(url, setLoading) }
       else { sceneController.loadModel(url, setLoading) }
@@ -152,12 +148,10 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       const url = URL.createObjectURL(file)
       setImagenFile(file)
       sceneController.loadImage(url)
-      console.log("ENTRAMOS " + tipoEscena)
       sceneController.manageImage(tipoEscena as string)
     }
     
     else {
-      console.log("Formato de archivo equivocado")
     }
   }
 
@@ -187,30 +181,23 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     if (imagenFile != undefined) { json.image_url = "true" }
 
     const upload = async (modelFile: Blob) => {
-      uploadScene(idEscena, JSON.stringify(json), modelFile, imagenFile, soundFile)
+      const id = await uploadScene(idEscena, JSON.stringify(json), modelFile, imagenFile, soundFile)
+      setIdEscena(id)
     }
 
     sceneController.getSceneModel(upload)
   }
 
   const loadScene = async () => {
-    console.log(scene)
-    console.log(scene.image_url)
-    console.log(scene.audio)
-    console.log(scene.model_url)
-    
-
     if (scene.id != "")
     {
       setLoading(true)
-      console.log("Cargando escen")
       setIdEscena(scene.id)
 
     // Establecer nomrbe
     setNombreEscena(scene.name)
     // Establecer tipo
     await setTipoEscena(reverseTypeHash.get(scene.scene_type)!)
-    console.log("SETEADO " + tipoEscena + reverseTypeHash.get(scene.scene_type)!)
     // Establecer animaciones
     setAnimaciones(scene.animations.length > 0 ? "Si" : "No")
 
@@ -253,9 +240,18 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   return (
     <div className="main-div">
+      <ModalComponent 
+          tittle={"¿Quieres salir del editor?" }
+          text="Perderás los cambios no guardados en la escena" 
+          fun={() => navigate('/')}
+          open={openModal && !loading}
+          textButton="Salir"
+          onClose={() => setOpenModal(false)}
+          color="error"
+        />
     <div className="editor-header">
       <div className="contenedor-botones-cabecera">
-        <Button onClick={() => navigate('/')} variant="contained" color="primary" className="boton-atras" ><ArrowBackIcon/></Button>
+        <Button onClick={() => setOpenModal(true)} variant="contained" color="primary" className="boton-atras" ><ArrowBackIcon/></Button>
       </div>
       
         <div className="contenedor-titulo">

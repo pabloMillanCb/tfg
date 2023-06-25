@@ -14,6 +14,7 @@ import MainPageComponent from "./MainPageComponent";
 import firebase from "../config/firebase-config";
 import { useAuth } from "../controller/userController";
 import { Alert, setRef } from "@mui/material";
+import HeaderComponent from "./HeaderComponent";
 
 
 export default function SignUp() {
@@ -49,6 +50,8 @@ export default function SignUp() {
   };
 
   return (
+    <>
+    <HeaderComponent name="Nuevo usuario" home={true}/>
     <div className="background">
       <Container component="main" maxWidth="xs">
         <Box
@@ -107,8 +110,9 @@ export default function SignUp() {
               </Grid>
             </Grid>
           </Box>
-     </Box>
-  </Container>
+        </Box>
+      </Container>
     </div>
+  </>
   );
 }

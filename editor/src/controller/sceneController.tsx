@@ -1,11 +1,9 @@
-import React, { useContext, useState, useEffect, createContext } from "react"
-import { firebaseAuth } from "../config/firebase-config"
-import { User, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import { useContext, createContext } from "react"
 import { useAuth } from "./userController"
 import axios from "axios"
 import SceneInterface from "../interfaces/SceneInterface"
 import { deleteObject, getStorage, ref, uploadBytes } from "firebase/storage"
-import Loader from "../components/Loader"
+import { useLoading } from "./loadingController"
 
 interface SceneContextInterface {
     getScenesFromUser(): Promise<SceneInterface[]>,
@@ -16,8 +14,6 @@ interface SceneContextInterface {
     updateScene(id: string, json: string, model: Blob | File, img: File | undefined, sound: File | undefined)
     :Promise<string>,
     deleteScene(id: string): any,
-    loading: boolean,
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface SceneContextChildren {
@@ -27,14 +23,14 @@ interface SceneContextChildren {
 // @ts-ignore
 const SceneContext = createContext<SceneContextInterface>()
 
-
 export function useScn() {
   return useContext(SceneContext)
 }
 
 export function SceneProvider( props: SceneContextChildren ) {
-  const [loading, setLoading] = useState(false)
+
   const { currentUser } = useAuth()
+  const {loading, setLoading} = useLoading()
 
   async function getScenesFromUser(): Promise<SceneInterface[]> {
     
@@ -165,15 +161,13 @@ export function SceneProvider( props: SceneContextChildren ) {
       const imagenRef = ref(storage, 'images/' + id + '.jpg')
 
       await Promise.all([
-        deleteObject(soundRef),
-        deleteObject(modelRef),
-        deleteObject(imagenRef)
+        deleteObject(soundRef).catch((error) => {}),
+        deleteObject(modelRef).catch((error) => {}),
+        deleteObject(imagenRef).catch((error) => {})
       ])
   }
 
   const value: SceneContextInterface = {
-    loading,
-    setLoading,
     getScenesFromUser,
     uploadScene,
     postScene,
@@ -184,7 +178,6 @@ export function SceneProvider( props: SceneContextChildren ) {
 
   return (
     <SceneContext.Provider value={value}>
-      <Loader loading={loading}/>
       {props.children}
     </SceneContext.Provider>
   )

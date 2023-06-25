@@ -1,5 +1,6 @@
 import { Stack, Button, IconButton, Grid, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
 import { getAuth } from "firebase/auth";
+import { useAuth } from "../controller/userController";
 import { useNavigate } from "react-router-dom";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -11,11 +12,11 @@ interface HeaderInterface {
   }
 export default function HeaderComponent(props: HeaderInterface) {
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const {currentUser, logout} = useAuth()
 
     const logOut = () => {
-        getAuth().signOut()
-        window.localStorage.setItem('auth', '')
+        logout()
         navigate("/login")
       }
 
@@ -32,13 +33,16 @@ export default function HeaderComponent(props: HeaderInterface) {
                     
                     <div className="center"> <p className="bienvenida-usuario">{props.name}</p> </div>
                 </div>
-            
-                <div className="contenedor-botones-cabecera">
-                <Stack spacing={2} direction="row">
-                    <Button onClick={() => navigate('/config')} variant="contained" color="secondary" className="boton-guardado" endIcon={<ManageAccountsIcon />}>Ajustes</Button>
-                    <Button onClick={() => logOut()} variant="contained" color="secondary" className="boton-guardado" endIcon={<LogoutIcon />}>Cerrar sesión</Button>
-                </Stack>     
+                
+                {(currentUser) ? (
+				    <div className="contenedor-botones-cabecera">
+                    <Stack spacing={2} direction="row">
+                        <Button onClick={() => navigate('/config')} variant="contained" color="secondary" className="boton-guardado" endIcon={<ManageAccountsIcon />}>Ajustes</Button>
+                        <Button onClick={() => logOut()} variant="contained" color="secondary" className="boton-guardado" endIcon={<LogoutIcon />}>Cerrar sesión</Button>
+                    </Stack>     
                 </div>
+                ) : (<></>)}
+                
             </div>
         </>
     )

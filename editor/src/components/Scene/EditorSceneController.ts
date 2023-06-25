@@ -136,22 +136,22 @@ class EditorSceneController {
     onMouseMove = (event: any): void => {
       event.preventDefault();
 
-      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
     }
 
     onWindowResize = (): void => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.aspect = window.innerWidth / window.innerHeight
       this.camera.updateProjectionMatrix();
 
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setSize(window.innerWidth, window.innerHeight)
     }
 
     onMouseDown = (e: any): void => {
       this.animationButton!.style.display = "none"
       // Selección de objeto con raycaster
       if (e.button == 0) {
-        this.raycaster.setFromCamera(this.mouse, this.camera);
+        this.raycaster.setFromCamera(this.mouse, this.camera)
         const intersection = this.raycaster.intersectObjects(
           this.scene.getObjectArray(),
           true
@@ -162,12 +162,10 @@ class EditorSceneController {
             this.scene.unSelectAll()
           }
 
-          this.scene.selectObject(intersection[0].object);
-          this.transformControls.attach(this.scene.getSelectGroup());
-          console.log(this.scene.getSelectGroup().animations.length)
+          this.scene.selectObject(intersection[0].object)
+          this.transformControls.attach(this.scene.getSelectGroup())
           if (this.scene.getSelectGroup().animations.length > 0)
           {
-            console.log(document.getElementById("contenedor-boton-animaciones")!.style.display)
             this.animationButton!.style.display = "flex"
           }
           else {
@@ -212,7 +210,6 @@ class EditorSceneController {
 
     manageImage(mode: string)
     {
-      console.log("ESTAMOS EN MODO " + mode)
       if (this.scene.getObjectByName("marcador") != undefined)
       {
         this.scene.getObjectByName("marcador")!!.visible = (mode == "Marcador")

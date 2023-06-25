@@ -18,6 +18,8 @@ import { Scene } from 'three'
 import { AuthProvider } from './controller/userController'
 import { SceneProvider } from './controller/sceneController'
 import Loader from './components/Loader'
+import GuardedRouteLogin from './components/GuardedRouteLogin'
+import { LoadingProvider } from './controller/loadingController'
 
 function App() {
 
@@ -45,6 +47,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <LoadingProvider>
         <AuthProvider>
           <SceneProvider>
           <Routes>
@@ -58,12 +61,15 @@ function App() {
                 } path={EDITOR} />
               <Route element={<ConfigComponent/>} path={CONFIG} />
             </Route>
-            <Route element={<SignIn/>} path={LOGIN}/>
-            <Route element={<SignUp/>} path={REGISTER}/>
+            <Route element={<GuardedRouteLogin/>}>
+              <Route element={<SignIn/>} path={LOGIN}/>
+              <Route element={<SignUp/>} path={REGISTER}/>
+            </Route>
             
           </Routes>
           </SceneProvider>
         </AuthProvider>
+      </LoadingProvider>
       </BrowserRouter>
     </>
   )

@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import SceneInterface from "../interfaces/SceneInterface"
 import axios from "axios";
 import { useScn } from "../controller/sceneController";
+import ModalComponent from "./ModalComponent";
+import { useState } from "react";
 
 interface SceneListItemInterface {
   setScene: (s: SceneInterface) => void
@@ -15,8 +17,9 @@ interface SceneListItemInterface {
 
 function SceneListItem(props: SceneListItemInterface) {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const { deleteScene} = useScn()
+  const [openModal, setOpenModal] = useState(false)
 
   function getTypeVerbose(type: string)
   {
@@ -50,6 +53,15 @@ function SceneListItem(props: SceneListItemInterface) {
 
   return (
     <>
+        <ModalComponent 
+          tittle={"¿Quieres eliminar la escena " + props.scene.name + "?" }
+          text="No podrás recuperarla más tarde" 
+          fun={() => handleDelete()}
+          open={openModal}
+          textButton="Eliminar"
+          onClose={() => setOpenModal(false)}
+          color="error"
+        />
         <Box
           sx={{  
             marginTop: 0,
@@ -67,7 +79,7 @@ function SceneListItem(props: SceneListItemInterface) {
                     <Button className="boton-seleccion-escena" onClick={loadScene} variant="contained" endIcon={<EditIcon />}>Editar</Button>
                   </div>
                   <div>
-                    <Button className="boton-seleccion-escena" onClick={ handleDelete } variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>
+                    <Button className="boton-seleccion-escena" onClick={ () => setOpenModal(true) } variant="contained" color="error" endIcon={<DeleteIcon />}>Eliminar</Button>
                   </div>
                 </div>
             </div>

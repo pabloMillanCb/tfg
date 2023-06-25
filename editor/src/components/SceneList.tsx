@@ -9,6 +9,7 @@ import SceneInterface from "../interfaces/SceneInterface"
 import Loader from "./Loader";
 import { useAuth } from "../controller/userController";
 import { useScn } from "../controller/sceneController";
+import { useLoading } from "../controller/loadingController";
 
 interface SceneListInterface {
   setScene: (s: SceneInterface) => void
@@ -19,7 +20,7 @@ function SceneList(props: SceneListInterface) {
 
   const navigate = useNavigate();
   const [listaEscenas, setListaEscenas] = useState<SceneInterface[]>([])
-  const {setLoading} = useScn()
+  const {setLoading} = useLoading()
   
   const { getScenesFromUser } = useScn()
 

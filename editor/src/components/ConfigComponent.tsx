@@ -8,36 +8,66 @@ import "../styles/SignInComponent.css"
 
 import { useEffect, useState }  from 'react'
 import { useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateEmail } from "firebase/auth";
 import { userData } from "three/examples/jsm/nodes/Nodes.js";
 import MainPageComponent from "./MainPageComponent";
 import HeaderComponent from "./HeaderComponent";
+import { useAuth } from "../controller/userController";
+import { Alert } from "@mui/material";
 
 
 export default function SignUp() {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const logOut = () => {
-    getAuth().signOut()
-  }
+  const { updateUserEmail } = useAuth()
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+  const { currentUser } = useAuth()
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    currentUser?.reload()
+
+    await setError('')
+    await setSuccess('')
     
-    if (data.get("email") != '' && data.get("password") != '' 
-        && data.get("passwordConfirm") != '' && data.get("password") == data.get("passwordConfirm")
-        && data.get("password")!.length >= 6)
+    if (data.get("email") == currentUser?.email && data.get("newPassword") == '')
     {
-      const auth = getAuth();
-      // actualizar datos
+      return await setError("Introduce un nuevo email o contraseña")
     }
-    else
+    if (data.get("newPassword") != '')
     {
-      console.log("incorrecto")
+      if (data.get("newPassword") != data.get("passwordConfirm"))
+      {
+        return await setError("Las contraseñas deben coincidir")
+      }
+      else if (data.get("newPassword")!.length < 6)
+      {
+        return await setError("La contraseña debe de tener más de 6 caracteres")
+      }
     }
-  };
+    if (data.get("oldPassword") == '')
+    {
+      return await setError("Introduce tu contraseña actual")
+    }
+
+    await setError('')
+    if (data.get("email") != currentUser?.email)
+    {
+      const error_ = await updateUserEmail(data.get("email")!.toString(), data.get("oldPassword")!.toString())
+      if (error_ != '') { return await setError(error_) }
+    }
+    if (data.get("newPassword") != '')
+    {
+      const error_ = await updateUserEmail(data.get("email")!.toString(), data.get("oldPassword")!.toString())
+      if (error_ != '') { return await setError(error_) }
+    }
+    
+    // Pop up exito
+    setSuccess("Datos actualizados con éxito")
+  }
 
   return (
     <>
@@ -53,13 +83,15 @@ export default function SignUp() {
             }}
           >
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              {error != '' ? <Alert severity="error">{error}</Alert> : ''}
+              {success != '' ? <Alert severity="success">{success}</Alert> : ''}
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 id="email"
                 label="Email"
-                defaultValue={window.localStorage.getItem('email')}
+                defaultValue={currentUser?.email}
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -68,7 +100,7 @@ export default function SignUp() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="newPassword"
                 label="Nueva contraseña"
                 type="password"
                 id="password"
@@ -89,7 +121,7 @@ export default function SignUp() {
                 margin="normal"
                 required
                 fullWidth
-                name="oldpassword"
+                name="oldPassword"
                 label="Contraseña actual"
                 type="password"
                 id="password"

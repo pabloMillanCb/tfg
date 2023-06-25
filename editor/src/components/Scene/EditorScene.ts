@@ -134,7 +134,6 @@ export default class EditorScene extends THREE.Scene
     {
         if (this.isAnimatedObjectDuplicate(obj))
         {
-            //console.log("RENOMBRAMOS")
             this.renameObjectNodes(obj, obj.id)
             for (var i in obj.animations)
             {
@@ -270,7 +269,6 @@ export default class EditorScene extends THREE.Scene
                 scene.loadAnimation(gltf.scene.children[0].children[0] , gltf.scene.animations)
                 scene.addObject( gltf.scene.children[0].children[0] )
             }
-            console.log("cargados")
             setLoading(false)
 
         }, undefined, function ( error ) {
@@ -319,8 +317,6 @@ export default class EditorScene extends THREE.Scene
         this.mixer = []
 
         for (let i = 0, j = 0; i < this.liveObjects.children.length; i++){
-            console.log(this.liveObjects.children[i])
-            console.log("Un modelo tiene: " + this.liveObjects.children[i].animations.length)
             if (this.liveObjects.children[i].animations.length > 0)
             {
                 this.mixer.push(new THREE.AnimationMixer( this.liveObjects.children[i] ))
@@ -394,9 +390,6 @@ export default class EditorScene extends THREE.Scene
         const that = this
         const animations = this.getAnimations( this );
 
-        //console.log("Funciones para exportar ")
-        //console.log(animations)
-
         this.exporter.parse( 
             
             this.liveObjects, 
@@ -445,9 +438,7 @@ export default class EditorScene extends THREE.Scene
 
     private getArrayBuffer( buffer: any) //buscar tipos
     {
-        console.log("getArrayBuffer")
         const b = new Blob( [ buffer ], { type: 'application/octet-stream' } )
-        console.log(b)
 		return b
 	}
 
