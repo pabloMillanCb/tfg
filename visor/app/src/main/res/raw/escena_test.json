@@ -1,9 +1,11 @@
 {
+  "id": "",
+  "uid": "",
   "name": "Escena del gatito",
-  "type": "augmented_images",
-  "sound": "",
+  "scene_type": "ground",
+  "audio": "",
   "loop": true,
-  "image_url": "images/kitten.png",
+  "image_url": "images/kitten.jpg",
   "coordinates": [
     37.19684078,
     -3.62350248,

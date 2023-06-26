@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+
 
 class SceneRecyclerViewAdapter(var context: Context, var listaEscenas:ArrayList<SceneParameters>):
     RecyclerView.Adapter<SceneRecyclerViewAdapter.MiHolder>() {
@@ -34,12 +34,18 @@ class SceneRecyclerViewAdapter(var context: Context, var listaEscenas:ArrayList<
         return listaEscenas.size
     }
 
+    fun update(sceneList: ArrayList<SceneParameters>) {
+        listaEscenas = sceneList
+        // replace your adapter data with argument data
+        this.notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: MiHolder, position: Int) {
         var escena = listaEscenas[position]
         holder.nombreEscena.text = escena.name
-        if (escena.type == "augmented_images") { holder.tipoEscena.text = "Marcador" }
-        if (escena.type == "ground") { holder.tipoEscena.text = "Superficie" }
-        if (escena.type == "geospatial") { holder.tipoEscena.text = "Geoespacial" }
+        if (escena.scene_type == "augmented_images") { holder.tipoEscena.text = "Marcador" }
+        if (escena.scene_type == "ground") { holder.tipoEscena.text = "Superficie" }
+        if (escena.scene_type == "geospatial") { holder.tipoEscena.text = "Geoespacial" }
 
         holder.boton.setOnClickListener {
             val intent = Intent(context, ArActivity::class.java)

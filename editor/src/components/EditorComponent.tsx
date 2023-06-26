@@ -173,6 +173,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   const saveScene = async () => {
 
+    console.log(sceneTypeHash.get(tipoEscena)!)
     const json = JSON.parse(sceneController.generateJSON(nombreEscena, sceneTypeHash.get(tipoEscena)!, "", "", "", []))
     json.uid = currentUser?.uid
 

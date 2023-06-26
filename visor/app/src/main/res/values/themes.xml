@@ -3,8 +3,8 @@
     <style name="Base.Theme.ARView" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/purple</item>
-        <item name="colorSecondary">@color/orange</item>
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorSecondary">@color/purple</item>
     </style>
 
     <style name="Theme.ARView" parent="Base.Theme.ARView" />

@@ -4,4 +4,6 @@
         <item name="colorPrimary">@color/orange</item>
         <item name="colorSecondary">@color/purple</item>
     </style>
+
+    <style name="Theme.ARView" parent="Base.Theme.ARView" />
 </resources>

@@ -134,11 +134,11 @@ class ArActivity : AppCompatActivity()
 
     fun setUpScene()
     {
-        if (parameters.sound != "")
+        if (parameters.audio != "")
         {
-            storageRef.child(parameters.sound).downloadUrl.addOnSuccessListener { documents ->
+            storageRef.child(parameters.audio).downloadUrl.addOnSuccessListener { documents ->
                 var urlAudio = documents.toString()
-                audio = MediaPlayer.create(this, Uri.parse(parameters.sound))
+                audio = MediaPlayer.create(this, Uri.parse(parameters.audio))
                 // Se activa la reproducción automática de audios al finalizar si el contenido loopea
                 if (parameters.loop == true) {
                     audio!!.setOnCompletionListener {
@@ -148,9 +148,9 @@ class ArActivity : AppCompatActivity()
             }.addOnFailureListener { Log.d("firebase", "Fracaso") }
         }
 
-        Log.d("Ground", parameters.type)
+        Log.d("Ground", parameters.scene_type)
 
-        if (parameters.type == "augmented_images")
+        if (parameters.scene_type == "augmented_images")
         {
             loadImage(urlImagen)
             createModelNodes(true)
@@ -163,7 +163,7 @@ class ArActivity : AppCompatActivity()
             sceneView.planeRenderer.isVisible=false
             sceneView.planeRenderer.isShadowReceiver=false
         }
-        else if (parameters.type == "ground")
+        else if (parameters.scene_type == "ground")
         {
             Log.d("Ground", "Configurando ground")
             // Esta funcion debe ejecutarse una vez al principio antes de poder colocar nodos
@@ -179,7 +179,7 @@ class ArActivity : AppCompatActivity()
                 }
             }
         }
-        else if (parameters.type == "geospatial")
+        else if (parameters.scene_type == "geospatial")
         {
             Log.d("Geo", "Modo geospacial")
             askLocationPermissions()
@@ -238,7 +238,7 @@ class ArActivity : AppCompatActivity()
                         lifecycle = lifecycle,
                         glbFileLocation = urlModel,
                         autoAnimate = false,
-                        scaleToUnits = 0.1f,
+                        scaleToUnits = 0.05f,
                         // Place the model origin at the bottom center
                         centerOrigin = Position(0.0f, -1.2f, 0.0f)
                     ) {
@@ -349,7 +349,7 @@ class ArActivity : AppCompatActivity()
     private fun initialiseSceneViewSession(session: ArSession, config: Config)
     {
 
-        if (parameters.type == "augmented_images") {
+        if (parameters.scene_type == "augmented_images") {
             val imageDatabase = AugmentedImageDatabase(session)
             val imageWidthInMeters = 0.10f // 10 cm
             imageDatabase.addImage("marcador", imageBitmap, imageWidthInMeters)
