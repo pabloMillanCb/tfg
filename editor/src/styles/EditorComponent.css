@@ -1,0 +1,130 @@
+body {
+    overflow: hidden;
+}
+
+.editor-header {
+    padding: 0px 20px;
+    height: 80px;
+    background-color: #424242;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.boton-volver {
+    margin-left: 12px;
+}
+
+.contenedor-titulo {
+    border-radius: 8px;
+    margin: 8px 0px;
+    padding: 0px 25px;
+}
+
+.contenedor-botones-cabecera {
+    margin: 18px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+
+.boton-guardado {
+    margin: 10px 20px;
+}
+
+.cuerpo-editor {
+    display: flex;
+}
+
+.toolbar-editor {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    padding-top: 100px;
+    width: 250px;
+    height: 100%;
+    background-color: #535353;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-herramientas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contenedor-eliminar-audio{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: aliceblue;
+    margin: 0;
+    margin-top: 2px;
+}
+
+.contenedor-eliminar-audio p{
+    color: aliceblue;
+    margin: 0;
+}
+
+.boton-eliminar{
+    color: aliceblue;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.boton-herramienta{
+    margin: 0 30px;
+}
+
+.contenedor-subir-archivo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#contenedor-boton-animaciones {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+.contenedor-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+#threeCanvas{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -2;
+}
+
+.boton-play{
+    
+}
+
+.contenedor-subir-imagen {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.contenedor-coordenadas {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 30px;
+}

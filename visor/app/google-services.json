@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "628724485334",
+    "project_id": "tfg-backend-2fd4c",
+    "storage_bucket": "tfg-backend-2fd4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628724485334:android:526e1e6ec9c272fc750d77",
+        "android_client_info": {
+          "package_name": "com.example.arview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628724485334-mq1k6t73vus51834ab3ve9hbp7dhttd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0Nx0I8IvkqtMjmqyrHhmkXCkOs8XCrTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628724485334-mq1k6t73vus51834ab3ve9hbp7dhttd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

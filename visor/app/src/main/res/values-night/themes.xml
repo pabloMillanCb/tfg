@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ARView" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorSecondary">@color/purple</item>
+    </style>
+
+    <style name="Theme.ARView" parent="Base.Theme.ARView" />
+</resources>

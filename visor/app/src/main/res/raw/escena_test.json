@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "uid": "",
+  "name": "Escena del gatito",
+  "scene_type": "ground",
+  "audio": "",
+  "loop": true,
+  "image_url": "images/kitten.jpg",
+  "coordinates": [
+    37.19684078,
+    -3.62350248,
+    680.0
+  ],
+  "model_url": "models/objeto(9).glb",
+  "animations" : ["Death"]
+}

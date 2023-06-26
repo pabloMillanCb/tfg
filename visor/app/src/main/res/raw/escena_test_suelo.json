@@ -1,0 +1,14 @@
+{
+  "id": "FSg1JYnv6AIipgLDcJqe",
+  "uid": "CADi0ELu6DczWNFyurmhqldijMZ2",
+  "model_url": "models/FSg1JYnv6AIipgLDcJqe.glb",
+  "loop": true,
+  "image_url": "images/FSg1JYnv6AIipgLDcJqe.jpg",
+  "animations": [
+    "animation_0"
+  ],
+  "coordinates": [],
+  "name": "Caja",
+  "audio": "",
+  "scene_type": "augmented_images"
+}
