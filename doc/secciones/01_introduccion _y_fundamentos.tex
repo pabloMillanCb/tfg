@@ -25,13 +25,43 @@ A continuación se van a describir una serie de conceptos y tecnologías esencia
 
 La \textit{Realidad Aumentada} (\textit{Augmented Reality} en inglés, \textit{RA} de aquí en adelante) hace referencia al conjunto de técnicas y tecnologías que permiten crear una experiencia en la que se combina el mundo real con contenido generado por computadores. Aunque el uso más extendido es únicamente visual y auditorio, puede apelar a más sentidos como el háptico, somatosensorial y olfativo. Se puede decir que un sistema \textit{RA} debe incorporar tres elementos básicos: una combinación del mundo real y el virtual, interacción en tiempo real y un correcto registro de la posición y movimientos de objetos tanto reales como virtuales. 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{pkmgo}
     \caption[Ejemplo RA]{Ejemplo de Realidad Aumentada en el videojuego Pokémon Go}
 \end{figure}
 
 Existen otros términos acuñados que son a grandes rasgos sinónimos de la \textit{RA} como \textit{Mixed Reality}. No debe confundirse con la \textit{Realidad Virtual}, otro ámbito en el que el objetivo es sumergir al usuario en un mundo virtual enajenándolo de sus sentidos con el mundo real, usualmente con unas gafas envolventes diseñadas específicamente para realidad virtual. Todas estas disciplinas están recogidas bajo el término paraguas de la \textit{Extended Reality} (\textit{XR}).
+
+A continuación se van a describir los tipos de escenas que podemos encontrarnos en el contexto de la Realidad Aumentada.
+
+\begin{itemize}
+    \item \textbf{Posicionamiento en superficies}: Es quizás el ejemplo más sencillo tanto conceptualmente como técnicamente. El dispositivo intentará analizar sus alrededores a través de la cámara e intentará detectar superficies planas como podría ser una el suelo, una mesa o una pared. Colocará objetos en puntos concretos de estas superficies, y al mover el dispositivo esos objetos deberán visualizarse como si estuvieran colgados o colocados en dichas instancias del mundo real. Existe todavía a día de hoy una limitación importante a la hora de realizar estas escenas; si la superficie es demasiado lisa y uniforme, el dispositivo la reconocerá con gran probabilidad como un color plano, y no tendrá la capacidad de identificarla como una superficie, haciendo que no pueda llegar a colocar nada.
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.2]{ground}
+        \caption[Ejemplo ground]{Ejemplo de posicionamiento en superficies de la documentación de \textit{ARCore}\cite{arcore}}
+    \end{figure}
+
+    \item \textbf{Imágenes aumentadas}: En este tipo de escena, cada modelo o conjunto de modelos tiene asociada una imagen bidimensional a la que denominamos \textbf{marcador} o \textbf{activador}. Cuando se inicie, el dispositivo tratará de reconocer esta imagen en el mundo real. Una vez identificada se reproducirán sobre la imagen (tratándola como una superficie) o en una posición relativa a la imagen, los modelos pertinentes que se hayan definido. Es posible definir distintos objetos asociados a distintos marcadores y que solo se reproduzcan los elementos pertinentes.
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{agexample}
+        \caption[Ejemplo ground]{Ejemplo de escena de imágenes aumentadas de la web de \textit{Pictarize Studio}\cite{pictarize}}
+    \end{figure}
+
+    \item \textbf{Escenas geoespaciales}: Son escenas en las que los objetos no se posicionan en una superficie, si no en unas coordenadas GPS. El usuario solo podrá ver la escena si se encuentra a una latitud, longitud y altura cercanos a aquella que se definieran para la escena. Para ello logicamente es esencial disponer de conexión a internet y que el dispositivo tenga acceso a las coordenadas actuales del usuario durante la ejecución. Las localización GPS de los dispositivos móviles no suele ser del todo precisa, así que usando solo estas es posible que si queremos, por ejemplo, colocar un modelo 3D que represente cómo era la \textit{Alhambra de Granada} cuando se construyó justo en la puerta del edificio, es posible que algunos usuarios la vean algunos metros fuera de lugar, o incluso flotando en el aire. Para poder tener algo más de precisión, algunas APIs geoespaciales como la de \textit{ARCore}\cite{arcore} permiten  extraer información de \textit{Street View}, el visor en primera persona de \textit{Google Maps} para reconocer a través de puntos clave, fachadas de edificios y calles que hayan sido captadas previamente por este servicio, resultando así en una mejor aproximación a la verdadera posición del usuario y por tanto un posicionamiento más preciso de las escenas.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.7]{geospatial}
+        \caption[Ejemplo ground]{Ejemplo de la aproximación por puntos clave para escenas geoespaciales de la documentación de \textit{ARCore}\cite{arcore}}
+    \end{figure}
+
+\end{itemize}
+
 
 \subsection{Visión por computador}
 Javier González Jiménez define en su libro \textit{Visión por computador}\cite{visioncomputador} este campo con la siguiente cita:
@@ -42,7 +72,7 @@ Javier González Jiménez define en su libro \textit{Visión por computador}\cit
 
     \textit{``[...] la información visual consiste en energía luminosa procedente del entorno. Para utilizar esa información es preciso transformarla a un formato susceptible de ser procesado [...] esta misma tarea se realiza con una cámara de vídeo (o algún otro dispositivo similar), que convierte la energía luminosa en corriente eléctrica, que puede ser entonces muestreada y digitalizada para su procesamiento en un computador.''}
 
-En nuestro caso nos interesa especialmente la sentencia destacada de la cita. Esta disciplina nos permite extraer una idea de la estructura física de una escena, permitiéndonos detectar elementos como superficies o esquinas, indispensables si queremos por ejemplo, posicionar un objeto 3D encima de una mesa, y que el objeto parezca que siga apoyado en la mesa si movemos la cámara de lugar, cambiamos el ángulo, o nos alejamos.
+En nuestro caso nos interesa especialmente la sentencia destacada de la cita. Esta disciplina nos permite extraer una idea de la estructura física de un escenario, permitiéndonos detectar elementos como superficies o esquinas, indispensables si queremos por ejemplo, posicionar un objeto 3D encima de una mesa, y que el objeto parezca que siga apoyado en la mesa si movemos la cámara de lugar, cambiamos el ángulo, o nos alejamos.
 
 Por fortuna la obtención de información a través de imágenes será un proceso completamente transparente para nosotros gracias a las distintas herramientas y tecnologías que ofrecen una API para hacer llamada de estas funciones sin que tengamos que preocuparnos por los detalles técnicos como veremos a continuación.
 
@@ -88,10 +118,13 @@ Lamentablemente, \textit{Sceneform} fue abandonado por \textit{Google}, pero el 
 Por otro lado, \textit{TypeScript} (\textit{TS}) es un lenguaje construido por encima de JavaScript que añade sintaxis adicional que lo hace \textbf{fuertemente tipado}. Es decir, siempre que declaremos una variable debemos especificar su tipo. Si más adelante en el código se intenta asignar un valor no correspondiente a ese tipo, el editor podrá detectarlo y avisar, pudiendo así identificar posibles errores antes siquiera de la ejecución del programa, cosa que con \textit{JavaScript} no es posible.
 
 \subsection{Archivo JSON}
-Los archivos JSON (o \textit{JavaScript} Object Notation) es un formato de texto sencillo para el intercambio de datos. Toma como referencia la notación de objetos de \textit{JS}, pero a lo largo de los años y debido a su simplicidad, se ha convertido en la opción por defecto para intercambio de información entre servicios web, en contraposición a su principal alternativa, \textit{XML}.
+Los archivos JSON (o \textit{JavaScript Object Notation}) es un formato de texto sencillo para el intercambio de datos. Toma como referencia la notación de objetos de \textit{JS}, pero a lo largo de los años y debido a su simplicidad, se ha convertido en la opción por defecto para intercambio de información entre servicios web, en contraposición a su principal alternativa, \textit{XML}.
+
+\subsection{Three.js}
+\textit{Three.js}\cite{three} es una librerías \textit{JavaScript} usada para crear y renderizar gráficos 3D animados en páginas web para que puedan se reproducidas en un navegador. Para ello hace uso de \textit{WebGL}, otra librería \textit{JavaScript} para la renderización de gráficos pero a más bajo nivel. \textit{Three.js} se abstrae de conceptos técnicos y de bajo nivel para que el desarrollador no tenga que preocuparse de todo eso y agilice su desarrollo. Además es una librería de código abierto mantenida por su comunidad.
 
 \subsection{React.js}
-\textit{React} es una librería de \textit{JavaScript} para construir interfaces de usuario web de código abierto y mantenido por su comunidad. Opcionalmente, utiliza ficheros de extensión \textit{.jsx} (\textit{JavaScript Syntax Extension}) para facilitar el desarrollo. Estos son, como su nombre indica, una extensión sintáctica de \textit{JS} que permite insertar código HTML, facilitando así la construcción de interfaces de usuario.
+\textit{React}\cite{react} es una librería de \textit{JavaScript} para construir interfaces de usuario web de código abierto y mantenido por su comunidad. Opcionalmente, utiliza ficheros de extensión \textit{.jsx} (\textit{JavaScript Syntax Extension}) para facilitar el desarrollo. Estos son, como su nombre indica, una extensión sintáctica de \textit{JS} que permite insertar código HTML, facilitando así la construcción de interfaces de usuario.
 
 \subsection{Node.js}
 \textit{Node}\cite{nodejs} es un entorno de ejecución de \textit{JavaScript} orientado a eventos asíncronos diseñado para crear aplicaciones de red rápidas capaces de manipular grandes cantidades de conexiones concurrentes con una alta escalabilidad para los proyectos.
