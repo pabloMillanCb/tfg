@@ -35,7 +35,7 @@ export default class EditorScene extends THREE.Scene
     {
         // Si tenemos varios objetos seleccionados trackeamos la posición del dummie para
         // aplicar a todos las mismas transformaciones
-        if (this.selectedList.length >= 2)
+        if (this.selectedList.length > 1)
         {
             const position = {x: this.selectionHelper.position.x - this.selectionHelperAux.position.x,
                               y: this.selectionHelper.position.y - this.selectionHelperAux.position.y,
