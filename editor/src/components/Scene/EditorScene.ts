@@ -94,9 +94,11 @@ export default class EditorScene extends THREE.Scene
     createBasics()
     {
         // Luz
+        const ambient = new THREE.AmbientLight(0x999999, 1)
         const light = new THREE.DirectionalLight(0xFFFFFF, 1)
         light.position.set(0, 4, 2)
         this.add(light)
+        this.add(ambient)
 
         // Suelo de referencia
         const gridHelper = new THREE.GridHelper( 10, 10 );
@@ -148,7 +150,12 @@ export default class EditorScene extends THREE.Scene
 
         this.liveObjects.add(obj)
         obj.name = "alive"
-        obj.userData["animationIndex"] = 0
+
+        if (!obj.userData["animationIndex"])
+        {
+            obj.userData["animationIndex"] = 0
+        }
+
         if(obj.animations.length == 0)
         {
             obj.userData["animationIndex"] = -1

@@ -255,13 +255,18 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     console.log(coordinates)
   }
 
+  const exitScene = () => {
+    navigate('/')
+    sceneController.stopAudio()
+  }
+
 
   return (
     <div className="main-div">
       <ModalComponent 
           tittle={"¿Quieres salir del editor?" }
           text="Perderás los cambios no guardados en la escena" 
-          fun={() => navigate('/')}
+          fun={() => exitScene()}
           open={openModal && !loading}
           textButton="Salir"
           onClose={() => setOpenModal(false)}

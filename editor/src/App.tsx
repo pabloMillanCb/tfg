@@ -18,8 +18,8 @@ function App() {
 
   const ROOT = "/"
   const EDITOR = "/editor"
-  const LOGIN = "/login"
-  const REGISTER = "/register"
+  const LOGIN = "/signin"
+  const REGISTER = "/signup"
   const CONFIG = "/config"
 
 

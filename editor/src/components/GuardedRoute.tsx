@@ -6,7 +6,7 @@ const GuardedRoute = () => {
     const { currentUser } = useAuth()
 
     return(
-        currentUser ? <Outlet/> : <Navigate to="/login"/>
+        currentUser ? <Outlet/> : <Navigate to="/signin"/>
     )
 }
 

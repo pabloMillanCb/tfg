@@ -16,7 +16,7 @@ export default function HeaderComponent(props: HeaderInterface) {
 
     const logOut = () => {
         logout()
-        navigate("/login")
+        navigate("/signin")
       }
 
     return (
