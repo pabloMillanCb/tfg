@@ -31,7 +31,7 @@ export function useScn() {
 export function SceneProvider( props: SceneContextChildren ) {
 
   const { currentUser } = useAuth()
-  const {loading, setLoading} = useLoading()
+  const {setLoading} = useLoading()
 
   async function getScenesFromUser(): Promise<SceneInterface[]> {
     
@@ -72,7 +72,7 @@ export function SceneProvider( props: SceneContextChildren ) {
     
     const storageRef = ref(storage, 'models/' + id + '.glb');
     petitions.push(
-      uploadBytes(storageRef, model).then((snapshot) => {
+      uploadBytes(storageRef, model).then(() => {
         console.log('Uploaded a model file!');
       }),
     )
@@ -81,7 +81,7 @@ export function SceneProvider( props: SceneContextChildren ) {
     {
       const soundRef = ref(storage, 'audio/' + id + '.mp3');
       petitions.push(
-        uploadBytes(soundRef, sound).then((snapshot) => {
+        uploadBytes(soundRef, sound).then(() => {
           console.log('Uploaded a sound file!');
         })
       )
@@ -91,7 +91,7 @@ export function SceneProvider( props: SceneContextChildren ) {
     {
       const imagenRef = ref(storage, 'images/' + id + '.jpg');
       petitions.push(
-        uploadBytes(imagenRef, img).then((snapshot) => {
+        uploadBytes(imagenRef, img).then(() => {
           console.log('Uploaded a image file!');
         })
       )
@@ -106,7 +106,7 @@ export function SceneProvider( props: SceneContextChildren ) {
   :Promise<string> {
 
     const token = await currentUser?.getIdToken()
-    const res = await axios.put(SERVER_URL+'/update/escenas/'+id, JSON.parse(json), {
+    await axios.put(SERVER_URL+'/update/escenas/'+id, JSON.parse(json), {
         headers: {
           Authorization: 'Bearer ' + token,
         }
@@ -117,7 +117,7 @@ export function SceneProvider( props: SceneContextChildren ) {
 
     const storageRef = ref(storage, 'models/' + id + '.glb');
     petitions.push(
-      uploadBytes(storageRef, model).then((snapshot) => {
+      uploadBytes(storageRef, model).then(() => {
         console.log('Uploaded a model file!');
       }),
     )
@@ -126,7 +126,7 @@ export function SceneProvider( props: SceneContextChildren ) {
     {
       const soundRef = ref(storage, 'audio/' + id + '.mp3');
       petitions.push(
-        uploadBytes(soundRef, sound).then((snapshot) => {
+        uploadBytes(soundRef, sound).then(() => {
           console.log('Uploaded a sound file!');
         })
       )
@@ -136,7 +136,7 @@ export function SceneProvider( props: SceneContextChildren ) {
     {
       const imagenRef = ref(storage, 'images/' + id + '.jpg');
       petitions.push(
-        uploadBytes(imagenRef, img).then((snapshot) => {
+        uploadBytes(imagenRef, img).then(() => {
           console.log('Uploaded a image file!');
         })
       )
@@ -149,7 +149,7 @@ export function SceneProvider( props: SceneContextChildren ) {
 
   async function deleteScene(id: string) {
     const token = await currentUser?.getIdToken()
-    const res = await axios.delete(SERVER_URL+'/delete/escenas/'+id, {
+    await axios.delete(SERVER_URL+'/delete/escenas/'+id, {
         headers: {
           Authorization: 'Bearer ' + token,
         },
@@ -162,9 +162,9 @@ export function SceneProvider( props: SceneContextChildren ) {
       const imagenRef = ref(storage, 'images/' + id + '.jpg')
 
       await Promise.all([
-        deleteObject(soundRef).catch((error) => {}),
-        deleteObject(modelRef).catch((error) => {}),
-        deleteObject(imagenRef).catch((error) => {})
+        deleteObject(soundRef).catch(() => {}),
+        deleteObject(modelRef).catch(() => {}),
+        deleteObject(imagenRef).catch(() => {})
       ])
   }
 

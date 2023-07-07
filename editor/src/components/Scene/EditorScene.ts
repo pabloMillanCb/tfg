@@ -358,7 +358,7 @@ export default class EditorScene extends THREE.Scene
             this.stopAnimation()
 
             const numberAnimations = this.selectedList[0].animations.length
-            this.selectedList[0].userData["animationIndex"] = mod(this.selectedList[0].userData["animationIndex"] + n, this.selectedList[0].animations.length)
+            this.selectedList[0].userData["animationIndex"] = mod(this.selectedList[0].userData["animationIndex"] + n, numberAnimations)
 
             if (playing) {
                 this.playAnimations()
@@ -423,7 +423,7 @@ export default class EditorScene extends THREE.Scene
                 that.saveArrayBuffer( result, 'objeto.glb' )
             },
 
-            function ( error ) { console.log( 'An error happened' ) }, 
+            function (  ) { console.log( 'An error happened' ) }, 
 
             { binary: true, animations: animations } 
         );
@@ -445,7 +445,7 @@ export default class EditorScene extends THREE.Scene
                 upload(blob)
             },
 
-            function ( error ) { 
+            function (  ) { 
                 console.log( 'An error happened' ) 
             }, 
 

@@ -2,10 +2,9 @@ import Box from "@mui/material/Box"
 import '../styles/SceneList.css'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import SceneInterface from "../interfaces/SceneInterface"
-import axios from "axios";
 import { useScn } from "../controller/sceneController";
 import ModalComponent from "./ModalComponent";
 import { useState } from "react";

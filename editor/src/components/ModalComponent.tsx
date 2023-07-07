@@ -1,6 +1,4 @@
 import { Box, Button, Modal, Stack, Typography } from "@mui/material";
-import { useState } from "react";
-import DeleteIcon from '@mui/icons-material/Delete';
 
 interface ModalInterface {
     open: boolean,
@@ -12,7 +10,7 @@ interface ModalInterface {
     color: string
 }
 
-const ModalComponent = ({tittle, textButton, text, fun, onClose, open, color=''}: ModalInterface) => {
+const ModalComponent = ({tittle, textButton, text, fun, onClose, open}: ModalInterface) => {
 
     const style = {
         position: 'absolute' as 'absolute',

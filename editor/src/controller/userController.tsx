@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect, createContext } from "react"
+import { useContext, useState, useEffect, createContext } from "react"
 import { firebaseAuth } from "../config/firebase-config"
-import { User, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateEmail, updateProfile } from "firebase/auth"
-import { Loader } from "three"
+import { User, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateEmail } from "firebase/auth"
+
 import { useLoading } from "./loadingController"
 
 interface AuthContextInterface {
@@ -26,7 +26,7 @@ export function useAuth() {
 export function AuthProvider( props: AuthContextChildren ) {
   const [currentUser, setCurrentUser] = useState<User | undefined>(undefined)
   const [loadingUser, setLoadingUser] = useState(true)
-  const {loading, setLoading} = useLoading()
+  const { setLoading } = useLoading()
 
   function signup(email: string, password: string) {
     setLoading(true)
