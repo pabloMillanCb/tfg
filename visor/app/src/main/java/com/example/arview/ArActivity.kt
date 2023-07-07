@@ -99,7 +99,11 @@ class ArActivity : AppCompatActivity()
         Log.d("Ground", "Hola")
 
         // Cargamos elementos de la UI
-        sceneView = findViewById(R.id.sceneView)
+        sceneView = findViewById<ArSceneView?>(R.id.sceneView).apply {
+            //lightEstimationMode = Config.LightEstimationMode.ENVIRONMENTAL_HDR
+            //depthEnabled = true
+            instantPlacementEnabled = true
+        }
         loadingView = findViewById(R.id.loadingView)
         newModelButton = findViewById<ExtendedFloatingActionButton>(R.id.newModelButton).apply {
             // Add system bar margins
@@ -115,17 +119,8 @@ class ArActivity : AppCompatActivity()
         }
         newModelButton.isVisible = false
         placeModelButton.isVisible = false
-
-        val jsonData = applicationContext.resources.openRawResource(
-            applicationContext.resources.getIdentifier(
-                "escena_test",
-                "raw", applicationContext.packageName
-            )
-        ).bufferedReader().use{it.readText()}
         parameters = getSerializable(this, "parameters",  SceneParameters::class.java)!!
-
         isLoading = true
-
         storageRef.child(parameters.image_url).downloadUrl.addOnSuccessListener { documents ->
             urlImagen = documents.toString()
             setUpScene()}
@@ -148,8 +143,6 @@ class ArActivity : AppCompatActivity()
             }.addOnFailureListener { Log.d("firebase", "Fracaso") }
         }
 
-        Log.d("Ground", parameters.scene_type)
-
         if (parameters.scene_type == "augmented_images")
         {
             loadImage(urlImagen)
@@ -160,14 +153,13 @@ class ArActivity : AppCompatActivity()
             sceneView.configureSession(this::initialiseSceneViewSession)
             sceneView.planeFindingMode = Config.PlaneFindingMode.DISABLED
             sceneView.onAugmentedImageUpdate += this::checkAugmentedImageUpdate
-            sceneView.planeRenderer.isVisible=false
-            sceneView.planeRenderer.isShadowReceiver=false
+            //sceneView.planeRenderer.isVisible=false
+            //sceneView.planeRenderer.isShadowReceiver=false
         }
         else if (parameters.scene_type == "ground")
         {
-            Log.d("Ground", "Configurando ground")
             // Esta funcion debe ejecutarse una vez al principio antes de poder colocar nodos
-            placeModelNodeGround();
+            //placeModelNodeGround();
 
             newModelButton.isVisible = true
             isLoading = false
@@ -231,22 +223,20 @@ class ArActivity : AppCompatActivity()
             storageRef.child(parameters.model_url).downloadUrl.addOnSuccessListener { documents ->
                 urlModel = documents.toString()
 
-                modelNode.add( ArModelNode(PlacementMode.PLANE_VERTICAL).apply {
-                    applyPoseRotation = false
+                modelNode.add( ArModelNode(PlacementMode.BEST_AVAILABLE).apply {
+                    applyPoseRotation = true
                     loadModelGlbAsync(
                         context = this@ArActivity,
                         lifecycle = lifecycle,
                         glbFileLocation = urlModel,
                         autoAnimate = false,
-                        scaleToUnits = 0.05f,
+                        scaleToUnits = 0.09f,
                         // Place the model origin at the bottom center
                         centerOrigin = Position(0.0f, -1.2f, 0.0f)
                     ) {
-                        sceneView.planeRenderer.isVisible = false
+                        //sceneView.planeRenderer.isVisible = false
                         isLoading = false
                     }
-
-                    modelRotation = Rotation(90.0f, 0.0f, 0.0f)
                 })
             }
                 .addOnFailureListener { Log.d("firebase", "Fracaso") }
@@ -263,19 +253,21 @@ class ArActivity : AppCompatActivity()
 
         modelIndex = modelIndex + 1
         newModelButton.isVisible = false
+        isLoading = true
         var urlModel = ""
         storageRef.child(parameters.model_url).downloadUrl.addOnSuccessListener { documents ->
             urlModel = documents.toString()
 
-            modelNodeGround = ArModelNode(PlacementMode.BEST_AVAILABLE).apply {
-                applyPoseRotation = false
+            modelNodeGround = ArModelNode(PlacementMode.PLANE_HORIZONTAL).apply {
+                applyPoseRotation = true
+                isSmoothPoseEnable = true
                 loadModelGlbAsync(
                     context = this@ArActivity,
                     lifecycle = lifecycle,
                     glbFileLocation = urlModel,
                     autoAnimate = false,
-                    scaleToUnits = 0.2f,
-                    centerOrigin = Position(0.0f, 0.0f, 0.0f)
+                    scaleToUnits = 0.6f,
+                    centerOrigin = Position(y = -1.0f)
                 ) {
                     sceneView.planeRenderer.isVisible = true
                     isLoading = false

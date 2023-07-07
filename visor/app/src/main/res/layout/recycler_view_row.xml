@@ -22,22 +22,24 @@
 
             <TextView
                 android:id="@+id/tituloEscena"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
                 app:layout_constraintEnd_toEndOf="@+id/tarjeta"
                 app:layout_constraintTop_toTopOf="@+id/tarjeta"
                 app:layout_constraintBottom_toBottomOf="@id/tarjeta"
                 app:layout_constraintStart_toStartOf="@id/tarjeta"
                 app:layout_constraintVertical_bias="0.1"
-                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintHorizontal_bias="0.4"
                 android:textSize="25dp"
-                android:text="Titulo de Escena" />
+                android:text="Titulo de Escenaaaaa" />
 
             <TextView
                 android:id="@+id/tipoEscena"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Marcador"
+                android:textAlignment="viewStart"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="@id/tarjeta"
                 app:layout_constraintEnd_toEndOf="@+id/tarjeta"
