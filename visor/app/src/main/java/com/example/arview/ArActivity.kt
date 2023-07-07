@@ -121,10 +121,17 @@ class ArActivity : AppCompatActivity()
         placeModelButton.isVisible = false
         parameters = getSerializable(this, "parameters",  SceneParameters::class.java)!!
         isLoading = true
-        storageRef.child(parameters.image_url).downloadUrl.addOnSuccessListener { documents ->
-            urlImagen = documents.toString()
-            setUpScene()}
-            .addOnFailureListener { Log.d("firebase", "Fracaso") }
+        if (parameters.image_url != "")
+        {
+            storageRef.child(parameters.image_url).downloadUrl.addOnSuccessListener { documents ->
+                urlImagen = documents.toString()
+                setUpScene()}
+                .addOnFailureListener { Log.d("firebase", "Fracaso") }
+        }
+        else {
+            setUpScene()
+        }
+
     }
 
     fun setUpScene()
@@ -133,11 +140,11 @@ class ArActivity : AppCompatActivity()
         {
             storageRef.child(parameters.audio).downloadUrl.addOnSuccessListener { documents ->
                 var urlAudio = documents.toString()
-                audio = MediaPlayer.create(this, Uri.parse(parameters.audio))
+                audio = MediaPlayer.create(this, Uri.parse(urlAudio))
                 // Se activa la reproducción automática de audios al finalizar si el contenido loopea
                 if (parameters.loop == true) {
-                    audio!!.setOnCompletionListener {
-                        audio!!.start()
+                    audio?.setOnCompletionListener {
+                        audio?.start()
                     }
                 }
             }.addOnFailureListener { Log.d("firebase", "Fracaso") }
@@ -208,6 +215,12 @@ class ArActivity : AppCompatActivity()
             }
         }
     }
+
+    override fun onStop() {
+        super.onStop()
+        audio?.release()
+    }
+
     fun createModelNodes(poseRotation: Boolean)
     {
         Log.d("Geo", "Creando nodos")
