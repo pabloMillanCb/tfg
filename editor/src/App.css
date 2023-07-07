@@ -19,6 +19,12 @@ body {
     justify-content: center;
   }
 
+  .center-v {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .margin {
     margin: 20px
   }

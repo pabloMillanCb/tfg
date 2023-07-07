@@ -37,7 +37,7 @@ function App() {
     "audio": "",
     "loop": true,
     "image_url": "",
-    "coordinates": [],
+    "coordinates": [0, 0, 0],
     "model_url": "",
     "animations" : []
   }

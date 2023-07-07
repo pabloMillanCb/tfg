@@ -5,7 +5,7 @@ export default interface SceneInterface {
     audio: string,
     loop: boolean,
     image_url: string,
-    coordinates: [],
+    coordinates: [number, number, number],
     model_url: string,
     animations : []
   }

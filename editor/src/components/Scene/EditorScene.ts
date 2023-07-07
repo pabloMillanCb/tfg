@@ -67,27 +67,27 @@ export default class EditorScene extends THREE.Scene
         }
 
         // Limita las escalas para que sean uniformes en todos los ejes
-        for (let i = 0; i < this.liveObjects.children.length; i++){
+        // for (let i = 0; i < this.liveObjects.children.length; i++){
 
-            var objectScale = this.liveObjects.children[i].scale
-            var scale
+        //     var objectScale = this.liveObjects.children[i].scale
+        //     var scale
 
-            //Se comprueba si ha cambiado la escala en x, y o z
-            if (objectScale.x != objectScale.y && objectScale.x != objectScale.z){
-                scale = objectScale.x
-            }
-            else if (objectScale.y != objectScale.x && objectScale.y != objectScale.z){
-                scale = objectScale.y
-            }
-            else {
-                scale = objectScale.z
-            }
+        //     //Se comprueba si ha cambiado la escala en x, y o z
+        //     if (objectScale.x != objectScale.y && objectScale.x != objectScale.z){
+        //         scale = objectScale.x
+        //     }
+        //     else if (objectScale.y != objectScale.x && objectScale.y != objectScale.z){
+        //         scale = objectScale.y
+        //     }
+        //     else {
+        //         scale = objectScale.z
+        //     }
 
-            // Se aplica la escala alterada al resto de ejes
-            this.liveObjects.children[i].scale.x = scale
-            this.liveObjects.children[i].scale.y = scale
-            this.liveObjects.children[i].scale.z = scale
-        }
+        //     // Se aplica la escala alterada al resto de ejes
+        //     this.liveObjects.children[i].scale.x = scale
+        //     this.liveObjects.children[i].scale.y = scale
+        //     this.liveObjects.children[i].scale.z = scale
+        // }
 
     }
 
@@ -149,6 +149,10 @@ export default class EditorScene extends THREE.Scene
         this.liveObjects.add(obj)
         obj.name = "alive"
         obj.userData["animationIndex"] = 0
+        if(obj.animations.length == 0)
+        {
+            obj.userData["animationIndex"] = -1
+        }
 
         //(this.liveObjects)
     }
@@ -342,18 +346,39 @@ export default class EditorScene extends THREE.Scene
         this.mixer = []
     }
 
-    changeAnimationSelectedObjects()
+    changeAnimationSelectedObjects(n: number, playing: boolean): number
     {
-        this.stopAnimation()
-        for (let i = 0; i < this.selectedList.length; i++)
+        var mod = function (n: number, m: number) {
+            var remain = n % m;
+            return Math.floor(remain >= 0 ? remain : remain + m);
+        };
+
+        if (this.selectedList.length == 1)
         {
-            const numAnimations = this.selectedList[i].animations.length
-            if (numAnimations > 1)
-            {
-                this.selectedList[i].userData["animationIndex"] = (this.selectedList[i].userData["animationIndex"] + 1) % numAnimations
+            this.stopAnimation()
+
+            const numberAnimations = this.selectedList[0].animations.length
+            this.selectedList[0].userData["animationIndex"] = mod(this.selectedList[0].userData["animationIndex"] + n, this.selectedList[0].animations.length)
+
+            if (playing) {
+                this.playAnimations()
             }
+            return this.selectedList[0].userData["animationIndex"]
         }
-        this.playAnimations()
+        
+
+        return -1
+        
+    }
+
+    getAnimationSelectedObject()
+    {
+        if (this.selectedList.length == 1)
+        {
+            return this.selectedList[0].userData["animationIndex"]
+        }
+
+        return -1
     }
 
     getModelJson()
