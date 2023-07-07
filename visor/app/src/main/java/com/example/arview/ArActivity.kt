@@ -431,7 +431,7 @@ class ArActivity : AppCompatActivity()
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED -> {
-                Log.d("Geo","YA TENGO LOS PERMISOS")
+
             }
             else -> {
                 locationPermissionRequest.launch(arrayOf( Manifest.permission.ACCESS_COARSE_LOCATION,

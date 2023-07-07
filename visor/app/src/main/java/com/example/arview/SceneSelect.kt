@@ -26,6 +26,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class SceneSelect : AppCompatActivity() {
 
     private lateinit var binding:ActivitySceneSelectBinding
@@ -65,7 +66,7 @@ class SceneSelect : AppCompatActivity() {
 
     private suspend fun getRetrofit(token: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://tfg-backend-gu2x.onrender.com/get/escenas/")
+            .baseUrl(SERVER_URL + "/get/escenas/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(getClient(token))
             .build()

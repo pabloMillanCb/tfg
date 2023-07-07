@@ -4,6 +4,7 @@ import axios from "axios"
 import SceneInterface from "../interfaces/SceneInterface"
 import { deleteObject, getStorage, ref, uploadBytes } from "firebase/storage"
 import { useLoading } from "./loadingController"
+import { SERVER_URL } from "../config/server-config"
 
 interface SceneContextInterface {
     getScenesFromUser(): Promise<SceneInterface[]>,
@@ -35,7 +36,7 @@ export function SceneProvider( props: SceneContextChildren ) {
   async function getScenesFromUser(): Promise<SceneInterface[]> {
     
     const token = await currentUser?.getIdToken()
-    const res = await axios.get('http://localhost:5000/get/escenas/'+currentUser?.uid, {
+    const res = await axios.get(SERVER_URL+'/get/escenas/'+currentUser?.uid, {
         headers: {
           Authorization: 'Bearer ' + token,
   
@@ -59,7 +60,7 @@ export function SceneProvider( props: SceneContextChildren ) {
   async function postScene(json: string, model: Blob | File, img: File | undefined, sound: File | undefined)
   :Promise<string> {
     const token = await currentUser?.getIdToken()
-    const res = await axios.post('http://localhost:5000/post/escenas', JSON.parse(json), {
+    const res = await axios.post(SERVER_URL+'/post/escenas', JSON.parse(json), {
         headers: {
           Authorization: 'Bearer ' + token,
         }
@@ -105,7 +106,7 @@ export function SceneProvider( props: SceneContextChildren ) {
   :Promise<string> {
 
     const token = await currentUser?.getIdToken()
-    const res = await axios.put('http://localhost:5000/update/escenas/'+id, JSON.parse(json), {
+    const res = await axios.put(SERVER_URL+'/update/escenas/'+id, JSON.parse(json), {
         headers: {
           Authorization: 'Bearer ' + token,
         }
@@ -148,7 +149,7 @@ export function SceneProvider( props: SceneContextChildren ) {
 
   async function deleteScene(id: string) {
     const token = await currentUser?.getIdToken()
-    const res = await axios.delete('http://localhost:5000/delete/escenas/'+id, {
+    const res = await axios.delete(SERVER_URL+'/delete/escenas/'+id, {
         headers: {
           Authorization: 'Bearer ' + token,
         },
