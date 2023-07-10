@@ -18,19 +18,12 @@ Como ya se mencionó en capítulos anteriores, se usaría la biblioteca de \text
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.50]{reactfolder}
-    \caption[Estructura de directorios de React]{Estructura de directorios final de la aplicación web de React.}
-    \label{fig:reactfolder}
+    \includegraphics[scale=0.4]{reactdiagram}
+    \caption[Diagrama de componentes React de aplicación web]{Diagrama de componentes de React para la aplicación web.}
+    \label{fig:reactdiagram}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.50]{componentfolder}
-    \caption[Componentes del proyecto React]{Lista de componentes del proyecto de la apliación web.}
-    \label{fig:componentfolder}
-\end{figure}
-
-El bloque de construcción básico de las aplicaciones en React son los \textbf{componentes}. Estos son elementos funcionales de interfaz, reutilizables, anidables y parametrizables. Se escriben en la extensión de TypeScript \textit{.tsx}, y se encuentran en la carpeta \textit{src/components} del proyecto. Un componente puede ser por ejemplo un botón que haga una acción específica, o la cabecera de una página, un menú desplegable, etc. El corazón de la aplicación se encuentra en el componente \textbf{EditorComponent.tsx}, que gestiona el editor 3D y su interacción con el usuario.
+El bloque de construcción básico de las aplicaciones en React son los \textbf{componentes}. Estos son elementos funcionales de interfaz, reutilizables, anidables y parametrizables. Se escriben en la extensión de TypeScript \textit{.tsx}, y se encuentran en la carpeta \textit{src/components} del proyecto. Un componente puede ser por ejemplo un botón que haga una acción específica, o la cabecera de una página, un menú desplegable, etc. El corazón de la aplicación se encuentra en el componente \textbf{EditorComponent.tsx}, que gestiona el editor 3D y su interacción con el usuario. Se puede apreciar la estructura de los diagramas del proyecto en la figura \ref{fig:reactdiagram}.
 
 \subsection{Renderización de entorno 3D}
 
@@ -214,9 +207,9 @@ Se introdujeron mensajes en las páginas de inicio de sesión, registro y cambio
 
 Al ser una aplicación web, puede accederse desde cualquier navegador, incluidos \textit{smartphones}, los cuales cuentan con una pantalla reducida y controles táctiles que hacen que el editor no sea manejable desde ahí. Esto no es un inconveniento porque no se diseñó con estos dispositivos en mente, pero si algún usuario entrara desde uno y viera que al interfaz no se adapta a la pantalla y los controles fallan, le resultaría frustrante. Es por eso que se optó por una solución vista en \textit{Onirix Studio}\cite{onirix}. Al detectar que la aplicación se muestra en un dispositivo o ventana demasiado pequeña, se superpone un mensaje con un aviso para que el usuario sepa que la aplicación debe ser accedida desde un ordenador (figura \ref{fig:warning}). Este mensaje bloquea el resto de la aplicación.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{warning}
+    \includegraphics[scale=0.20]{warning}
     \caption[Mensaje de advertencia para dispositvos no soportados]{Si el usuario entra en la app desde un dispositivo no soportado, mostrará este mensaje.Icono sacado de \url{https://www.flaticon.com/authors/vectorsmarket15}.}
     \label{fig:warning}
 \end{figure}
@@ -224,9 +217,14 @@ Al ser una aplicación web, puede accederse desde cualquier navegador, incluidos
 
 \section{Reproductor de escenas Android}
 
-La aplicación Android se compone de tres elementos básicos: una página de inicio de sesión, una página con el listado de las escenas creadas por el usuario activo, y el visor de Realidad Aumentada en función de la escena seleccionada. Se planteó también en un principio una página de registro de usuario pero se descartó debido a que si una persona accedía al sistema por primera vez desde esta app no tendría ninguna escena para reproducir. Por tanto, el registro de usuarios se mantendría únicamente en el editor web. Antes de comenzar con la programación se realizaron diseños para las distintas páginas de la aplicación y la navegabilidad entre estas. Estas páginas reciben el nombre de \textit{actividades} en Android Studio y se representan con una clase Kotlin y un archivo \textit{XML} para la interfaz.
+La aplicación Android se compone de tres elementos básicos: una página de inicio de sesión, una página con el listado de las escenas creadas por el usuario activo, y el visor de Realidad Aumentada en función de la escena seleccionada. Se planteó también en un principio una página de registro de usuario pero se descartó debido a que si una persona accedía al sistema por primera vez desde esta app no tendría ninguna escena para reproducir. Por tanto, el registro de usuarios se mantendría únicamente en el editor web. Antes de comenzar con la programación se realizaron diseños para las distintas páginas de la aplicación y la navegabilidad entre estas. Estas páginas reciben el nombre de \textit{actividades} en Android Studio y se representan con una clase Kotlin y un archivo \textit{XML} para la interfaz. En la figura \ref{fig:diagramaAndroid} se puede ver un diagrama de \textit{actividades}.
 
-%% figura navegación app android
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{diagramaAndroid}
+    \caption[Diagrama de actividades Android Studio]{Diagrama de Actividades para el proyecto de Android Studio.}
+    \label{fig:diagramaAndroid}
+\end{figure}
 
 \subsection{Archivo de configuración de escena}
 
