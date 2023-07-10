@@ -20,12 +20,14 @@ Como ya se mencionó en capítulos anteriores, se usaría la biblioteca de \text
     \centering
     \includegraphics[scale=0.50]{reactfolder}
     \caption[Estructura de directorios de React]{Estructura de directorios final de la aplicación web de React.}
+    \label{fig:reactfolder}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.50]{componentfolder}
     \caption[Componentes del proyecto React]{Lista de componentes del proyecto de la apliación web.}
+    \label{fig:componentfolder}
 \end{figure}
 
 El bloque de construcción básico de las aplicaciones en React son los \textbf{componentes}. Estos son elementos funcionales de interfaz, reutilizables, anidables y parametrizables. Se escriben en la extensión de TypeScript \textit{.tsx}, y se encuentran en la carpeta \textit{src/components} del proyecto. Un componente puede ser por ejemplo un botón que haga una acción específica, o la cabecera de una página, un menú desplegable, etc. El corazón de la aplicación se encuentra en el componente \textbf{EditorComponent.tsx}, que gestiona el editor 3D y su interacción con el usuario.
@@ -42,12 +44,13 @@ Para la manipulación de la cámara se adoptaron controles estándares presentes
 
 El usuario debe poder seleccionar un objeto de la escena colocando el ratón sobre él y haciendo clic. Esto le servirá para, una vez elegido un modelo, poder manipularlo moviéndolo, rotándolo o escalándolo sin afectar al resto de objetos de la escena. Esto presenta el problema de cómo saber cual es el objeto que se ha seleccionado. Para ello se utilizó un \textbf{raycaster}. Es un recurso muy usado en la informática gráfica y disponible en la librería de Three.js. Consiste en disparar una suerte de haz o rayo desde un punto de la escena y en una dirección. Este disparo atraviesa los objetos 3D que se encuentra en su camino y devuelve una lista ordenada de los modelos con los que ha colisionado. Para este proyecto se implementó un raycast desde el punto en el que se encuentra la cámara (es decir, la perspectiva del usuario) y en dirección al punto en el que se hace clic. De esta forma el rayo ensarta el punto en el que se ha pulsado, y si había un objeto debajo, colisionará con él. En la clase de raycast que implementa \textit{Three,js} se le debe pasar como parámetro una \textit{Scene} o un \textit{Group}, un objeto especial que tiene como hijos una lista de objetos. El rayo solo detectará colisiones con objetos de dicha lista o que pertenezcan a la \textit{scene}. Aparece así otro problema: si se pasa la \textit{scene} como parámetro detectaría cualquier objeto que haya en esta, no solo los que haya añadido el usuario.
 
-Se debe distinguir entre dos tipos de objetos que se encontrarán en la escena: los dinámicos que los añade el usuario y son interactuables por este, y los estáticos, que se crean al iniciarse el espacio 3D automáticamente y tienen de propósito servir de referencia visual, como por ejemplo un \textit{grid} que simboliza dónde está el suelo. Todos estos objetos se deben añadir a la \textit{scene} como hijos de esta usando \textit{scene.add(object)}. Para diferenciar las dos clases de elementos se añade a la escena un \textit{Group} con el nombre de \textbf{liveObjects}. Los modelos introducidos por el usuario serán entonces añadidos como objetos a este atributo, y será el parámetro que se pasará al raycaster para que solo reconozca objetos \textit{dinámicos}, solucionando así el problema de reconocimiento. Para eliminar objetos de la escena simplemente habría que desconectar al nodo hijo correspondiente de \textit{liveObjects}.
+Se debe distinguir entre dos tipos de objetos que se encontrarán en la escena: los dinámicos que los añade el usuario y son interactuables por este, y los estáticos, que se crean al iniciarse el espacio 3D automáticamente y tienen de propósito servir de referencia visual, como por ejemplo un \textit{grid} (figura \ref{fig:grid}) que simboliza dónde está el suelo. Todos estos objetos se deben añadir a la \textit{scene} como hijos de esta usando \textit{scene.add(object)}. Para diferenciar las dos clases de elementos se añade a la escena un \textit{Group} con el nombre de \textbf{liveObjects}. Los modelos introducidos por el usuario serán entonces añadidos como objetos a este atributo, y será el parámetro que se pasará al raycaster para que solo reconozca objetos \textit{dinámicos}, solucionando así el problema de reconocimiento. Para eliminar objetos de la escena simplemente habría que desconectar al nodo hijo correspondiente de \textit{liveObjects}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.30]{grid}
     \caption[Grid del editor de escenas]{Grid del editor de escenas para tener de referencia como suelo.}
+    \label{fig:grid}
 \end{figure}
 
 Sin embargo, esto ocasiona otro problema. Se ha comentado anteriormente que un objeto 3D puede ser hijo de otro, y esto es muchas veces el caso con los modelos que se pueden encontrar en la web. Es muy probable que si por ejemplo se carga en la escena a \textit{robot.glb}, este esté hecho de múltiples objetos 3D. Uno de estos podría ser su brazo, su cabeza o su cuerpo. Esto es problemático porque si fuera el caso y se hace clic en el brazo del robot con la intención de seleccionar el modelo entero, el raycaster solo devolverá información sobre el nodo hijo. Para solucionar esto se hizo uso del atributo \textbf{name} que tienen todos los \textit{Object3D} de Three. Este atributo es un string con el que se puede asignar un nombre al objeto. 
@@ -90,15 +93,16 @@ Un detalle que tuvo que tenerse en cuenta fue que \textit{GLTFExporter} al empaq
 
 Llegados a este punto la escena se cargaba correctamente pero surgió un problema derivado de las animaciones de los archivos exportados. Para explicar la resolución es necesario aclarar algunos detalles sobre las animaciones en Three.js.
 
-Las animaciones de un modelo se guardan en un atributo de \textit{Object3D} llamado \textbf{animations}, un array de objetos \textit{AnimationClip}. Estos objetos a su vez tienen entre sus atributos un array de \textit{KeyframeTrack}, objetos que almacenan secuencias de \textit{keyframes} con información sobre las transformaciones que realiza la animación a un objeto. ¿Cómo saben estas estructuras de datos a qué nodo se deben aplicar estos movimientos? \textbf{A través del \textit{name}} de los \textit{Object3D} de la escena. En resumen: las animaciones saben qué nodo deben mover porque los identifican con su nombre.
+Como se muestra en la figura \ref{fig:}, las animaciones de un modelo se guardan en un atributo de \textit{Object3D} llamado \textbf{animations}, un array de objetos \textit{AnimationClip}. Estos objetos a su vez tienen entre sus atributos un array de \textit{KeyframeTrack}, objetos que almacenan secuencias de \textit{keyframes} con información sobre las transformaciones que realiza la animación a un objeto. ¿Cómo saben estas estructuras de datos a qué nodo se deben aplicar estos movimientos? \textbf{A través del \textit{name}} de los \textit{Object3D} de la escena. En resumen: las animaciones saben qué nodo deben mover porque los identifican con su nombre.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.55]{animationesquema}
     \caption[Esquema de estructura de datos para animaciones]{Esquema de las estructuras de datos de \textit{Object3D}, \textit{AnimationClip} y \textit{KeyframeTrack} para la reproducción de animaciones.}
+    \label{fig:animationesquema}
 \end{figure}
 
-Por otro lado, \textit{GLTFExporter} al exportar la escena tiene un comportamiento muy relevante para este caso: \textbf{si dos nodos tienen el mismo nombre, modifica uno de ellos}. Por ejemplo, si hubiera dos nodos llamados \textit{hand}, al segundo lo renombraría como \textit{hand\_1}
+Por otro lado, \textit{GLTFExporter} al exportar la escena tiene un comportamiento muy relevante para este caso: \textbf{si dos nodos tienen el mismo nombre, modifica uno de ellos}. Por ejemplo, si hubiera dos nodos llamados \textit{hand}, al segundo lo renombraría como \textit{hand\_1}.
 
 Sabiendo esto se puede describir el verdadero problema: \textbf{si dos modelos tienen una animación apuntando al nodo \textit{hand}, solo se moverá el primer objeto}, ya que las animaciones del segundo apuntarán también a \textit{hand}, pero el nodo equivalente del segundo modelo en realidad se llama \textit{hand\_1} y no se ve afectado por la animación. Este fue un punto crítico del desarrollo, ya que de arreglar esto dependía poder ahorrar luego mucho tiempo de en el backend y simplificar el funcionamiento del sistema. 
 
@@ -114,21 +118,29 @@ Los audios asociados a las escenas se manejan desde \textbf{EditorSceneControlle
 
 Ahora se discutirá el \textbf{EditorComponent.tsx} en sí, el componente que contiene la interfaz del editor y realiza las llamadas pertinentes a \textit{EditorSceneController} en función del input del usuario.
 
-Todo lo que a la interfaz se refiere se diseñó previamente en \textbf{Figma}\cite{figma}, un software para \textit{mockups} de interfaces de usuario. Todos los elementos como botones, selectores y cajas de texto se implementaron usando \textit{MUI Core}, una librería de React para la creación de interfaces de usuario. Ofrece todos los bloques fundamentales que pueden necesitarse para la construcción de aplicaciones web y además adopta \textit{Material}, unas directrices de diseño lanzadas por Google para interfaces web y móviles. Es lo mismo que se acabaría empleando en la aplicación Android, así que de entre todas las librerías que existían con el mismo propósito, se eligió esta para unificar en la medida de lo posible el estilo de las aplicaciones web y de móvil del proyecto.
+Todo lo que a la interfaz se refiere se diseñó previamente en \textbf{Figma}\cite{figma} (figura \ref{fig:editorfigma}), un software para \textit{mockups} de interfaces de usuario. Todos los elementos como botones, selectores y cajas de texto se implementaron usando \textit{MUI Core}, una librería de React para la creación de interfaces de usuario. Ofrece todos los bloques fundamentales que pueden necesitarse para la construcción de aplicaciones web y además adopta \textit{Material}, unas directrices de diseño lanzadas por Google para interfaces web y móviles. Es lo mismo que se acabaría empleando en la aplicación Android, así que de entre todas las librerías que existían con el mismo propósito, se eligió esta para unificar en la medida de lo posible el estilo de las aplicaciones web y de móvil del proyecto.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.07]{editorfigma}
     \caption[Mockup de la UI de la aplicación web]{Mockup de la UI de la aplicación web realizado en \textit{Figma}}
+    \label{fig:editorfigma}
 \end{figure}
 
-La interfaz se dividió en tres secciones:
+La interfaz (figura \ref{fig:editorfinal}) se dividió en tres secciones:
 
 \begin{enumerate}
     \item La barra superior. Aquí se encontrarían los botones para exportar y guardar la escena, un cuadro de texto para introducir el nombre de la misma, y un botón para volver al anterior menú.
     \item La barra lateral, un panel de control con todas las opciones para configurar la escena AR.
     \item El \textit{canvas}, todo el espacio sobrante entre las dos barras donde se renderizaría el entorno 3D del editor.
 \end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.19]{editorfinal}
+    \caption[Interfaz de usuario para el editor de escenas]{Interfaz de usuario final para el editor de escenas.}
+    \label{fig:editorfinal}
+\end{figure}
 
 En este componente y en el resto de la aplicación se emplean los llamados \textit{hooks} de React. Estas son unas funciones JavaScript que entre otras cosas permiten dotar de estado a un componente, ya que de normal no tienen. Por ejemplo, si se quisiera hacer un contador de clics, este tendría que tener el número de pulsaciones actual guardado. Esto es posible gracias al hook de \textbf{useState}, que permite almacenar variables persistentes entre distintas renderizaciones de un componente. En este proyecto se utiliza entre otras cosas para almacenar la instancia de \textit{EditorSceneController} que se crea al iniciar una escena por primera vez y renderizarlo en el \textit{canvas}.
 
@@ -154,12 +166,6 @@ Para el panel de control lateral se tienen las siguientes utilidades:
             \item Superficie: No se muestra ningún menú adicional.
         \end{itemize}
 \end{itemize}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.19]{editorfinal}
-    \caption[Interfaz de usuario para el editor de escenas]{Interfaz de usuario final para el editor de escenas.}
-\end{figure}
 
 \subsection{Carga de archivos}
 
@@ -202,7 +208,19 @@ Existían muchos momentos en la aplicación que suponían una espera para el usu
 
 \subsection{Mensajes de incidencia y avisos}
 
-Se introdujeron mensajes en las páginas de inicio de sesión, registro y cambio de datos para alertar al usuario el motivo del error a la hora de realizar una operación no exitosa. Por ejemplo contraseña o correo incorrecto, clave poco segura, correo inválido o ya registrado, etc. También se añadieron mensajes de confirmación en acciones irreversibles como al eliminar una escena (\textit{¿seguro que desea eliminarla?}) o al abandonar el editor durante la creación de una escena (\textit{¿seguro? Se eliminarán los cambios no guardados}).
+Se introdujeron mensajes en las páginas de inicio de sesión, registro y cambio de datos para alertar al usuario el motivo del error a la hora de realizar una operación no exitosa. Por ejemplo contraseña o correo incorrecto, clave poco segura, correo inválido o ya registrado, etc. También se añadieron mensajes de confirmación en forma de \textit{modales} en acciones irreversibles como al eliminar una escena (\textit{¿seguro que desea eliminarla?}) o al abandonar el editor durante la creación de una escena (\textit{¿seguro? Se eliminarán los cambios no guardados}).
+
+\subsection{Dispositivos no soportados}
+
+Al ser una aplicación web, puede accederse desde cualquier navegador, incluidos \textit{smartphones}, los cuales cuentan con una pantalla reducida y controles táctiles que hacen que el editor no sea manejable desde ahí. Esto no es un inconveniento porque no se diseñó con estos dispositivos en mente, pero si algún usuario entrara desde uno y viera que al interfaz no se adapta a la pantalla y los controles fallan, le resultaría frustrante. Es por eso que se optó por una solución vista en \textit{Onirix Studio}\cite{onirix}. Al detectar que la aplicación se muestra en un dispositivo o ventana demasiado pequeña, se superpone un mensaje con un aviso para que el usuario sepa que la aplicación debe ser accedida desde un ordenador (figura \ref{fig:warning}). Este mensaje bloquea el resto de la aplicación.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{warning}
+    \caption[Mensaje de advertencia para dispositvos no soportados]{Si el usuario entra en la app desde un dispositivo no soportado, mostrará este mensaje.Icono sacado de \url{https://www.flaticon.com/authors/vectorsmarket15}.}
+    \label{fig:warning}
+\end{figure}
+
 
 \section{Reproductor de escenas Android}
 
@@ -238,18 +256,19 @@ Ahora se debe definir la función \textit{checkAugmentedImageUpdate} e introduci
 
 Para cargar el modelo en la escena solo es necesario instanciar un objeto de clase \textit{ArModelNode} con los siguientes parámetros:
 
+\begin{itemize}
+    \item \textbf{glbFileLocation}: Enlace de descarga del modelo. Se puede obtener de \textit{SceneParameters}. La clase se encargará de descargarlo automáticamente.
+    \item \textbf{applyPoseRotation}: En caso de ser verdadero, aplica una rotación al modelo de la escena para que siempre se muestre apoyado en la imagen independientemente de la inclinación de esta.
+    \item \textbf{scaleToUnits}: Multiplicador de escala que se le aplica al modelo. En un proceso de prueba y error se determinó que, para que el tamaño relativo del modelo a la imagen fuera lo más equivalente posible al del editor web, este parámetro tendría un valor de \textit{0.09}. Resultado en la figura \ref{fig:compeditor}.
+\end{itemize}
+
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.30]{compeditor}
     \includegraphics[scale=0.356]{compapp}
     \caption[Comparación de tamaños de modelo en editor y visor]{Comparación de tamaños respecto a la imagen en el editor y en el visor}
+    \label{fig:compeditor}
 \end{figure}
-
-\begin{itemize}
-    \item \textbf{glbFileLocation}: Enlace de descarga del modelo. Se puede obtener de \textit{SceneParameters}. La clase se encargará de descargarlo automáticamente.
-    \item \textbf{applyPoseRotation}: En caso de ser verdadero, aplica una rotación al modelo de la escena para que siempre se muestre apoyado en la imagen independientemente de la inclinación de esta.
-    \item \textbf{scaleToUnits}: Multiplicador de escala que se le aplica al modelo. En un proceso de prueba y error se determinó que, para que el tamaño relativo del modelo a la imagen fuera lo más equivalente posible al del editor web, este parámetro tendría un valor de \textit{0.09}.
-\end{itemize}
 
 Este objeto se almacenará en un atributo de clase de la actividad y será el que se ancle a la posición de la imagen desde la función \textit{checkAugmentedImageUpdate}.
 
@@ -316,6 +335,7 @@ Al igual que con la aplicación web, se usó \textit{Vite} para iniciar un proye
     \centering
     \includegraphics[scale=0.60]{backendfolder}
     \caption[Estructura de archivos de backend]{Estructura de archivos del proyecto de Node.js para el backend}
+    \label{fig:backendfolder}
 \end{figure}
 
 En la carpeta \textit{util} se almacenan scripts que cargan los objetos \textit{admin} y \textit{db} de \textit{Firebase} a través de los cuales se realizarán las llamadas a la base de datos. En la carpeta \textit{handlers} se encuentran las funciones que gestionan las peticiones de la API. Aquí es donde se hace la conexión con \textit{Firebase} para obtener los datos que se devolverán. Cada función tiene dos argumentos:
@@ -331,12 +351,146 @@ Se cuenta con tres agentes en la red: \textit{App}, que hace referencia a la apl
 
 Pero, si para el inicio de sesión se prescinde del servidor intermediario, ¿por qué no para todo lo demás? Por dos razones. La primera es que eso supondría programar todas las operaciones de las que se ocupa el servidor en una clase para React y Android Studio, lo cual sería redundante: repetiríamos código en dos proyectos distintos. Si en un futuro se quisiera actualizar alguna de estas funciones, tendría que hacerse por partida doble. Por otro lado teniendo el servidor intermedio obtenemos mayor modularidad. Al final su función es únicamente gestionar las peticiones que se hacen a la base de datos de escenas. Si en un futuro se decidiera sustituir esa base de datos por una opción más conveniente y queriendo mantener el \textit{Authentication} de Firebase para la parte de usuarios, sería posible y fácilmente implementable con la estructura que se propone.
 
+Para asegurar que el usuario que realiza las llamadas es realmente de quien dice ser, se hace uso de \textit{JWT} (\textit{JSON Web Tokens}). Es un estándar con el que se puede propagar entre dos partes y de forma segura la identidad de un usuario. En esencia es una cadena de texto codificada que puede enviarse junto a las peticiones para firmarlas verificando la identidad. El servicio \textit{Authentication} de Firebase genera un \textit{JWT} para cada usuario identificado que se puede obtener desde el cliente. En la implementación llevada a cabo, las aplicaciones envían al servidor por cada petición un token. Este es recibido por el servidor, y antes de atender la petición recibida, comprueba con \textit{Firebase} que el token es válido. Si es el caso, se atiende a la petición y se envía la respuesta. Los tokens tienen validez durante una hora. Una vez transcurrido ese tiempo, \textit{Firebase} genera uno nuevo el cual vuelve a ser obtenible desde la aplicación (figura \ref{fig:esquemabackend}).
+
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.50]{esquema-backend}
     \caption[Diagrama de comunicaciones del servidor]{Diagrama de comunicaciones del servidor}
+    \label{fig:esquemabackend}
 \end{figure}
 
-Para asegurar que el usuario que realiza las llamadas es realmente de quien dice ser, se hace uso de \textit{JWT} (\textit{JSON Web Tokens}). Es un estándar con el que se puede propagar entre dos partes y de forma segura la identidad de un usuario. En esencia es una cadena de texto codificada que puede enviarse junto a las peticiones para firmarlas verificando la identidad. El servicio \textit{Authentication} de Firebase genera un \textit{JWT} para cada usuario identificado que se puede obtener desde el cliente. En la implementación llevada a cabo, las aplicaciones envían al servidor por cada petición un token. Este es recibido por el servidor, y antes de atender la petición recibida, comprueba con \textit{Firebase} que el token es válido. Si es el caso, se atiende a la petición y se envía la respuesta. Los tokens tienen validez durante una hora. Una vez transcurrido ese tiempo, \textit{Firebase} genera uno nuevo el cual vuelve a ser obtenible desde la aplicación.
-
 En el proyecto de Node.js se realiza esta verificación en la función \textit{decodeToken} dentro del archivo \textit{middleware.js}. Esta comprobación ocurre a cada petición que llega. Si es exitosa comienza a ejecutarse el código que atiende la petición. Si no lo es, devuelve un mensaje de error y termina la comunicación.
+
+\section{Pruebas y corrección de \textit{bugs}}
+
+Para la detección y corrección de \textit{bugs} en el proyecto por un lado se realizaron las pruebas de aceptación definidas en las historias del capítulo 4. Además, se dio la aplicación a probar a varios usuarios, lo cual no solo sirvió para destapar más errores en el sistema, si no para comprobar que la interfaz era intuitiva y manejable.
+
+Cada vez que se descubría algún \textit{bug} en alguna de estas pruebas, se añadía al backlog de la planificación en el sprint correspondiente como una tarea más con la nomenclatura de \textit{FIX-N} y una descripción de el error y por qué fue causado. Los errores encontrados son los siguientes:
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-01}           & \textbf{Horas totales: 4}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Al cargar el modelo previamente exportado de una escena, el primero de los objetos que la constituyen se mueve de forma independiente, pero el resto de ellos se comportan como si fueran un objeto único, moviéndose a la vez y eliminándose todos si se borra alguno.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-01}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-02}           & \textbf{Horas totales: 1}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{El usuario crea una escena de tipo marcador. Sube un archivo de imagen y guarda la escena. Vuelve a la lista de escenas. Vuelve a cargar la escena y cambia el tipo a superficie. La imagen desaparece. Guarda la escena, sale del editor y vuelve a entrar. Al cargarse la escena aparece también la imagen aunque ya no sea de tipo marcador.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-02}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-03}           & \textbf{Horas totales: 1}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Al borrarse una escena de la base de datos no se eliminan correctamente los archivos asociados como modelos, imágenes y audio.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-03}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-04}           & \textbf{Horas totales: 1}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Cuando una sesión dura aproximadamente más de una hora, las conexiones empiezan a fallar con motivo de token inválido. No se soluciona hasta cerrar sesión y volver a iniciarla.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-04}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-05}           & \textbf{Horas totales: 0.5}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Cuando se carga un modelo a la escena no se muestra la animación de carga.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-05}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-06}           & \textbf{Horas totales: 0.5}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Al introducir manualmente en el navegador la dirección de alguna ruta de enlace protegida, es posible acceder a estas aun sin haber iniciado sesión.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-06}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-07}           & \textbf{Horas totales: 1}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Al cargar una escena geoespacial no se cargan en el menú los valores para la posición GPS que hay guardada en el servidor.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-07}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-08}           & \textbf{Horas totales: 0.5}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{Al reproducir una escena con audio asociado y retroceder al menú de selección de escena la música no se detiene.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-08}
+\end{table}
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Tarea: FIX-09}           & \textbf{Horas totales: 0.5}            & \multicolumn{3}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{}} \\ \hline
+			\multicolumn{5}{|l|}{\parbox{12cm}{En la aplicación web desplegada no es posible acceder a la página de registro concretamente. Se muestra en pantalla un error 404.}}                   \\ \hline
+		\end{tabular}%|m{15cm}
+	}
+\label{FIX-09}
+\end{table}
+
+\section{Despliegue}
+
+En lo que respecta a \textit{Firebase} no hubo que hacer ningún paso adicional para el despliegue a parte de la configuración inicial de cuando se creó el proyecto. El servicio de Google está disponible desde el primer momento. Para que la aplicación Node.js y el editor web pudieran realizar conexiones con el servicio debían cargar en el proyecto un archivo de configuración de \textit{Firebase}. Este es un JSON \textbf{de caracter público}, aunque desde la documentación se recomienda no incluir el contenido del archivo en el código fuente de proyectos de código abierto, ya que, en la mayoría de los casos los usuarios deben crear sus propios proyectos de \textit{Firebase} para dirigir sus apps ahí. Es por ello que se almacena el archivo en el directorio \textit{/ect/secrets} del sistema y se carga desde ahí en el código. Lo mismo ocurre con la clave privada que necesita el proyecto de Node.js para acceder al Admin SDK del servicio.
+
+Para desplegar el servidor web de Node.js y el cliente del editor web se usó \textit{Render}\cite{render}, un servicio en la nube para compilar y ejecutar aplicaciones y webs. Se eligió esta ya que era una de las opciones que se recomendaba en la documentación de \textit{Vite}\cite{vite} además de incluir instrucciones sobre cómo configurarlo. Una de las opciones para cargar las aplicaciones es a través de un repositorio de \textit{GitHub}. Se creó un proyecto de \textit{web service} en \textit{Render} para la aplicación de Node.js y una nueva rama en el repositorio del proyecto llamada \textit{deploy}. Cada vez que hay un nuevo \textit{commit} en esa rama se despliega automaticamente la nueva versión. Se añadió en la configuración del proyecto de \textit{Render} el comando \code{npm install} para obtener todos los paquetes y dependencias del proyecto y  \code{npm start} para ejecutarlo. Además se añadieron ficheros de entorno desde la opción \textit{Environment} para las claves privada y pública de \textit{Firebase} en la dirección mencionada previamente. Después de esperar unos instantes a que realizara el despliegue, se generó una \textit{URL} por la cual acceder al servicio.
+
+Esta \textit{URL} se añadió tanto en el código de la aplicación web como Android en una constante para usarla en las llamadas a la API. No es peligroso exponer la dirección debido a que Node.js solo atiende peticiones con un token de sesión válido.
+
+Para la apliación web se creó un proyecto en \textit{Render} de tipo \textit{static site} y se vinculó con la misma rama del repositorio. Se especificó el comando \code{npm run build} para construir la aplicación con sus dependencias. Se añadió el mismo fichero de entorno que en la aplicación anterior para la clave pública. Siguiendo las direcrices de \textit{Render} para el despliegue de aplicaciones de React que usan React Router, se especificó una regla de reescritura de peticiones para que la librería pudiera gestionar el acceso a las distintas páginas y evitar errores de página no encontrada. Tras esto la aplicación pasaría a construirse y estar disponible a través de una \textit{URL} (figura \ref{fig:render}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{render}
+    \caption[Reescritura de peticiones para React Router]{Configuración de reescritura para React Router en el despliegue de la aplicación web.}
+    \label{fig:render}
+\end{figure}
+
+Para la aplicación Android se generó una \textit{APK} (archivo instalador) desde el propio IDE en el menú de \textit{Build}, \textit{Build Bundle(s)/APK(s)}, \textit{Build APK(s)}.

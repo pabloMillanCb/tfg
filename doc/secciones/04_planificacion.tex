@@ -2,7 +2,7 @@
 
 \section{Metodología utilizada}
 
-El software es un sistema complejo de crear que depende de muchas partes interconectadas. No es igual de dificultoso programar un pequeño \textit{script} que ordene los ficheros de un directorio de un sistema operativo que construir una aplicación de cierta envergadura que responda a las necesidades de un usuario o un cliente concreto, mucho más si además se debe coordinar un equipo de personas en la concepción del mismo. Existe un gran factor de riesgo e incertidumbre, sobre todo al inicio de un proyecto. Las \textbf{metodologías de desarrollo ágil} son una forma de desarrollar software enfocada a equipos pequeños que busca paliar estos problemas a la hora de encarar un proyecto,. En otras metodologías anteriores se redactaban unos requisitos completos y fijos al inicio del proyecto y antes si quiera de comenzar la implementación. Esto era una fuente común de conflictos, ya que es muy común que los requisitos cambien a lo largo del desarrollo. Quizás el cliente cambie de idea, o el equipo encuentre mejores formas de realizar una tarea, o el contexto en el ámbito en el que se desarrolla el producto ha cambiado y hay que adaptar ciertas partes del proyecto, etc. La incertidumbre es un elemento muy presente, y las metodologías ágiles la abraza. Conviven con el cambio inevitable estableciendo unas bases menos sólidas pero más flexibles. Esta forma de trabajar se enunció oficialmente por primera vez en 2001, en el documento de \textbf{Manifiesto Ágil}\footnote{El Manifiesto Ágil se puede consultar en esta web oficial. Hay una versión en español en la misma web. \url{https://agilemanifesto.org/}}. Esta forma de organizar proyectos  se fundamenta en cuatro puntos, extraidos del libro \textit{Métodos Ágiles y Scrum}\cite{agilescrum}:
+El software es un sistema complejo de crear que depende de muchas partes interconectadas. No es igual de dificultoso programar un pequeño \textit{script} que ordene los ficheros de un directorio de un sistema operativo que construir una aplicación de cierta envergadura que responda a las necesidades de un usuario o un cliente concreto, mucho más si se debe coordinar un equipo de personas en la concepción del mismo. Existe un gran factor de riesgo e incertidumbre, sobre todo al inicio de un proyecto. Las \textbf{metodologías de desarrollo ágil} son una forma de desarrollar software enfocada a equipos pequeños que busca paliar estos problemas a la hora de encarar un proyecto,. En otras metodologías anteriores se redactaban unos requisitos completos y fijos al inicio del proyecto, antes si quiera de comenzar la implementación. Esto era una fuente de conflictos, ya que es muy común que los requisitos cambien a lo largo del desarrollo. Quizás el cliente cambie de idea, o el equipo encuentre mejores formas de realizar una tarea, o el contexto en el ámbito en el que se desarrolla el producto ha cambiado y hay que adaptar ciertas partes del proyecto, etc. La incertidumbre es un elemento muy presente. Las metodologías ágiles la abrazan esta incertidumbre y conviven con el cambio inevitable estableciendo unas bases menos sólidas pero más flexibles. Esta forma de trabajar se enunció oficialmente por primera vez en 2001, en el documento de \textbf{Manifiesto Ágil}\footnote{El Manifiesto Ágil se puede consultar en esta web oficial. Hay una versión en español en la misma web. \url{https://agilemanifesto.org/}}. Esta forma de organizar proyectos  se fundamenta en cuatro puntos, extraidos del libro \textit{Métodos Ágiles y Scrum}\cite{agilescrum}:
 
 \begin{itemize}
     \item \textbf{Valorar a individuos y sus interacciones}, frente a procesos y herramientas. Aunque todas las ayudas para desarrollar un trabajo son importantes, nada sustituye a las personas, a las que hay que dar toda la importancia y poner en primer plano.
@@ -11,7 +11,7 @@ El software es un sistema complejo de crear que depende de muchas partes interco
     \item \textbf{Valorar más la respuesta al cambio} que el seguimiento de un plan. Se trata de apreciar la incertidumbre como un componente básico del trabajo, por lo que la adaptación y la flexibilidad se convierten en virtudes y no en amenazas. El seguimiento ciego de un plan lleva, salvo contadas excepciones, al fracaso si no se puede corregir la dirección ante los inevitables cambios que van surgiendo.
 \end{itemize}
 
-Este típo de metodologías intentan aplicar un cambio de paradigma: mientras que tradicionalmente se fijaban unos requisitos a partir de los cuales se estimaban los recursos y plazos que se requerirían para su terminación, la forma ágil sería fijar unos recursos y fechas disponibles en las que se disponen para el trabajo, y a partir de ahí estimar los requisitos que va a tener el producto al final. Se eligió optar por esta forma de encarar proyectos ya que en primer lugar el trabajo tenía una fecha de finalización fíja, y además no se tenía experiencia en algunos de los campos requeridos para el desarrollo, como podría ser por ejemplo la implementación de interfaces web. Se iba a requerir de un periodo de formación paralela al desarrollo, lo cual con total probabilidad cambiará la visión del desarrollador sobre la estimación de los costes y tiempo del proyecto. Sería contraproducente espablecer desde un inicio unos requisitos fijos si se prevé que van a cambiar, y  las metodologías ágiles se ajustaban perfectamente a este escenario.
+Este tipo de metodologías intentan aplicar un cambio de paradigma: mientras que tradicionalmente se fijaban unos requisitos a partir de los cuales se estimaban los recursos y plazos que se requerirían para su terminación, los métodos ágiles fijan unos recursos y fechas disponibles que se disponen para el trabajo, y a partir de ahí estiman los requisitos que va a tener el producto al final. Se eligió optar por esta forma de encarar proyectos ya que en primer lugar el trabajo tenía una fecha de finalización fíja, y además no se tenía experiencia en algunos de los campos requeridos para el desarrollo, como podría ser por ejemplo la implementación de interfaces web. Se iba a requerir de un periodo de formación paralelo al desarrollo, lo cual con total probabilidad cambiará la visión del desarrollador sobre la estimación de los costes y tiempo del proyecto. Sería contraproducente espablecer desde un inicio unos requisitos fijos si se prevé que van a cambiar, y  las metodologías ágiles se ajustaban perfectamente a este escenario.
 
 Una vez definidos los métodos de desarrollo ágil y entendido por qué son convenientes para este proyecto en particular, se debe elegir uno de los que hay disponibles como \textit{Lean Software Development}, \textit{Kanban}, \textit{Pragmatic Programming} o \textit{eXtreme Programming}. En este caso se ha optado por \textbf{SCRUM}\cite{scrum}, una de las metodologías más difundidas.
 
@@ -21,7 +21,7 @@ Se trabaja definiendo una serie de \textit{sprints}, iteraciones de dos semanas 
 
 \section{Historias de usuario}
 
-Para describir los requisitos del sistema a desarrollar se emplearán \textit{historias de usuario}. Estas son descripciones del sistema que se usan para plasmar los requisitos del mismo desde el punto de vista del usuario. Se redactan al comienzo del desarrollo, durante el \textit{Sprint 0} del que se hablará más adelante, y a partir de estas se redactan las \textit{tareas} del desarrollo.
+Para describir los requisitos del sistema a desarrollar se emplearán \textit{historias de usuario}. Estas son descripciones del sistema que plasman los requisitos del mismo desde el punto de vista del usuario. Se redactan al comienzo del desarrollo, durante el \textit{Sprint 0} del que se hablará más adelante, y a partir de estas se redactan las \textit{tareas} del desarrollo.
 
 Antes de redactar las historias es necesario definir definir los distintos perfiles que van a hacer uso del producto. En este caso se tiene un único perfil:
 
@@ -29,14 +29,14 @@ Antes de redactar las historias es necesario definir definir los distintos perfi
     \item \textbf{Usuario}: Este perfil representa a un consumidor casual, que puede o no tener nociones tanto de Realidad Aumentada como de modelado 3D. Tiene una experiencia como poco básica en el manejo de ordenadores y aplicaciones de los mismos, usando tanto el teclado como el ratón para interactuar con distintos elementos en pantalla. Es usuario de servicios como correo electrónico y está familiarizado con el proceso de iniciar sesión con contraseña. Tiene los recursos para poder encontrar en internet modelos 3D gratuitos y descargarlos en su equipo.
 \end{itemize}
 
-Una vez definido el perfil que hará uso del software se redactarán los \textit{journeys}. Estas son una descripción en forma de narración en la que se detalla el uso que un usuario concreto (que no un perfil de usuario) hace uso del producto desde el inicio hasta al final. Esto servirá para comprender mejor las necesidades de estos y reflejarlas en las historias de usuarios.
+Una vez definido el perfil que hará uso del software se redactarán los \textit{journeys}. Estos son una descripción en forma de narración en la que se detalla el uso que un usuario concreto (que no un perfil de usuario) hace uso del producto desde el inicio hasta al final. Esto servirá para comprender mejor las necesidades de estos y reflejarlas en las historias de usuarios.
 
 \begin{itemize}
     \item \textbf{J-01}: Florentino Pérez es un hombre de 42 años. Escucha sobre la tecnología de Realidad Aumentada en el telediario y le parece de lo más vistosa e innovadora, por lo que suscita su curiosidad y decide probarla. Tras una breve búsqueda en Google encuentra EditAR entre otras opciones, y decirle probarla porque aparenta ser sencilla. Tras acceder a la web sigue las instrucciones para registrarse como usuario. Una vez hecho, selecciona la opción de crear escena, y empieza a componer una del tipo de posicionamiento en superficies. Carga modelos 3D que ha encontrado en una web de recursos gratuitos y hace click en ellos para manipularlos y colocarlos donde él prefiera. Cuando ha terminado selecciona la opción de guardar la escena. Florentino procede a instalar en su dispositivo móvil la aplicación del visor. En ella inicia sesión con las credenciales que introdujo en pasos anteriores. Aparece un menú con la única escena que ha creado y selecciona la opción de reproducir. Se inicia la cámara de su dispositivo y procede a colocar el modelo de la escena encima de su escritorio. Florentino observa cómo detecta la superficie y coloca el objeto. Incluso aunque mueva la cámara de ángulo sigue dando la sensación de que el objeto está en la mesa. Satisfecho, cierra la aplicación.
     
-    \item \textbf{J-02}: Belkan Díaz es un hombre de unos 20 años. Acaba de adquirir un nuevo y flamante smartphone Xiaomi y está oteando la tienda de aplicaciones para descargar algunas para estrenarlo. De casualidad se topa con la aplicación de EditAR y acaba descubriendo también su web, así que decide probarla. Se registra en el sistema con sus credenciales y pasa a crear una escena de imágenes aumentadas con modelos 3D gratuitos de internet. Cuando ha terminado y la guarda, se da cuenta de que por error se ha registrado con el correo electrónico de su trabajo, lo cual es inapropiado, así que accede al menú de cambio de credenciales, e introduciendo su contraseña logra cambiar su dirección de email. Una vez solucionado eso, accede usando su nuevo correo desde la aplicación móvil y consigue reproducir la escena. Aunque le sorprende el funcionamiento de la realidad aumentada, no le gusta la escena que ha creado para nada, así que vuelve al editor para eliminarla y crear una nueva, la cual sí le convence.
+    \item \textbf{J-02}: Belkan Díaz es un hombre de unos 20 años. Acaba de adquirir un nuevo y flamante smartphone Xiaomi y está oteando la \textit{Play Store} en busca de algunas apps para estrenarlo. De casualidad se topa con la aplicación de EditAR y acaba descubriendo también su web, así que decide probarla. Se registra en el sistema con sus credenciales y pasa a crear una escena de imágenes aumentadas con modelos 3D gratuitos de internet. Cuando ha terminado y la guarda, se da cuenta de que por error se ha registrado con el correo electrónico de su trabajo, lo cual es inapropiado, así que accede al menú de cambio de credenciales, e introduciendo su contraseña logra cambiar su dirección de email. Una vez solucionado eso, accede usando su nuevo correo desde la aplicación móvil y consigue reproducir la escena. Aunque le sorprende el funcionamiento de la realidad aumentada, no le gusta la escena que ha creado para nada, así que vuelve al editor para eliminarla y crear una nueva, la cual sí le convence.
 
-    \item \textbf{J-03}: Antonia Miyamoto es una artista de modelos 3D. Tras haber oido hablar de la aplicación decide probarla con alguno de los modelos que ella misma ha diseñado. Accede a la web y se registra con sus credenciales. Piensa en que le gustaría ver un dragón sobrevolando su casa, así que inicia una nueva escena y la configura para que sea de tipo geoespacial. Introduce las coordenadas y altura de su vivienda, que ha podido obtener en algún servicio como \textit{Google Earth}. Carga el modelo del dragón que modeló días anteriores en \textit{Blender}. Lo coloca en la escena y selecciona que quiere que se reproduzca una animacioń del modelo en la que el dragón bate sus alas, para que de la sensación de que verdaderamente está volando. Una vez se da por satisfecha guarda la escena y cierra el editor. Instala la aplicación móvil e inicia sesión. Selecciona su escena y ve al dragón volando. Al verlo, piensa que podría quedar mucho mejor si mete una gran bola de fuego y una pista de audio de un gruñido de dragón. Antonia vuelve a abrir el editor y selecciona la escena que ya había creado en una opción que le permite editarla. El editor carga la escena tal como la dejó, lo que le permite añadir nuevos modelos para añadirle fuego. Además carga un archivo mp3 con el rugido. Cuando ve la nueva escena en su dispositivo móvil piensa que la escena ha quedado verdaderamente vistosa, y le gustaría exportarla para usarla en alguno de sus proyectos de \textit{Blender}, así que vuelve a abrir el editor web con la escena creada y hace click en un botoń que le exporta su escena y la descarga a su ordenador en forma de modelo 3D.
+    \item \textbf{J-03}: Antonia Miyamoto es una artista de modelos 3D. Tras haber oido hablar de la aplicación decide probarla con alguno de los modelos que ella misma ha diseñado. Accede a la web y se registra con sus credenciales. Piensa en que le gustaría ver un dragón sobrevolando su casa, así que inicia una nueva escena y la configura para que sea de tipo geoespacial. Introduce las coordenadas y altura de su vivienda, que ha podido obtener en algún servicio como \textit{Google Earth}. Carga el modelo del dragón que modeló días anteriores en \textit{Blender}. Lo coloca en la escena y selecciona que quiere que se reproduzca una animacioń del modelo en la que el dragón bate sus alas, para que de la sensación de que verdaderamente está volando. Una vez se da por satisfecha guarda la escena y cierra el editor. Instala la aplicación móvil e inicia sesión. Selecciona su escena y ve al dragón volando. Al verlo, piensa que podría quedar mucho mejor si mete una gran bola de fuego y una pista de audio de un gruñido de dragón. Antonia vuelve a abrir el editor y selecciona la escena que ya había creado. El editor carga la escena tal como la dejó, lo que le permite añadir nuevos modelos para añadirle fuego. Además carga un archivo mp3 con el rugido. Cuando ve la nueva escena en su dispositivo móvil piensa que ha quedado verdaderamente vistosa, y le gustaría exportarla para usarla en alguno de sus proyectos de \textit{Blender}, así que vuelve a abrir el editor web con la escena creada, hace click en un botoń que le exporta su escena y la descarga a su ordenador en forma de modelo 3D.
 \end{itemize}
 
 Una vez entendidas mejor las necesidades que tendrá el usuario del sistema se pueden redactar las historias de usuario. Para cada historia se definen una id que servirá para identificarla con formato \textbf{RA-X}, una descripción, unos requisitos asociados con formato \textbf{RF/RNF-X.n} y una prioridad. La prioridad podrá ser \textit{high} (alta) si describen elementos imprescindibles para el correcto funcionamiento del software y el cumplimiento de su propósito, \textit{mid} (media) si son de gran importancia pero la ausencia de alguna no es un impedimento crítico para el producto final, y \textit{low} para las historias que describen elementos preferibles, que aportan valor añadido pero que no son necesarios.
@@ -47,6 +47,11 @@ Como usuario quiero tener un entorno 3D interactivo para configurar mis escenas 
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+			\begin{enumerate}
+				\item Se puede mover y rotar la cámara con el ratón.
+				\item Se pueden discernir con claridad los distintos objetos del entorno.
+			\end{enumerate}
 \end{itemize}
 
 \subsection{RA-02.1: Escenas de superficie}
@@ -55,6 +60,10 @@ Como usuario la posibilidad de crear escenas de Realidad Aumentada de posicionam
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item El usuario podrá crear una escena en un espacio 3D con un punto de origen como referencia.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-02.2: Escenas de imágenes aumentadas}
@@ -63,6 +72,10 @@ Como usuario la posibilidad de crear escenas de Realidad Aumentada de imágenes 
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se puede cargar una imagen del disposivo del usuario para que actue como disparador de la escena.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-02.3: Escenas geoespaciales}
@@ -71,6 +84,10 @@ Como usuario la posibilidad de crear escenas de Realidad Aumentada geoespaciales
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se pueden definir coordenadas de latitud, longitud y altura para la escena.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-03: Varias imágenes activadoras}
@@ -79,6 +96,12 @@ Como usuario quiero, al crear una escena por marcador, poder definir varias imá
 \begin{itemize}
     \item Prioridad: \textbf{LOW}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se pueden definir dos imágenes activadoras.
+		\item Se puede enlazar a cada imagen activadora uno o varios modelos 3D.
+		\item Al detectar por cámara una de las imágenes activadoras se coloca tangencialmente sobre esta únicamente su modelo asociado.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-04: Animaciones}
@@ -87,10 +110,17 @@ Como usuario quiero que los modelos que cargo puedan tener animaciones, y decidi
 \begin{itemize}
     \item Prioridad: \textbf{MID}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se puede reproducir una escena en la que se visualicen modelos 3D reproduciendo animaciones.
+		\item Si un modelo 3D tiene más de una animación se puede escoger qué animación es la que se reproduce.
+		\item Se puede elegir que no se reproduzca ninguna animación,
+		\item Se pueden previsualizar las animaciones al crear la escena.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-05: Pistas de audio}
-Como usuario quiero poder cargar audios que se reproduzcan cuando se dispara la escena, y decidir si se reproducen una vez o en bucle.
+Como usuario quiero poder cargar audios que se reproduzcan cuando se dispara la escena.
 
 \begin{itemize}
     \item Prioridad: \textbf{MID}
@@ -98,6 +128,13 @@ Como usuario quiero poder cargar audios que se reproduzcan cuando se dispara la 
             \begin{itemize}
                 \item \textbf{RF-5.1}: Cada escena tendrá asociado un único audio como mucho.
             \end{itemize}
+	\item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se puede cargar un archivo de audio a la escena.
+		\item El audio se reproducirá al activarse la escena.
+		\item Se puede eliminar un audio de una escena.
+		\item Si se sube un archivo corrupto o no soportado la aplicación no se detendrá.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-06: Carga de modelos}
@@ -109,6 +146,12 @@ Como usuario quiero cargar un modelo 3D desde mi ordenador para añadirlo a la e
             \begin{itemize}
                 \item \textbf{RNF-6.1}: Los modelos cargados deben ser de formato GLB con las restricciones para su uso en Filament.
             \end{itemize}
+	\item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se puede cargar un archivo de un modelo a la escena.
+		\item Se puede eliminar un modelo 3D de una escena.
+		\item Si se sube un archivo corrupto o no soportado la aplicación no se detendrá.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-07: Transformaciones}
@@ -116,6 +159,15 @@ Como usuario quiero poder seleccionar un objeto 3D de la escena haciendo click s
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item El usuario puede seleccionar un objeto 3D haciendo click sobre este.
+		\item El usuario puede tomar un objeto seleccionado y moverlo con gestos del ratón.
+		\item El usuario puede tomar un objeto 3D seleccionado y rotarlo con gestos del ratón.
+		\item El usuario puede tomar un objeto 3D seleccionado y escalarlo con gestos del ratón.
+		\item El usuario puede hacer click en un area vacía para dejar de seleccionar un objeto, si es que así lo tenía.
+		\item El usuario puede hacer click en un objeto no seleccionado mientras tiene seleccionado otro objeto, liberando el primero y sligiendo el segundo.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-08: Selección múltiple}
@@ -124,6 +176,13 @@ Como usuario quiero poder seleccionar más de un objeto a la vez para poder apli
 \begin{itemize}
     \item Prioridad: \textbf{LOW}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item El usuario podrá seleccionar clicar un objeto adicional para ser seleccionado junto a otro que previamente ya lo estaba.
+		\item Se pueden añadir a la lista de seleccionado tantos elementos como haya en la escena.
+		\item No se puede seleccionar dos veces un mismo objeto de forma simultánea.
+		\item Si se hace clic en una zona vacía de la pantalla se deben liberar todos los objetos.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-09: Figuras básicas}
@@ -132,6 +191,12 @@ Como usuario quiero poder crear figuras geométricas básicas como esferas, cubo
 \begin{itemize}
     \item Prioridad: \textbf{LOW}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item El usuario puede crear cubos, cilindros, conos, pirámides y esferas.
+		\item Se pueden hacer de distintos tamaños con gestos de ratón.
+		\item Los objetos creados se añaden a la escena como un objeto más, siendo modificable y eliminable.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-09.1: Texturas}
@@ -140,10 +205,16 @@ Como usuario quiero un menú en el que poder cambiar el color de las figuras bá
 \begin{itemize}
     \item Prioridad: \textbf{LOW}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Se puede aplicar un material de un color a un objeto seleccionado.
+		\item Se puede aplicar un segundo material de un color a un objeto, eliminando el material anterior.
+		\item Se puede eliminar un material aplicado a un objeto.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-10: Inicio de sesión}
-Como usuario quiero poder iniciar sesión con mis datos en la aplicación web para que, si accedo desde otro ordenador, pueda recuperar datos mios como las escenas creadas.
+Como usuario quiero poder registrarme e iniciar sesión en la aplicación web para que, si accedo desde otro ordenador, pueda recuperar datos mios como las escenas creadas.
 
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
@@ -151,6 +222,15 @@ Como usuario quiero poder iniciar sesión con mis datos en la aplicación web pa
         \begin{itemize}
             \item \textbf{RNF-10.1}: Se almacenará y empleará para el inicio de sesión únicamenet el email y contraseña del usuario
         \end{itemize}
+	\item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Si se registra con un mail inválido no se efectuará la operación y el usuario será avisado.
+		\item Si se registra conm un mail ocupado por otra cuenta no se efectuará la operación y el usuario será avisado.
+		\item Si se registra con una contraseña débil el usuario será avisado y no se efectuará la operación.
+		\item El usuario puede registrarse en el sistema y sus datos quedan guardados.
+		\item Un usuario previamente registrado puede iniciar sesión con sus datos y contraseña.
+		\item Si se introduce una contraseña inválida no se efectuará la operación y el usuario será avisado.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-10.1: Cambio de credenciales}
@@ -159,6 +239,14 @@ Como usuario quiero tener la opción de modificar mi correo electrónico o contr
 \begin{itemize}
     \item Prioridad: \textbf{MID}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item Si se actualiza el mail a uno inválido no se efectuará la operación y el usuario será avisado.
+		\item Si se actualiza el mail a uno ocupado por otra cuenta no se efectuará la operación y el usuario será avisado.
+		\item Si se actualiza la contraseña a una débil el usuario será avisado y no se efectuará la operación.
+		\item El usuario podrá cambiar su correo confirmando con su contraseña y quedará actualizado en la base de datos.
+		\item El usuario podrá actualizar su contraseña introduciendo la suya actual y quedará actualizado en la base de datos.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-10.2: Guardado de escenas}
@@ -167,6 +255,13 @@ Como usuario quiero poder guardar bajo mi cuenta de usuario las escenas que creo
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item El usuario podrá crear una escena y guardarla en el servidor.
+		\item El usuario podrá volver a abrir una escena que previamente ha creado.
+		\item Al cargarse una escena previemente guardada, os elementos de nombre, modelos, imágenes, audio, tipo de escena o animaciones deben permanecer idénticos a cuando se guardó por última vez.
+		\item Se puede eliminar una escena creada.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-11.1: Reproducción de imágenes aumentadas}
@@ -175,6 +270,11 @@ Como usuario quiero poder reproducir en una app móvil en la que reproducir mis 
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+	\begin{enumerate}
+		\item El dispositivo detecta a través de la cámara la imagen definida como disparador.
+		\item El modelo 3D se coloca tangente a la superficie de la imágen detectada independientemente de su orientación.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-11.2: Reproducción de escenas por superficies}
@@ -183,6 +283,12 @@ Como usuario quiero poder reproducir en una app móvil en la que reproducir mis 
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación: 
+    \begin{enumerate}
+		\item El dispositivo puede detectar una superficie plana a través de una cámara.
+		\item El modelo 3D se posiciona tangente a las superficies planas.
+		\item Al fijarse en un punto concreto el modelo mantiene su posisión relativa al entorno mientras la cámara se desplaza y lo apunta desde distintos ángulos.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-11.3: Reproducción de escenas geoespaciales}
@@ -191,6 +297,10 @@ Como usuario quiero poder reproducir en una app móvil en la que reproducir mis 
 \begin{itemize}
     \item Prioridad: \textbf{MID}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+    \begin{enumerate}
+		\item El usuario ve el modelo 3D establecido en las coordenadas correctas.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-12: Inicio de sesión en la app móvil}
@@ -199,6 +309,11 @@ Como usuario quiero iniciar sesión en la app móvil para acceder a las escenas 
 \begin{itemize}
     \item Prioridad: \textbf{HIGH}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+    \begin{enumerate}
+		\item Un usuario previamente registrado puede iniciar sesión con sus datos y contraseña.
+		\item Si se introduce una contraseña inválida no se efectuará la operación y el usuario será avisado.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-12.1: Listado de escenas}
@@ -207,14 +322,24 @@ Como usuario quiero tener en la app móvil un listado de todas las escenas que h
 \begin{itemize}
     \item Prioridad: \textbf{MID}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+    \begin{enumerate}
+		\item Se puede acceder a una lista de escenas creadas bajo una cuenta.
+		\item Se puede pulsar en una escena para iniciar su reproducción. 
+	\end{enumerate}
 \end{itemize}
 
-\subsection{RA-12.1: Filtrado de escenas}
+\subsection{RA-12.2: Filtrado de escenas}
 Como usuario quiero en el listado de escenas poder filtrarlas por tipo o por nombre, para poder encontrar la que me interesa rápidamente.
 
 \begin{itemize}
     \item Prioridad: \textbf{LOW}
     \item Requisitos: Ninguno
+    \item Pruebas de aceptación:
+    \begin{enumerate}
+		\item Se puede introducir una cadena de texto en un campo para que solo aparezcan en el listado las escenas cuyo nombre coincida con la cadena.
+		\item Puede indicarse en un campo que solo se muestren las escenas de un tipo concreto, y las escenas del listado se mostrarán de acuerdo a ello.
+	\end{enumerate}
 \end{itemize}
 
 \subsection{RA-13: Exportación de escenas}
@@ -226,18 +351,25 @@ Como usuario quiero poder exportar mi escena y modelos a un formato que permita 
         \begin{itemize}
             \item \textbf{RNF-13.1}: Las escenas con varios modelos cargados deben exportarse como un solo modelo.
         \end{itemize}
+	\item Pruebas de aceptación:
+		\begin{enumerate}
+			\item Se puede exportar la escena creada como un modelo único.
+			\item El modelo está en un formato reconocible por otro software con soporte para objetos 3D.
+			\item El modelo puede volver a cargarse en el editor y se comportará como una única pieza.
+		\end{enumerate}
 \end{itemize}
 
 \section{Sprint 0}
 
-El sprint 0 tiene la el objetivo de definir todo el trabajo que se va a realizar y cómo. Se estudia el problema para saber si es viable construir una solución. Esta iteración especial tuvo una duración de una semana. Aquí se realizaron las labores de investigación que se ha persebntado en los capítulo 2 y 3 de este trabajo. También se crea el \textit{product backlog}, la lista de historias de usuario que recoge la visión de los requisitos principales de la aplicación desde la perspectiva de sus usuarios que ya se redactó en el apartado anterior.
+El sprint 0 tiene el objetivo de definir todo el trabajo que se va a realizar y cómo. Se estudia el problema para saber si es viable construir una solución. Esta iteración especial tuvo una duración de una semana. Aquí se realizaron las labores de investigación que se ha persentado en capítulos anteriores de este trabajo. También se crea el \textit{product backlog}, la lista de historias de usuario que recoge la visión de los requisitos principales de la aplicación desde la perspectiva de sus usuarios que ya se redactó en el apartado anterior.
 
-Otra actividad esencial de esta etapa es la definición y temporicación de los sprints que se desarrollarán en todo el desarrollo. Se decidió establecer un total de \textbf{cinco sprints de dos semanas cada uno} (sin incluir este). Las historias de usuario se dividirían entre los distintos sprints. Para cuando acaben cada uno de ellos, debe resultar una versión entregable del producto que implemente las funcionalidades y requisitos especificados por sus historias de usuario. Para ello, de cada historia de usuario se extraerá al principio de cada sprint una serie de \textbf{tareas} que completar para avanzar el desarrollo. Se dividieron las historias de tal forma que las que se encasillen en un mismo sprint, guarden cierta relación entre ellas tematizando así las labores que se desarrollan en cada iteración. También se tuvieron en cuenta la prioridad de las historias, dejando la mayoría de las menos relevantes para sprints finales, por si hubiera complicaciones en alguno de los anteriores, priorizar las funcionalidades más esenciales.
+Otra actividad esencial de esta etapa es la definición y temporicación de los sprints que se desarrollarán. Se decidió establecer un total de \textbf{cinco sprints de dos semanas cada uno} (sin incluir este). Las historias de usuario se dividirían entre los distintos sprints (figura \ref{fig:sprinthu}). Para cuando se acabe acabe cada uno de ellos, debe resultar una versión entregable del producto que implemente las funcionalidades y requisitos especificados por sus historias de usuario. Para ello, de cada historia de usuario se extraerá al principio de cada sprint una serie de \textbf{tareas} que completar para avanzar el desarrollo. Se dividieron las historias de tal forma que las que se encasillen en un mismo sprint, guarden cierta relación entre ellas tematizando así las labores que se desarrollan en cada iteración. También se tuvieron en cuenta la prioridad de las historias, dejando la mayoría de las menos relevantes para sprints finales, por si hubiera complicaciones en alguno de los anteriores, priorizar las funcionalidades más esenciales.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.30]{sprinthu}
     \caption[Planificación de HU por sprints]{Distribución de las historias de usuario por sprints}
+	\label{fig:sprinthu}
 \end{figure}
 
 Se definió también la temporización de estos sprints, comenzando el desarrollo el 17 de abril de 2023 y finalizando el 25 de junio de 2023:
@@ -249,7 +381,7 @@ Se definió también la temporización de estos sprints, comenzando el desarroll
     \item \textbf{Sprint 5}: 12/6/23 a 25/6/23
 \end{itemize}
 
-Para cada sprint se tendrá un tablero de tareas en el que de un vistazo el desarrollador podrá obtener una idea de en qué estado del desarrollo se encuentra. Para ello se organizará la tabla en columnas, bajo las que se colocarán las distintas tareas según su estado, que pueden ser:
+Para cada sprint se tendrá un tablero (figura \ref{fig:tablero}) de tareas en el que de un vistazo el desarrollador podrá obtener una idea de en qué estado del desarrollo se encuentra. Para ello se organizará la tabla en columnas, bajo las que se colocarán las distintas tareas según su estado, que pueden ser:
 
 \begin{itemize}
     \item \textbf{Backlog}: Listado de tareas por implementar en el sprint
@@ -264,21 +396,22 @@ Para cada sprint se tendrá un tablero de tareas en el que de un vistazo el desa
     \centering
     \includegraphics[scale=0.30]{tablero}
     \caption[Tabla de sprint]{Ejemplo de tabla para el sprint 1}
+	\label{fig:tablero}
 \end{figure}
 
-Otra tarea esencial del sprint 0 es definir las tecnologías y herramientas que se usarán para el desarrollo para tener una visión más amplia del producto final y reducir la incertidumbre del desarrollo, por lo que es lo que se va a proceder a describir.
+Otra tarea esencial del sprint 0 es definir las tecnologías y herramientas que se usarán para el desarrollo para tener una visión más amplia del producto final y reducir la incertidumbre.
 
 Como software de gestión de proyecto se optó por usar Notion\cite{notion}. Aquí se gestiona todo lo relacionado con la planificación del trabajo: historias, tareas, sprints, requisitos, tableros, etc. Se contemplaron otras opciones, principalmente \textit{Jira}\cite{jira}, pero era una herramienta demasiado compleja ya que está contemplada para el trabajo en equipo y en este caso el desarrollador era una única persona, por lo que era un software que venía demasiado grande para el propósito. Notion por otro lado, aunque no esté directamente diseñado para estos porpósitos, permite la creación de tablas, bases de datos y tableros, hiperenlaces a distintos documentos dentro de un espacio de trabajo y almacenamiento en la nube. Como software de gestión de proyectos se empleó \textit{Git y GitHub}, ya que es la plataforma más utilizada y con la que se contaba experiencia previamente, tenía todas las funcionalidades que se requerían para el proyecto. Se creó un repositorio\footnote{\url{https://github.com/pabloMillanCb/tfg}} público desde el primer momento con el proyecto íntegro publicado bajo licencia de software libre.
 
-En cuanto a desarrollar aplicaciones web se refiere, \textit{JavaScript} es la única opción existente en cuanto a lenguajes ya que es el único que pueden ejecutar todos los navegadores, así que no hubo muchas dudas en ese aspecto. Aunque no se optó exactamente por \textit{JavaScript}, si no por \textit{TypeScript}, una extensión sintáctica para el lenguaje que añade la opción de introducir tipado estático a los objetos. Se tomó esta decisión porque se consideró que a cambio de invertir un poco más de tiempo en escribir el código, se podría ahorrar tiempo de depuración. Esto es posible ya que gracias a declarar los tipos de las variables, el editor puede detectar errores antes incluso de la ejecución, como por ejemplo intentar añadir un objeto \textit{String} a un array de objetos \textit{Object 3D}, evitándose así sorpresas desagradables en la ejecución.
+En cuanto a desarrollar aplicaciones web se refiere, \textit{JavaScript} es la única opción existente en cuanto a lenguajes ya que es el único que pueden ejecutar todos los navegadores, así que no hubo muchas dudas en ese aspecto. Aunque no se optó exactamente por \textit{JavaScript}, si no por \textit{TypeScript}, una extensión sintáctica para el lenguaje que añade la opción de introducir tipado estático a los objetos. Se tomó esta decisión porque se consideró que a cambio de invertir un poco más de tiempo en escribir el código, se podría ahorrar tiempo de depuración. Esto es posible ya que al declarar los tipos de las variables, el editor puede detectar errores antes incluso de la ejecución, como por ejemplo intentar añadir un objeto \textit{String} a un array de objetos \textit{Object 3D}, evitándose así sorpresas desagradables luego.
 
-Como se pretende desarrollar un editor que muestre y trabaje con modelos 3D, se necesitará un motor de gráficos por ordenador operable desde \textit{JavaScript} y con soporte para web. Las dos opciones que se tuvieron en cuenta fueron \textit{Three.js}\cite{three} y \textit{Babylon.js}\cite{babylon}, dos librerías \textit{JavaScript} para la renderización de gráficos 3D. Se optó por coger la primera, ya que tras analizar ambas no se encontró ninguna ventaja significative de una respecto a otra, y para \textit{Three.js} se contaba ya con experiencia, lo que aceleraría el desarrollo.
+Como se pretende desarrollar un editor que muestre y trabaje con modelos 3D, se necesitará un motor 3D operable desde \textit{JavaScript} y con soporte para web. Las dos opciones que se tuvieron en cuenta fueron \textit{Three.js}\cite{three} y \textit{Babylon.js}\cite{babylon}, dos librerías \textit{JavaScript} para la renderización de gráficos. Se optó por coger la primera, ya que tras analizar ambas no se encontró ninguna ventaja significativa de una respecto a otra, y para \textit{Three.js} se contaba ya con experiencia, lo que aceleraría el desarrollo.
 
 Para construir la aplicación web se barajaron dos opciones: \textit{Angular}\cite{angular}, un framework completo para \textit{JS} para el desarrollo de web y móvil o \textit{React.js}\cite{react}, una librería \textit{JS} para el desarrollo frontend. Se escogió esta última ya que, aunque \textit{Angular} es más completo y no necesita librerías externas para realizar ciertas funcionalidades, React es mucho más simple e intuitivo. Su curva de aprendizaje es mucho menos pronunciada, casi inmediata si se tiene conocimiento en \textit{JavaScript} como era el caso. Como no se tenía experiencia en ninguna de las dos herramientas, se optó por esta para reducir el periodo de formación requerido.
 
 Para el visor de las escenas en móvil se decidió hacer una aplicación Android. Se es consciente de el hecho que supone una desventaja respecto a la versión web de otras opciones del mercado ya que en dispositivos iOS no funcionaría, pero se decidió apostar por una aplicación nativa ya que no la ofrece nuinguna otra propuesta. Se escogió Android porque es la plataforma mayoritaria en el mercado móvil. Para el desarrollo de la aplicación se escogió usar \textit{Android Studio} frente a \textit{React Native}. Ambos permiten escribir aplicaciones nativas, pero la primera tiene una mayor integración con \textit{Sceneview}, la librería escogida para las funcionalidades de Realidad Aumentada. Se programará en Kotlin en lugar de Java, ya que es la recomendación oficial de Google y la forma más moderna de hacerlo.
 
-Para las funcionalidades de Realidad Aumentada se optó por ARCore\cite{arcore}, el SDK de Google para esta tecnología. El único problema que se presentaba con esta decisión es que ARCore renderiza objetos 3D a través de OpenGL, una API de bajo nivel que ralentizaría bastante el deasrrollo. Para paliarlo se adoptó Sceneview\cite{sceneview}, una librería para Kotlin que envuelve a ARCore y hace el renderizado mucho más simple. ARCore recomienda el uso de modelo 3d en formato \textit{.glb}. Esto es debido a \textit{Filament}\cite{filament}, el motor que implementa por debajo. Es el formato que más garantías de compatibilidad tiene con la tecnología. Por lo que se definió que el sistema trabajaría y admitiría únicamente modelos con esta extensión.
+Para las funcionalidades de Realidad Aumentada se optó por ARCore\cite{arcore}, el SDK de Google para esta tecnología. El único problema que se presentaba con esta decisión es que ARCore renderiza objetos 3D a través de OpenGL, una API de bajo nivel que ralentizaría bastante el deasrrollo. Para paliarlo se adoptó Sceneview\cite{sceneview}, una librería para Kotlin que envuelve a ARCore y hace el renderizado mucho más simple. ARCore recomienda el uso de modelos 3D en formato \textit{.glb}. Esto es debido a \textit{Filament}\cite{filament}, el motor que implementa por debajo. Es el formato que más garantías de compatibilidad tiene con la tecnología. Por lo que se definió que el sistema trabajaría y admitiría únicamente modelos con esta extensión.
 
 Para las necesidades del proyecto era evidente que haría falta algún tipo de base de datos para almacenar información como los usuarios, las escenas de estos y los recursos como modelos y audio que componen las escenas. Era necesario desarrollar una API REST, una interfaz que emplean dos sistemas informáticos para intercambiar información de manera segura a través de la web. Para ello se pensó en un primer momento hacerla con PHP y MYSQL, pero finalmente se decidió usar \textit{Firebase}\cite{firebase}. Esta herramienta viene con muchas utilidades ya implementadas para que el desarrollador pueda hacer uso de estas con llamadas simples a su API, además de no invertir tiempo extra de desarrollo. Trae incorporado un servicio para el registro e inicio de sesión de usuarios \textbf{con contraseña encriptada} de forma automática, almacenamiento para archivos binarios y una base de datos no relacional entre otros. Para lo sencillo que se previó que iba a ser la infraestructura del backend (solo se necesitarían tablas para usuarios y escenas, además de una forma de guardar binarios en la base de datos) era una opción perfecta que se acomodaba a las necesidades y reducía mucho la complejidad del desarrollo.
 
@@ -432,17 +565,18 @@ Para este sprint se centraron esfuerzos en desarrollar las funcionalidades bási
 \label{TRA-13}
 \end{table}
 
-El transcurso del sprint fue sin demasiadas complicaciones. Se terminaron todas las tareas a excepción de dos. La TRA-09 decidió cancelarse debido a que se pensó que en realidad el \textit{gizmo} que se implementaría para transformar los objetos en sprints posteriores ya era suficiente indicador visual para saber queun objeto estaba seleccionado. La TRA-11 describía un menú para seleccionar los tres posibles modos de interacción con los objetos (translación, rotación y escalado). Se canceló debido a que a lo largo del sprint se pensó que sería mejor esperar a tener diseños para toda la interfaz e implementarlo todo de golpe, que hacer ahora un menú que con toda probabilidad sería descartado, así que simplemente cada funcionalidad se asignó a una tecla. La gráfica de burndown del sprint es la siguiente:
+El transcurso del sprint fue sin demasiadas complicaciones. Se terminaron todas las tareas a excepción de dos. La TRA-09 decidió cancelarse debido a que se pensó que en realidad el \textit{gizmo} que se implementaría para transformar los objetos en sprints posteriores ya era indicador suficiente para saber que un objeto estaba seleccionado. La TRA-11 también cancelada describía un menú para seleccionar los tres posibles modos de interacción con los objetos (translación, rotación y escalado). Se pensó que sería mejor esperar a tener diseños para toda la interfaz e implementarlo todo de golpe, que hacer ahora un menú que con toda probabilidad sería descartado. La gráfica de burndown del sprint se muestra en la figura \ref{fig:burndown1}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.50]{burndown1}
     \caption[Burndown Sprint 1]{Gráfica de la progresión del Burndown en el Sprint 1}
+	\label{fig:burndown1}
 \end{figure}
 
 \section{Sprint 2}
 
-En este segundo sprint se centró el trabajo principalmente en implementar toda la interfaz de usuario que correspondería a la página del editor, incluso si muchas de las funciones accesibles desde este no estaban implementadas. Esto requirió una formación continua a lo largo del sprint en React, tecnología para la que no se contaba experiencia hasta la fecha. Además se implementaría la reproducción de animaciones para los modelos cargados y de audios cargados a la escena. Las historias de usuario incluidas en este sprint son RA-02, RA-04 y RA-05.
+En este segundo sprint se centró el trabajo principalmente en implementar toda la interfaz de usuario que correspondería a la página del editor, incluso si muchas de las funciones accesibles desde esta no estaban implementadas. Esto requirió una formación continua en React, tecnología para la que no se contaba experiencia hasta la fecha. Además se implementaría la reproducción de animaciones para los modelos y audios cargados a la escena. Las historias de usuario incluidas en este sprint son RA-02, RA-04 y RA-05.
 
 \begin{table}[H]
 	\resizebox{\textwidth}{!}{%
@@ -554,19 +688,18 @@ Además, durante el transcurso del sprint se añadió una nueva tarea que no se 
 \label{TRA-22}
 \end{table}
 
-Para comentar el transcurso de este sprint debemos observar antes la gráfica del burndown.
-
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.50]{burndown2}
     \caption[Burndown Sprint 2]{Gráfica de la progresión del Burndown en el Sprint 2}
+	\label{fig:burndown2}
 \end{figure}
 
-Como se puede observar, la línea roja del progreso no llega a tocar el eje X de la gráfica, representando que efectivamente quedaron algunas tareas sin completar. Esto se achaca a un problema puntual de salud y de trabajo externo, no a una mala planificación o previsión. Se llega a este razonamiento porque, de las 28 horas planificadas, se realizaron \textbf{24,5 netas y 21,5 reales}. No se habían subestimado las tareas en si, si no el tiempo que se tendría disponible para trabajar en el proyecto durante la franja de la iteración. Independientemente de la razón, el proyecto estaba sufriendo un pequeño retraso, y había que paliarlo de alguna manera. Como opciones se presentaban alargar algunos días el sprint, o pasar las tareas sin completar a la siguiente iteración. Se optó por esto último. Las tareas TRA-21 y TRA-16 se terminarían en el Sprint 3.
+Como se puede observar en la gráfica del burndown (figura \ref{fig:burndown2}), la línea roja del las horas planificadas restantes no llega a tocar el eje X de la gráfica, representando que efectivamente quedaron algunas tareas sin completar. Esto se achaca a un problema puntual de salud y de trabajo externo, no a una mala planificación o previsión. Se llega a este razonamiento porque, de las 28 horas planificadas, se realizaron \textbf{24,5 netas y 21,5 reales}. No se habían subestimado las tareas en si, si no el tiempo que se tendría disponible para trabajar en el proyecto durante la franja de la iteración. Independientemente de la razón, el proyecto estaba sufriendo un pequeño retraso, y había que solucionarlo de alguna manera. Como opciones se presentaban alargar algunos días el sprint, o pasar las tareas sin completar a la siguiente iteración. Se optó por esto último. Las tareas TRA-21 y TRA-16 se terminarían en el Sprint 3.
 
 \section{Sprint 3}
 
-Este sprint orbitó alrededor del desarrollo de las funcionalidades básicas para la app Android. Se pretendía tener funcionales los tres tipos de escenas en esta. Además se implementaría la opción de exportar y descargar escenas desde el editor web. Por último se completarían las tareas atrasadas del sprint anterior. Las historias que describen este sprint son  RA-13, RA-11.1, RA-11.2, RA-11.3.
+Este sprint orbitó alrededor del desarrollo de las funcionalidades básicas para la app Android. Se pretendía acabar teniendo funcionales los tres tipos de escenas. Además se implementaría la opción de exportar y descargar escenas desde el editor web. Por último se completarían las tareas atrasadas del sprint anterior. Las historias que describen este sprint son  RA-13, RA-11.1, RA-11.2, RA-11.3.
 
 \begin{table}[H]
 	\resizebox{\textwidth}{!}{%
@@ -680,13 +813,14 @@ Este sprint orbitó alrededor del desarrollo de las funcionalidades básicas par
     \centering
     \includegraphics[scale=0.50]{burndown3}
     \caption[Burndown Sprint 3]{Gráfica de la progresión del Burndown en el Sprint 3}
+	\label{fig:burndown3}
 \end{figure}
 
-En esta iteración se cumplieron la mayoría de los objetivos que se propusieran. La funcionalidad básica de la app Android estaba completa, pero la TRA-29 se había quedado a medias de la implementación. Era un retraso bastante mínimo así que se decidió pasar lo que restaba de la tarea al siguiente sprint de nuevo.
+En esta iteración se cumplieron la mayoría de los objetivos que se propusieran. La funcionalidad básica de la app Android estaba completa, pero la TRA-29 se había quedado a medias de la implementación. Era un retraso bastante mínimo así que se decidió pasar lo que restaba de la tarea al siguiente sprint. Burndown en la figura \ref{fig:burndown3}.
 
 \section{Sprint 4}
 
-Esta iteración se implementarían las funcionalidades de cuentas de usuario e inicio de sesión, y para ello habría que desarrollar un backend al que pudieran conectarse tanto el editor web como la app y hacer las llamadas que necesitaran a la API para operaciones como crear un usuario o actualizar una escena. Sin embargo, a lo largo de la formación que se realizó en estas tecnologías y antes de redactar las tareas de la iteración, se llegó a la conclusión que se necesitaba más tiempo de desarrollo para implementarlo que lo que se había planeado para este sprint. Sobre todo ocurría que con todo el código que había que preparar tanto en el backend como en el frontend para conectar ambos, a penas daba tiempo a implementar correctamente las interfaces de usuario que se requerían. Además había que recuperar un pequeño retraso del sprint anterior.
+Esta iteración se implementarían las funcionalidades de cuentas de usuario e inicio de sesión, y para ello habría que desarrollar un backend al que pudieran conectarse tanto el editor web como la app y hacer las llamadas que necesitaran a la API para operaciones como crear un usuario o actualizar una escena. Sin embargo, a lo largo de la formación que se realizó en estas tecnologías y antes de redactar las tareas de la iteración, se llegó a la conclusión que se necesitaba más tiempo de desarrollo para implementarlo que lo que se había planeado para este sprint.
 
 Esto no supuso ningún golpe para el proyecto, ya que se anticipó una posible situación similar. El area en el que menos experiencia se tenía a la hora de comenzar el desarrollo era en el desarrollo de backend. Y aunque se hicieron estimaciones, se contemplaba la posibilidad de que pudieran ser erroneas desde un inicio. Es por ello que para el sprint 5 se designaron las historias de usuario de menor prioridad de las cuales podía prescindir el proyecto si se diera el caso como la creación de figuras básicas, la filtración de escenas o las múltiples imágenes activadoras en imágenes aumentadas. Por tanto se tomó la decisión de descartar esas historias y re organizar el Sprint 5. En el 4 se realizaron las siguientes tareas.
 
@@ -871,17 +1005,18 @@ Esto no supuso ningún golpe para el proyecto, ya que se anticipó una posible s
 \label{TRA-45}
 \end{table}
 
-Algo importante a destacar en este Sprint es que las tareas TRA-33, TRA-34, TRA-44 y TRA-45 fueron descartadas durante el desarrollo. Esto se debe a que, como se comentará en el capítulo de Implementación, se decidió optar por otra vía en cuanto a la gestión de cuentas de usuario se refiere, por lo que ya no sería necesario crear estas llamadas en la API. En esta iteración se dispuso de más tiempo, lo cual se reflejó en la compleción de todas las tareas a tiempo.
+Algo importante a destacar en este Sprint es que las tareas TRA-33, TRA-34, TRA-44 y TRA-45 fueron descartadas durante el desarrollo. Esto se debe a que, como se comentará en el capítulo de \textit{Implementación}, se decidió optar por otra vía en cuanto a la gestión de cuentas de usuario se refiere, por lo que ya no sería necesario crear estas llamadas en la API. En esta iteración se dispuso de más tiempo, lo cual se reflejó en la compleción de todas las tareas a tiempo. El burndown se muestra en la tabla \ref{fig:burndown4}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.50]{burndown4}
     \caption[Burndown Sprint 4]{Gráfica de la progresión del Burndown en el Sprint 4}
+	\label{fig:burndown4}
 \end{figure}
 
 \section{Sprint 5}
 
-Este sprint en un inicio se planificó como un colchón en caso de que la planificación no fuera al ritmo esperado en el resto de sprints. Se desarrollarían las historias RA-9, RA-9.1, RA-12.2 y RA-3, de prioridad LOW, sin las cuales el sistema podía existir sin perder demasiado. Como ya se comentó en anteriores sprints, se descartó la implementación de todas ellas, y en su lugar se continuó con RA-10, RA-10.2 y RA-12 del cuarto sprint, que requerían de más tiempo además de RA-10.1 y RA-12.1 de prioridad MID que sí estaban programadas para esta iteración.
+Este sprint en un inicio se planificó como un colchón en caso de que la planificación no fuera al ritmo esperado en el resto de iteraciones. Se desarrollarían las historias RA-9, RA-9.1, RA-12.2 y RA-3, de prioridad LOW, sin las cuales el sistema podía existir sin perder demasiado. Como ya se comentó en anteriores sprints, se descartaron todas ellas, y en su lugar se continuó con RA-10, RA-10.2 y RA-12 del cuarto sprint, que requerían de más tiempo además de RA-10.1 y RA-12.1 de prioridad MID que sí estaban programadas para esta iteración.
 
 \begin{table}[H]
 	\resizebox{\textwidth}{!}{%
@@ -1015,10 +1150,11 @@ Este sprint en un inicio se planificó como un colchón en caso de que la planif
 \label{TRA-59}
 \end{table}
 
-El sprint finalizó sin mayores complicaciones, teniendo el producto final listo. A estas alturas se notó la experiencia obtenida en el proceso de planificación, el cual fue preciso. Una vez terminado el producto solo restaba desplegar la aplicación.
+El sprint finalizó sin mayores complicaciones, teniendo el producto final listo como se puede observar en la \ref{fig:burndown5}. A estas alturas se notó la experiencia obtenida en el proceso de planificación, el cual fue preciso. Una vez terminado el producto solo restaba desplegar la aplicación.
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.50]{burndown5}
     \caption[Burndown Sprint 5]{Gráfica de la progresión del Burndown en el Sprint 5}
+	\label{fig:burndown5}
 \end{figure}

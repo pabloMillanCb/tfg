@@ -1,2 +1,39 @@
 \chapter{Conclusiones y trabajos futuros}
 
+En este capítulo se verán las conclusiones del trabajo realizado, el cumplimiento de los objetivos establecidos en el capítulo 2 y 4 los el trabajo futuro que se podría realizar sobre el proyecto.
+
+\section{Conclusiones}
+
+Respecto a los objetivos del proyecto definidos en el capítulo 2 se tiene que:
+
+\begin{itemize}
+    \item \textbf{OBJ-1}: Se propuso hacer una herramienta para la composición de escenas 3D a través de modelos importados o creados. Se ha logrado desarrollar una aplicación web que permite la carga de archivos y la manipulación de los mismos con las transformaciones de translación, rotación y escalado. Si bien a partir de estos modelos se pueden realizar composiciones y fusionarlos todos en un único fichero, hay que matizar que por falta de tiempo el software no puede generar las geometrías básicas con las que hubiera sido posible construir objetos 3D sencillos. Esto último habría sido un buen añadido pero en ningún momento obstaculiza el propósito del sistema. Los usuarios siguen siendo capaces de construir escenas con gran libertad a partir de modelos que pueden encontrar en internet.
+    \item \textbf{OBJ-2}: Se pretendía que el software fuera sencillo, intuitivo y que no requiriera experiencia previa en la manipulación de entornos 3D. Esto se ha logrado con una interfaz limpia y minimalista que da las opciones esenciales sin abrumar al usuario. El uso de gizmos hace que sea fácil interactuar con los elementos de la escena y en ningún momento se utilizan tecnicismos como \textit{keyframes} que una persona puede no entender.
+    \item \textbf{OBJ-3}: La reproducción de animaciones y audio de escena otorgan de dinamismo y frescura a las composiciones. Aun disponiendo únicamente de las tres herramientas básicas para la manipulación de modelos, el usuario puede crear escenas vistosas sin haber comprometido la complejidad de la interfaz.
+    \item \textbf{OBJ-4}: Se quería desarrollar un software para la visualización de experiencias de realidad aumentada compuestas de modelos 3D. Esto se ha logrado gracias a la aplicación Android, que es capaz de reproducir escenas tanto de posición en superficies, imágenes aumentadas e incluso geoespaciales con coordenadas GPS. El resultado es vistoso y la aplicación es fácil de navegar.
+    \item \textbf{OBJ-5}: Se requería que el sistema pudiera almacenar las escenas creadas por el usuario para poder recuperarlas y editarlas desde el propio sistema. Esto se realizó gracias a un servidor web con base de datos y gestión de cuentas de usuario de forma segura. Los usuarios inician sesión tanto en el editor web para crear y almacenar sus composiciones como en la aplicación Android para reproducir las mismas.
+\end{itemize}
+
+Este proyecto consigue aportar a otras propuestas similares una opción más sencilla en el buen sentido de la palabra además de tener la opción de reproducción nativa en dispositivo móvil y la creación de escenas geoespaciales con coordenadas GPS. Aunque el resultado final es un sistema cerrado (en el sentido de que consta de distintas partes conectadas e interdependientes), sus distintos elementos tienen valor por separado. No sería descabellado pensar que el código del editor o de la aplicación Android fueran de utilidad para usarlos de base a la hora de crear otros proyectos relacionados o integrándolos en aplicaciones mayores. En lo personal este trabajo ha supuesto un gran reto ya que hasta el momento no había construido una aplicación completa de principio a fin hasta ser desplegada. Se ha obtenido una visión mucho más amplia sobre cómo encarar proyectos de este estilo. Y aunque hayan surgido problemas y contratiempos, se considera que se han resuelto de una forma más que competente con el conocimiento y los recursos de los que se disponían.
+
+\section{Trabajos futuros}
+
+Para trabajos futuros sobre el proyecto se proponen los siguientes puntos, en los que se tienen tanto ideas adicionales que no se propusieron hasta ahora como deudas pendientes que no dio tiempo a desarrollar:
+
+\begin{itemize}
+    \item La historia de usuario RA-12.1 quedó pendiente de implementarse. Trata de añadir ciertos criterios de filtro a la lista de escenas como por nombre o por tipo para poder localizarlas más rapidamente. Esto es especialmente importante para los usuarios que hagan un uso algo más intensivo de la aplicación y acaben con un listado extenso.
+    \item Las historias de usuario RA-09 y RA-09.1 permitirían al usuario la creación de geometrías básicas que usar como bloques de construcción para composiciones sencillas, haciendo que este no dependa tanto de los recursos que sea capaz de encontrar en internet.
+    \item La historia de usuario RA-03. Sería interesante que se tuviera la opción de en una misma escena definir distintas imágenes activadoras y que se visualizara un modelo u otro dependiendo del marcador enfocado.
+    \item Tener reproducción nativa de escenas es una baza, pero es a costa de solo haber podido desarrollar una aplicación Android. En un futuro se podría implementar una app similar para \textit{iOS} y así tener cubierto a todo el mercado de dispositivos móviles.
+    \item Se podría implementar una herramienta para anidar modelos en el editor. De la misma manera que \textit{Three.js} representa una escena con nodos en un grafo de árbol, el usuario podría definir que un modelo sea el padre de uno u varios modelos más para que estos lo sigan en cualquier transformación que se le aplique sin necesidad de estar seleccionándolos cada vez.
+\end{itemize}
+
+\section{Errores conocidos}
+
+Se enumeran aquí los errores conocidos del proyecto pero que por tiempo o recursos no han podido solucionarse:
+
+\begin{itemize}
+    \item En el aviso para dispositivos incompatibles de la aplicación web se mostraba una imagen de un portátil. Esta imagen da error al ser cargada en la versión desplegada.
+    \item En ocasiones muy puntuales, al abrir la aplicación web en un navegador con sesión previamente iniciada, las lista de escenas tarda mucho en aparecer.
+    \item Con ciertas cámaras e iluminaciones, en el modo de imágenes aumentadas de la aplicación Android pueden percibirse movimientos repentinos del modelo intentando colocarse sobre la imagen.
+\end{itemize}
