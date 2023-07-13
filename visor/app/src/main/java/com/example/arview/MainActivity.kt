@@ -27,4 +27,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        val user = Firebase.auth.currentUser
+
+        // Si el usuario está logeado acceder a la lista de escenas
+        if (user != null)
+        {
+            val myIntent = Intent(this, SceneSelect::class.java)
+            startActivity(myIntent)
+        }
+        // En caso contrario iniciar la sesión
+        else
+        {
+            val myIntent = Intent(this, LoginActivity::class.java)
+            startActivity(myIntent)
+        }
+    }
 }

@@ -6,14 +6,10 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import "../styles/SignInComponent.css"
 
-import { useEffect, useState }  from 'react'
+import { useState }  from 'react'
 import { useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { userData } from "three/examples/jsm/nodes/Nodes.js";
-import MainPageComponent from "./MainPageComponent";
-import firebase from "../config/firebase-config";
 import { useAuth } from "../controller/userController";
-import { Alert, setRef } from "@mui/material";
+import { Alert } from "@mui/material";
 import HeaderComponent from "./HeaderComponent";
 
 
@@ -22,10 +18,6 @@ export default function SignUp() {
   const navigate = useNavigate();
   const { signup } = useAuth()
   const [error, setError] = useState("")
-
-  const logOut = () => {
-    getAuth().signOut()
-  }
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -104,7 +96,7 @@ export default function SignUp() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/login" variant="body2">
+              <Link variant="body2" onClick={() => (navigate("/signin"))}>
                   {"¿Estás registrado? Inicia Sesión"}
                 </Link>
               </Grid>

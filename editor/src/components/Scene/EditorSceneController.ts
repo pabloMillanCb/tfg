@@ -33,14 +33,10 @@ class EditorSceneController {
 
     private audio: HTMLAudioElement = new Audio()
 
-    private animationButton: HTMLElement|null
-
     constructor() {
 
       this.width = window.innerWidth;
       this.height = window.innerHeight;
-
-      this.animationButton = null
 
       this.renderer = new THREE.WebGLRenderer()
       this.renderer.setSize(this.width, this.height);
@@ -75,8 +71,6 @@ class EditorSceneController {
 
     setCanvas = (): void => {
 
-      this.animationButton = document.getElementById("contenedor-boton-animaciones")!
-
       this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 5000); //ultimo parametro distancia de renderizado, cambiar a 500
       this.camera.position.set(7, 10, 10);
 
@@ -106,6 +100,7 @@ class EditorSceneController {
       window.addEventListener("resize", this.onWindowResize);
       document.getElementById("threeCanvas")!.addEventListener("mousedown", this.onMouseDown);
       window.addEventListener("keyup", this.onKeyUp);
+      window.addEventListener("keydown", this.onKeyDown);
     }
 
     // Función para refrescar cada frame
@@ -148,7 +143,8 @@ class EditorSceneController {
     }
 
     onMouseDown = (e: any): void => {
-      this.animationButton!.style.display = "none"
+      console.log("mouse down")
+      //this.animationButton!.style.display = "none"
       // Selección de objeto con raycaster
       if (e.button == 0) {
         this.raycaster.setFromCamera(this.mouse, this.camera)
@@ -164,13 +160,13 @@ class EditorSceneController {
 
           this.scene.selectObject(intersection[0].object)
           this.transformControls.attach(this.scene.getSelectGroup())
-          if (this.scene.getSelectGroup().animations.length > 0)
-          {
-            this.animationButton!.style.display = "flex"
-          }
-          else {
-            this.animationButton!.style.display = "none"
-          }
+          // if (this.scene.getSelectGroup().animations.length > 0)
+          // {
+          //   this.animationButton!.style.display = "flex"
+          // }
+          // else {
+          //   this.animationButton!.style.display = "none"
+          // }
           
 
           // Función de eliminar
@@ -191,6 +187,11 @@ class EditorSceneController {
     onKeyUp = (ev: any): void => {
       this.key_pressed[ev.key.toLowerCase()] = false;
     }
+
+    onKeyDown = (ev: any): void => {
+      this.key_pressed[ev.key.toLowerCase()] = true;
+    }
+
 
     async loadScene(url: string, setLoading: (b: boolean) => void) {
       await this.scene.loadScene(url, setLoading)
@@ -234,8 +235,12 @@ class EditorSceneController {
       this.scene.stopAnimation()
     }
 
-    changeAnimationSelectedObjects() {
-      this.scene.changeAnimationSelectedObjects()
+    changeAnimationSelectedObjects(n: number, playing: boolean): number {
+      return this.scene.changeAnimationSelectedObjects(n, playing)
+    }
+
+    getAnimationSelectedObject() {
+      return this.scene.getAnimationSelectedObject()
     }
 
     exportScene() {
@@ -248,7 +253,7 @@ class EditorSceneController {
       return this.scene.getBlob(upload)
     }
 
-    generateJSON(name: String, typeScene: String, sound: String, image_url: String, model_url: String, coordinates: []): string {
+    generateJSON(name: String, typeScene: String, sound: String, image_url: String, model_url: String, coordinates: number[]): string {
 
       const sceneJSON = {
         "name": name,

@@ -1,13 +1,10 @@
-import { Stack, Button, Grid} from "@mui/material"
+import { Button, Grid} from "@mui/material"
 import '../styles/SceneList.css'
 import SceneListItem from "./SceneListItem";
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import SceneInterface from "../interfaces/SceneInterface"
-import Loader from "./Loader";
-import { useAuth } from "../controller/userController";
 import { useScn } from "../controller/sceneController";
 import { useLoading } from "../controller/loadingController";
 
@@ -44,7 +41,7 @@ function SceneList(props: SceneListInterface) {
       "audio": "",
       "loop": true,
       "image_url": "",
-      "coordinates": [],
+      "coordinates": [0, 0, 0],
       "model_url": "",
       "animations" : []
     }

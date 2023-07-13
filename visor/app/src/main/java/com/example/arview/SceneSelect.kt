@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,22 +26,29 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class SceneSelect : AppCompatActivity() {
 
     private lateinit var binding:ActivitySceneSelectBinding
     private lateinit var adapter:SceneRecyclerViewAdapter
 
     private var listaEscenas:ArrayList<SceneParameters> = ArrayList<SceneParameters>()
-    private var auth = Firebase.auth
-    private var token: String? = null
+
+    lateinit var loadingView: View
+    var isLoading = false
+        set(value) {
+            field = value
+            loadingView.isGone = !value
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySceneSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        loadingView = findViewById(R.id.loadingView)
+        isLoading = true
 
-        val user = Firebase.auth.currentUser
-        findViewById<TextView>(R.id.welcomeUser).text = user?.email
+        findViewById<TextView>(R.id.welcomeUser).text = Firebase.auth.currentUser?.email
 
         findViewById<Button>(R.id.logoutButton).setOnClickListener {
             Firebase.auth.signOut()
@@ -52,13 +61,12 @@ class SceneSelect : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = adapter
 
-        getScenesFromUser(user!!)
-
+        getScenesFromUser(Firebase.auth.currentUser!!)
     }
 
     private suspend fun getRetrofit(token: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://tfg-backend-gu2x.onrender.com/get/escenas/")
+            .baseUrl(SERVER_URL + "/get/escenas/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(getClient(token))
             .build()
@@ -70,7 +78,7 @@ class SceneSelect : AppCompatActivity() {
             .build()
 
     private fun getScenesFromUser(user: FirebaseUser) {
-        auth.currentUser?.getIdToken(true)?.addOnSuccessListener{
+        Firebase.auth.currentUser?.getIdToken(true)?.addOnSuccessListener{
             lifecycleScope.launch {
                 val sceneList = getRetrofit(it.token!!).create(ApiService::class.java).getScenesFromUser(user.uid)
                 for (scene in sceneList){
@@ -78,6 +86,7 @@ class SceneSelect : AppCompatActivity() {
                     Log.d("get", scene.toString())
                 }
                 adapter.update(listaEscenas)
+                isLoading = false
             }
         }
     }

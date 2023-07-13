@@ -11,17 +11,17 @@ import Rotate90DegreesCcwIcon from '@mui/icons-material/Rotate90DegreesCcw';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ClearIcon from '@mui/icons-material/Clear';
-import HomeIcon from '@mui/icons-material/Home';
-import axios from "axios";
-import { getStorage, ref, uploadBytes, getBlob, getBytes, getStream } from "firebase/storage";
+import { getStorage, ref, getBlob } from "firebase/storage";
 import SceneInterface from "../interfaces/SceneInterface"
-import Loader from "./Loader";
 import { useAuth } from "../controller/userController";
 import { useScn } from "../controller/sceneController";
 import ModalComponent from "./ModalComponent";
 import { useLoading } from "../controller/loadingController";
+
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 
 function EditorComponent(scene: SceneInterface): JSX.Element {
@@ -51,6 +51,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   const [imagenFile, setImagenFile] = useState<File | undefined>(undefined)
   const [soundFile, setSoundFile] = useState<File | undefined>(undefined)
   const [animaciones, setAnimaciones] = useState('No')
+  const [selectedAnimation, setSelectedAnimation] = useState(-1)
+  const [coordinates, setCoordinates] = useState<number[]>([scene.coordinates[0], scene.coordinates[1], scene.coordinates[2]])
 
   const [openModal, setOpenModal] = useState(false)
 
@@ -88,20 +90,20 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     setTipoEscena(event.target.value as string);
     sceneController.manageImage(event.target.value as string)
 
-    if (event.target.value as string == "Marcador"){
-      document.getElementById("subir-imagen")!.style.display = "flex"
-      document.getElementById("coordenadas")!.style.display = "none"
-    }
+    // if (event.target.value as string == "Marcador"){
+    //   document.getElementById("subir-imagen")!.style.display = "flex"
+    //   document.getElementById("coordenadas")!.style.display = "none"
+    // }
 
-    else if (event.target.value as string == "Geoespacial"){
-      document.getElementById("subir-imagen")!.style.display = "none"
-      document.getElementById("coordenadas")!.style.display = "flex"
-    }
+    // else if (event.target.value as string == "Geoespacial"){
+    //   document.getElementById("subir-imagen")!.style.display = "none"
+    //   document.getElementById("coordenadas")!.style.display = "flex"
+    // }
 
-    else {
-      document.getElementById("subir-imagen")!.style.display = "none"
-      document.getElementById("coordenadas")!.style.display = "none"
-    }
+    // else {
+    //   document.getElementById("subir-imagen")!.style.display = "none"
+    //   document.getElementById("coordenadas")!.style.display = "none"
+    // }
   }
 
   const handleNombreEscena = (event: string) => {
@@ -174,7 +176,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
   const saveScene = async () => {
 
     console.log(sceneTypeHash.get(tipoEscena)!)
-    const json = JSON.parse(sceneController.generateJSON(nombreEscena, sceneTypeHash.get(tipoEscena)!, "", "", "", []))
+    const json = JSON.parse(sceneController.generateJSON(nombreEscena, sceneTypeHash.get(tipoEscena)!, "", "", "", coordinates))
     json.uid = currentUser?.uid
 
     if (animaciones == "No") { json.animations = [] }
@@ -201,6 +203,8 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     await setTipoEscena(reverseTypeHash.get(scene.scene_type)!)
     // Establecer animaciones
     setAnimaciones(scene.animations.length > 0 ? "Si" : "No")
+    
+    setCoordinates(scene.coordinates)
 
     const storage = getStorage();
 
@@ -234,8 +238,26 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
 
   }
 
-  const changeAnimation = () => {
-    sceneController.changeAnimationSelectedObjects()
+  const changeAnimation = (n: number) => {
+    setSelectedAnimation(sceneController.changeAnimationSelectedObjects(n, reproduciendo))
+  }
+
+  const handleClickCanvas = () => {
+    console.log(sceneController.getAnimationSelectedObject())
+    setSelectedAnimation(sceneController.getAnimationSelectedObject())
+    
+  }
+
+  const handleGPS = (event: string, i: number) => {
+    var gps = coordinates
+    gps[i] = Number(event)
+    setCoordinates(gps)
+    console.log(coordinates)
+  }
+
+  const exitScene = () => {
+    navigate('/')
+    sceneController.stopAudio()
   }
 
 
@@ -244,7 +266,7 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
       <ModalComponent 
           tittle={"¿Quieres salir del editor?" }
           text="Perderás los cambios no guardados en la escena" 
-          fun={() => navigate('/')}
+          fun={() => exitScene()}
           open={openModal && !loading}
           textButton="Salir"
           onClose={() => setOpenModal(false)}
@@ -317,10 +339,16 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
             </>
             
           </div>
-
-          <div id="contenedor-boton-animaciones">
-            <Button onClick={() => changeAnimation()} variant="contained" component="label" color="secondary">Cambiar Animación</Button>
-          </div>
+            {(selectedAnimation != -1) ? 
+              (<div className="vertical-align">
+                <div className="center-v"><p>Seleccionar animación</p></div>
+                <div id="contenedor-boton-animaciones">
+                  <Button onClick={() => changeAnimation(-1)} variant="contained" component="label" color="secondary"><ArrowLeftIcon/></Button>
+                  <div className="center"><p color="white">{selectedAnimation}</p></div>
+                  <Button onClick={() => changeAnimation(1)} variant="contained" component="label" color="secondary"><ArrowRightIcon/></Button>
+                </div>
+              </div>
+              ) : (<></>)}
 
           <div className="contenedor-selector">
             <>
@@ -341,19 +369,25 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
             </Box>
             </>
           </div>
-          <div className="contenedor-subir-imagen" id="subir-imagen">
+          {(tipoEscena == "Marcador") ?
+          (<div className="contenedor-subir-imagen" id="subir-imagen">
             <Button variant="contained" component="label" id="boton-carga-imagen" color="secondary">
               Cargar imagen
               <input hidden type="file" onChange={ (e) => handleLoad(e.target.files as FileList, ["png", "jpg", "svg"], false) }/>
             </Button>
-          </div>
-          <div className="contenedor-coordenadas" id="coordenadas">
-            <TextField id="latitud" label="Latitud" variant="standard" type="number"/>
-            <TextField id="longitud" label="Longitud" variant="standard" type="number"/>
-            <TextField id="altura" label="Altura" variant="standard" type="number"/>
-          </div>
+          </div>) : (<></>)}
+
+          {(tipoEscena == "Geoespacial") ?
+          (
+            <div className="contenedor-coordenadas" id="coordenadas">
+              <TextField id="latitud" label="Latitud" variant="standard" type="number" defaultValue={coordinates[0]} onChange={(e) => handleGPS(e.target.value, 0)}/>
+              <TextField id="longitud" label="Longitud" variant="standard" type="number" defaultValue={coordinates[1]} onChange={(e) => handleGPS(e.target.value, 1)}/>
+              <TextField id="altura" label="Altura" variant="standard" type="number" defaultValue={coordinates[2]} onChange={(e) => handleGPS(e.target.value, 2)}/>
+            </div>
+          ) : (<></>)}
+          
         </div>
-        <canvas id="threeCanvas" />
+        <canvas id="threeCanvas" onClick={() => handleClickCanvas()}/>
       </div>
     </div>
   );

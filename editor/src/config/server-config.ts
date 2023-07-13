@@ -1,0 +1,1 @@
+export const SERVER_URL = 'https://tfg-backend-gu2x.onrender.com'

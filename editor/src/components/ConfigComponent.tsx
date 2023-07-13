@@ -1,16 +1,9 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import "../styles/SignInComponent.css"
-
-import { useEffect, useState }  from 'react'
-import { useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword, updateEmail } from "firebase/auth";
-import { userData } from "three/examples/jsm/nodes/Nodes.js";
-import MainPageComponent from "./MainPageComponent";
+import { useState }  from 'react'
 import HeaderComponent from "./HeaderComponent";
 import { useAuth } from "../controller/userController";
 import { Alert } from "@mui/material";
@@ -18,8 +11,7 @@ import { Alert } from "@mui/material";
 
 export default function SignUp() {
 
-  const navigate = useNavigate()
-
+  console.log
   const { updateUserEmail } = useAuth()
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
