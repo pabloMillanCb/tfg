@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import "../styles/SignInComponent.css"
 import { useState }  from 'react'
-import { useNavigate } from "react-router-dom";
 import HeaderComponent from "./HeaderComponent";
 import { useAuth } from "../controller/userController";
 import { Alert } from "@mui/material";
@@ -12,7 +11,6 @@ import { Alert } from "@mui/material";
 
 export default function SignUp() {
 
-  const navigate = useNavigate()
   console.log
   const { updateUserEmail } = useAuth()
   const [error, setError] = useState('')

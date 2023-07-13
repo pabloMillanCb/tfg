@@ -11,13 +11,10 @@ import Rotate90DegreesCcwIcon from '@mui/icons-material/Rotate90DegreesCcw';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ClearIcon from '@mui/icons-material/Clear';
-import HomeIcon from '@mui/icons-material/Home';
-import axios from "axios";
-import { getStorage, ref, uploadBytes, getBlob, getBytes, getStream } from "firebase/storage";
+import { getStorage, ref, getBlob } from "firebase/storage";
 import SceneInterface from "../interfaces/SceneInterface"
-import Loader from "./Loader";
 import { useAuth } from "../controller/userController";
 import { useScn } from "../controller/sceneController";
 import ModalComponent from "./ModalComponent";
@@ -258,13 +255,18 @@ function EditorComponent(scene: SceneInterface): JSX.Element {
     console.log(coordinates)
   }
 
+  const exitScene = () => {
+    navigate('/')
+    sceneController.stopAudio()
+  }
+
 
   return (
     <div className="main-div">
       <ModalComponent 
           tittle={"¿Quieres salir del editor?" }
           text="Perderás los cambios no guardados en la escena" 
-          fun={() => navigate('/')}
+          fun={() => exitScene()}
           open={openModal && !loading}
           textButton="Salir"
           onClose={() => setOpenModal(false)}

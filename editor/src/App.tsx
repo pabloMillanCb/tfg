@@ -1,23 +1,16 @@
 
 import EditorComponent from './components/EditorComponent'
-import LandingPage from './components/LandingPage'
 import SignIn from './components/SignInComponent'
 import GuardedRoute from './components/GuardedRoute'
 import MainPageComponent from './components/MainPageComponent'
 import './App.css'
 import { Route, Routes,BrowserRouter} from "react-router-dom";
-import { createContext, useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { firebaseAuth } from './config/firebase-config'
-import firebase from './config/firebase-config'
+import { useState } from 'react';
 import SignUp from './components/SignUpComponent'
-import SceneList from './components/SceneList'
 import ConfigComponent from './components/ConfigComponent'
 import SceneInterface from "./interfaces/SceneInterface"
-import { Scene } from 'three'
 import { AuthProvider } from './controller/userController'
 import { SceneProvider } from './controller/sceneController'
-import Loader from './components/Loader'
 import GuardedRouteLogin from './components/GuardedRouteLogin'
 import { LoadingProvider } from './controller/loadingController'
 
@@ -25,8 +18,8 @@ function App() {
 
   const ROOT = "/"
   const EDITOR = "/editor"
-  const LOGIN = "/login"
-  const REGISTER = "/register"
+  const LOGIN = "/signin"
+  const REGISTER = "/signup"
   const CONFIG = "/config"
 
 
@@ -46,6 +39,13 @@ function App() {
 
   return (
     <>
+    <div className='too-small'>
+        <p className="bienvenida-usuario center center-v">Accede a la aplicación desde un dispositivo de escritorio</p>
+        <p className=" center center-v">Esta web está diseñada con portátiles y ordenadores en mente. Por favor, usa uno de estos dispositivos para una mejor experiencia.</p>
+        <div className='center-v'><img src="src/assets/laptop-screen.png" alt="" /></div>
+        {/*https://www.flaticon.com/free-icon/laptop-screen_2888701?term=laptop&page=1&position=12&origin=search&related_id=2888701 https://www.flaticon.com/authors/vectorsmarket15*/}
+        
+    </div>
       <BrowserRouter>
       <LoadingProvider>
         <AuthProvider>

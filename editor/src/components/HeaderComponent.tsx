@@ -1,5 +1,4 @@
-import { Stack, Button, IconButton, Grid, TextField, Select, MenuItem, InputLabel, FormControl, Box, SelectChangeEvent} from "@mui/material"
-import { getAuth } from "firebase/auth";
+import { Stack, Button } from "@mui/material"
 import { useAuth } from "../controller/userController";
 import { useNavigate } from "react-router-dom";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
@@ -17,7 +16,7 @@ export default function HeaderComponent(props: HeaderInterface) {
 
     const logOut = () => {
         logout()
-        navigate("/login")
+        navigate("/signin")
       }
 
     return (

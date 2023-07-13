@@ -33,14 +33,10 @@ class EditorSceneController {
 
     private audio: HTMLAudioElement = new Audio()
 
-    private animationButton: HTMLElement|null
-
     constructor() {
 
       this.width = window.innerWidth;
       this.height = window.innerHeight;
-
-      this.animationButton = null
 
       this.renderer = new THREE.WebGLRenderer()
       this.renderer.setSize(this.width, this.height);
@@ -74,8 +70,6 @@ class EditorSceneController {
     }
 
     setCanvas = (): void => {
-
-      this.animationButton = document.getElementById("contenedor-boton-animaciones")!
 
       this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 5000); //ultimo parametro distancia de renderizado, cambiar a 500
       this.camera.position.set(7, 10, 10);

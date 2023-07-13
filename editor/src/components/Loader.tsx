@@ -1,6 +1,5 @@
-import {ClipLoader, MoonLoader} from 'react-spinners'
+import { ClipLoader } from 'react-spinners'
 import "../styles/Loader.css"
-import { exp } from 'three/examples/jsm/nodes/Nodes.js'
 
 interface LoaderInterface {
     loading: boolean
