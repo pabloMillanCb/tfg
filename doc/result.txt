@@ -1,0 +1,1631 @@
+secciones/01_introduccion _y_fundamentos.tex
+
+[1;33m* L32C1-L32C2[0m[39m[49m This figure is missing a label [2;33m[sh:figref] [0m[39m[49m
+[1;37m  \end{figure}
+  [1;31m^^[0m[39m[49m
+[1;33m* L31C5-L31C83[0m[39m[49m A caption should end with a period [2;33m[sh:capperiod] [0m[39m[49m
+[1;37m      \includegraphics[scale=0.5]{pkmgo}
+      [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L84C2-L84C15[0m[39m[49m This subsubsection is very short (about 54 words). You should 
+  consider merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \subsubsection{Kotlin}
+   [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L77C2-L77C12[0m[39m[49m This subsection is very short (about 147 words). You should 
+  consider merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \subsection{Android}
+   [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L113C2-L113C12[0m[39m[49m This section is very short (about 63 words). You should 
+  consider merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \subsection{Archivo GLB}
+   [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L18C194-L18C203[0m[39m[49m There should be a space after a period. If you are writing a 
+  URL or a filename, use the \url{} or \verb markup. [2;33m[sh:d:002] [0m[39m[49m
+[1;37m   acabaría usando como three.js o Android Studio, y
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L96C187-L96C199[0m[39m[49m There should be a space after a period. If you are writing a 
+  URL or a filename, use the \url{} or \verb markup. [2;33m[sh:d:002] [0m[39m[49m
+[1;37m  cheros de extensión \textit{.jsx} (\textit{JavaScr
+                     [1;31m^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L102C101-L102C109[0m[39m[49m There should be a space after a period. If you are writing 
+  a URL or a filename, use the \url{} or \verb markup. [2;33m[sh:d:002] [0m[39m[49m
+[1;37m  lista y flexible para Node.js que provee una serie
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L114C13-L114C26[0m[39m[49m There should be a space after a period. If you are writing a 
+  URL or a filename, use the \url{} or \verb markup. [2;33m[sh:d:002] [0m[39m[49m
+[1;37m  \textbf{GLB} (\textit{.glb}) es un formato de arch
+              [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L114C334-L114C347[0m[39m[49m There should be a space after a period. If you are writing 
+  a URL or a filename, use the \url{} or \verb markup. [2;33m[sh:d:002] [0m[39m[49m
+[1;37m  heros \textbf{GLTF} (\textit{.gltf}), un formato b
+                     [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L96C187-L96C198[0m[39m[49m There should not be a space before the period at the end of 
+  a sentence. [2;33m[sh:d:003] [0m[39m[49m
+[1;37m  icheros de extensión \textit{.jsx} (\textit{JavaSc
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L5C64-L5C71[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Realidad, Realizad, Realzad, Rea liad] (84) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  oducción a la \textit{Realiad Aumentada} y a la id
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L10C594-L10C601[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Pokémon] [0m[39m[49m(902) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   habitación e incluso videojuegos como Pokemon GO.
+                                         [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L12C236-L12C243[0m[39m[49m Esta locución se escribe normalmente entre comas.. 
+  Suggestions: [2;33m[embargo,] [0m[39m[49m(1150) [2;33m[lt:es:COMMA_MARCADOR_DISCURSIVO] [0m[39m[49m
+[1;37m  alidad Aumentada. Sin embargo en la mayoría de cas
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L12C344-L12C355[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [regenerado, pre generado] (1258) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  sivamente contenido pregenerado por los desarrolla
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L14C109-L14C123[0m[39m[49m Se ha encontrado un posible error ortográfico. (1463) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  la composición de textit{escenas 3D} para uso en R
+                    [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L14C586-L14C600[0m[39m[49m Si el adverbio "adicionalmente" se refiere a toda la frase, 
+  y no solo al verbo, es recomendable usar una coma.. Suggestions: 
+  [2;33m[Adicionalmente,] [0m[39m[49m(1938) [2;33m[lt:es:COMMA_ADVERB] [0m[39m[49m
+[1;37m  os en una escena. Adicionalmente se podrá añadir a
+                    [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L14C763-L14C770[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [generadas, 
+  producidas, originadas, ocasionadas, suscitadas, difundidas, gestadas] (2115) 
+  [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m   colección de escenas creadas asociadas a una cuen
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L16C109-L16C116[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [generadas, 
+  producidas, originadas, ocasionadas, suscitadas, difundidas, gestadas] (2313) 
+  [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  a su lista de escenas creadas y podrá reproducir c
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L18C214-L18C220[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Estudio, Estudió] (2621) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  mo three.js o Android Studio, y que es un proyecto
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L18C383-L18C390[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [generando, 
+  produciendo, originando, ocasionando, suscitando, difundiendo, gestando] 
+  (2790) [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m   web que los conecte, creando así un pequeño ecosi
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L26C41-L26C50[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Aumente, Aumenten, Aumentad, Aumentes, Aumenté] (3120) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   Aumentada} (\textit{Augmented Reality} en inglés,
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L26C171-L26C176[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [generar, 
+  producir, originar, ocasionar, suscitar, difundir, gestar] (3240) 
+  [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  cnologías que permiten crear un experiencia en la 
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L26C177-L26C191[0m[39m[49m Error de concordancia.. Suggestions: [una experiencia, unas 
+  experiencias] (3246) [2;33m[lt:es:AGREEMENT_DET_NOUN] [0m[39m[49m
+[1;37m  ue permiten crear un experiencia en la que se comb
+                    [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L34C71-L34C85[0m[39m[49m Error de concordancia.. Suggestions: [el RA] (3782) 
+  [2;33m[lt:es:AGREEMENT_DET_NOUN] [0m[39m[49m
+[1;37m  sgos sinónimos de la \textit{RA} como \textit{Mixe
+                    [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L34C99-L34C104[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Mitad, Miles, Mide, Miedo, Miden, Miel, Mixta, Mixto, Píxel, Mire, Pixel, 
+  Lied, Mine, Mies, Miren, Mires, Moved, Mines, Mirad, Miré, Micer, Mides, 
+  Mimen, Minen, Meced, Meted, Miné, MIES, Mike, Migad, Mimad, Mime, Mimes, 
+  Mimé, Minad, Moled] (3793) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  extit{RA} como \textit{Mixed Reality}. No debe con
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L34C342-L34C357[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [específicamente, especifica mente] (4026) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  lventes diseñadas especificamente para realidad vi
+                    [1;31m^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L34C381-L34C392[0m[39m[49m Posible falta de concordancia.. Suggestions: [Todas estas] 
+  (4065) [2;33m[lt:es:TODO_EL] [0m[39m[49m
+[1;37m  a realidad virtual. Todos estas disciplinas están 
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L34C460-L34C468[0m[39m[49m Combinación imposible con verbo en imperativo.. Suggestions: 
+  [2;33m[Extendés] [0m[39m[49m(4136) [2;33m[lt:es:WRONG_IMPERATIVE] [0m[39m[49m
+[1;37m  raguas de la \textit{Extended Reality} (\textit{XR
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L34C487-L34C490[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [IR, DR, GR, QR, SR, AR, XI, CR, EXR] (4154) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  uas de la \textit{Extended Reality} (\textit{XR}).
+                                               [1;31m^^^^[0m[39m[49m
+[1;33m* L37C113-L37C126[0m[39m[49m Error de concordancia.. Suggestions: [el siguiente, los 
+  siguientes, la siguiente, las siguientes] (4265) [2;33m[lt:es:AGREEMENT_DET_ADJ] [0m[39m[49m
+[1;37m  sioncomputador} este campo con las siguiente cita:
+                                 [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C470-L40C478[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [actuar, 
+  ejecutar, proceder, hacer, efectuar, llevar a cabo, efectuar] (4748) 
+  [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  e llegar a extraer o realizar puede ir desde la si
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L43C402-L43C416[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[procesamiento] [0m[39m[49m(5291) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  italizada para su pprocesamiento en un computador.
+                    [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L49C13-L49C13[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (6074) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \subsection{ARCore}
+              [1;31m^[0m[39m[49m
+[1;33m* L50C9-L50C16[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (6081) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textit{ARCore}\cite{arcore}  es un \textit{SDK} (
+          [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L50C68-L50C79[0m[39m[49m Se ha encontrado un posible error ortográfico. (6112) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  } (\textit{software development kit}) de Realidad 
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L50C290-L50C296[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (6315) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  it{OpenGL}. Para ello ARCore realiza una serie de 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L53C126-L53C130[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [ANSI, ANSA, ANSÍ] (6646) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nación simultáneos}, o ANSM, para que el dispositi
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L53C222-L53C228[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (6742) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e lo rodea. Para ello ARCore detecta característic
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L53C453-L53C647[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [IMV, IU, EMÚ, MU] (6964) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  de estimar y reportar información acerca de la vel
+  [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L55C244-L55C250[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: 
+  [utilizarse, emplearse] (7317) [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  it{planos} que pueden usarse para posicionar objet
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L57C48-L57C54[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (7382) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  sión de profundidad}: ARCore detecta y almacena \t
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L57C211-L57C220[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [usarse, 
+  utilizarse] (7536) [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  perficie. Esto puede emplearse para simular intera
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L63C56-L63C87[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [aricases, aricaste, radicases, radicaste, rascases, rascaste, rayases, 
+  rayaste] (8209) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  través de raycasts\footnote{text raycast}, ARCore 
+            [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L63C89-L63C95[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (8219) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  otnote{text raycast}, ARCore puede obtener un \tex
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L65C138-L65C144[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (8559) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  n superficies planas. ARCore analiza los puntos de
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L67C41-L67C47[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (8825) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  Imágenes aumentadas}: ARCore puede detectar a trav
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L71C13-L71C13[0m[39m[49m Se ha encontrado un posible error ortográfico. (9095) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \subsection{SceneView}
+              [1;31m^[0m[39m[49m
+[1;33m* L73C9-L73C19[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Canéfora, Cinefórum] (9106) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textbf{Sceneform} es un \textit{SDK} desarrollado
+          [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L73C195-L73C202[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ardore, Acore, Acoré, Ancore, Ancoré, ARCo re] (9265) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  licaciones de \textit{ARCore} o realidad virtual s
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L73C465-L73C568[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Finamente, Filamento, Fijamente, Fílmente, Fi lamente, Fila mente] (9508) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nt: Motor de físicas para escenas 3D en tiempo rea
+  [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L75C1-L75C16[0m[39m[49m Si el adverbio "lamentablemente" se refiere a toda la frase, y 
+  no solo al verbo, es recomendable usar una coma.. Suggestions: 
+  [2;33m[Lamentablemente,] [0m[39m[49m(9520) [2;33m[lt:es:COMMA_ADVERB] [0m[39m[49m
+[1;37m  Lamentablemente \textit{Sceneform} fue descontinua
+  [1;31m^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L75C25-L75C35[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Canéfora, Cinefórum] (9536) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ntablemente \textit{Sceneform} fue descontinuado p
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L75C40-L75C53[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [discontinuado, des continuado, descontinua do] (9550) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  tit{Sceneform} fue descontinuado por \textit{Googl
+                     [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L75C130-L75C140[0m[39m[49m Se ha encontrado un posible error ortográfico. (9623) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  l nombre de \textbf{Sceneview}\cite{sceneview}, de
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L81C24-L81C24[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Estudio, Estudió] (10159) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \subsubsection{Android Studio}
+                         [1;31m^[0m[39m[49m
+[1;33m* L82C17-L82C24[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Estudio, Estudió] (10174) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textit{Android Studio} es un entorno de desarroll
+                  [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L82C73-L82C77[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [DE, IDEA, IDO, INE, MIDE, PIDE, IDA, DÉ, ID, IDEÓ, KDE, ÍDEM, ICE, IRÉ, 
+  IDEO, BIDÉ, IDEE, CDE, IAE, ADE, ICÉ, IDEM, IDEÁ, IDEÉ, IDLE, IDME] (10221) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  lo integrado o \textit{IDE}, es decir, una aplicac
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L82C389-L82C406[0m[39m[49m Como locución causal, se escribe con coma.. Suggestions: 
+  [desarrollo, ya que, desarrollo porque] (10536) [2;33m[lt:es:YA_QUE] [0m[39m[49m
+[1;37m   para encarar un desarrollo ya que aglutina todas 
+                   [1;31m^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L84C16-L85C7[0m[39m[49m Posible error: repetición de una palabra. Suggestions: [2;33m[Kotlin] [0m[39m[49m
+  (10648) [2;33m[lt:es:SPANISH_WORD_REPEAT_RULE] [0m[39m[49m
+[1;37m  \subsubsection{Kotlin}
+                 [1;31m[0m[39m[49m
+[1;33m* L85C71-L85C77[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tirado, tapado, topado, timado, tinado, hipado, tipazo, tipa do] (10725) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  aforma, estáticamente tipado, con inferencia de ti
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L85C154-L85C167[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [inter operable] (10808) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ara ser totalmente interoperable con \textit{Java}
+                     [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L87C13-L87C13[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[TypeScript] [0m[39m[49m(11007) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \subsection{Typescript}
+              [1;31m^[0m[39m[49m
+[1;33m* L88C99-L88C103[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [justo, gusta, gusto, gustó, justa, guste, juste, justó, gusté, jusi, Justa, 
+  Justo, gus, gustá, justá, justé] (11090) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  do y compilado \textit{just-in-time}, aunque es má
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L88C104-L88C106[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (11095) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   compilado \textit{just-in-time}, aunque es más co
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L88C107-L88C112[0m[39m[49m Si es pasado, se escribe con tilde. Si es imperativo, puede 
+  que falte una coma.. Suggestions: [ timé, , time] (11098) 
+  [2;33m[lt:es:SUBJUNTIVO_PASADO] [0m[39m[49m
+[1;37m  pilado \textit{just-in-time}, aunque es más conoci
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L88C165-L88C175[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Cristina, críptico, cristino, críptica, criptón, Cristino, Schilling, 
+  cristina, schilling, script, scripts] (11147) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  lenguaje de \textit{scripting}, es decir, un lengu
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L90C45-L90C48[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [ES, TE, TU, AS, TI, TUS, TÉ, TÚ, TA, TOS, TÉS, ATS, BTS, TC, TV, MS, OS, S, 
+  TAS, JS, TCS, TLS] (11264) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  it{TypeScript} (\textit{TS}) es un lenguaje constr
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L90C111-L90C119[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [sintaxis, sintáis, cintáis] (11329) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  JavaScript que añade sintáxis adicional que lo hac
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L90C162-L90C169[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tirado, tapado, topado, timado, tinado, hipado, tipazo, tipa do] (11372) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e \textbf{fuertemente tipado}. Es decir, siempre q
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L93C42-L93C48[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Objeto, Objetó, Objeta, Objete, Obcecó, Obceca, Obceco, Obcecá, Objetá, 
+  Objeté] (11752) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  o \textit{JavaScript} Object Notation) es un forma
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L93C49-L93C57[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Notación] [0m[39m[49m(11759) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  t{JavaScript} Object Notation) es un formato de te
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L96C144-L96C157[0m[39m[49m Si el adverbio "opcionalmente" se refiere a toda la frase, y 
+  no solo al verbo, es recomendable usar una coma.. Suggestions: 
+  [2;33m[Opcionalmente,] [0m[39m[49m(12218) [2;33m[lt:es:COMMA_ADVERB] [0m[39m[49m
+[1;37m   por su comunidad. Opcionalmente utiliza ficheros 
+                     [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L96C197-L96C201[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[JS] [0m[39m[49m(12263) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   de extensión \textit{.jsx} (\textit{JavaScript Sy
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L96C222-L96C228[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Cinta, Cintas, Pintar, Santa, Sintió, Tinta, Pinta, Sienta, Sintaxis, 
+  Santas, Sentar, Sientan, Sita, Tintas, Pintan, Sintasa, Finta, Pintas, Sitas, 
+  Fintas, Sientas, Tintar, Tintan, Cintan, Fintar, Sintáis, Vintas, Sinaí, 
+  Sintra, Sixta, Cintad, Cintar, Cintá, Cintás, Fintad, Fintan, Fintá, Fintás, 
+  Pintad, Pintá, Pintás, Sentad, Sentá, Sentás, Singa, Singad, Singan, Singar, 
+  Singas, Singá, Singás, Sitar, Sonta, Sontas, Tintad, Tintá, Tintás, Vinta] 
+  (12279) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  } (\textit{JavaScript Syntax Extension}) para faci
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L96C229-L96C239[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Extensión] [0m[39m[49m(12286) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  t{JavaScript Syntax Extension}) para facilitar el 
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L99C9-L99C14[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Nueve, Nodo, Noé, Note, Pode, Noté, Nove, Jode, Nade, Nadé, Rodé, Bode, 
+  Jodé, Nové, Podé, Yode, Yodé, No de] (12493) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textit{Node}\cite{nodejs} es un entorno de ejecuc
+          [1;31m^^^^^^[0m[39m[49m
+[1;33m* L101C13-L101C13[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Expresa, Expresó, Expreso, Expresas, Exprese, Expresos, Exprés, Expresé, 
+  Expreses, Expresá, Expresás] (12736) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \subsection{Express}
+              [1;31m^[0m[39m[49m
+[1;33m* L102C9-L102C17[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Expresa, Expresó, Expreso, Expresas, Exprese, Expresos, Exprés, Expresé, 
+  Expreses, Expresá, Expresás] (12744) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textit{Express}\cite{express} es un \textit{``Web
+          [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L102C52-L102C63[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[aplicación] [0m[39m[49m(12767) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  es un \textit{``Web application framework minimali
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L102C64-L102C73[0m[39m[49m Se ha encontrado un posible error ortográfico. (12779) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  it{``Web application framework minimalista y flexi
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L102C183-L102C187[0m[39m[49m Esta frase no empieza con mayúscula.. Suggestions: [2;33m[Como] [0m[39m[49m
+  (12897) [2;33m[lt:es:UPPERCASE_SENTENCE_START] [0m[39m[49m
+[1;37m  ones web y móviles.''} como lo definen ellos mismo
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L102C294-L102C305[0m[39m[49m Se ha encontrado un posible error ortográfico. (12991) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  tit{HTTP} y \textit{middleware}. Cuando hablamos d
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L102C334-L102C345[0m[39m[49m Se ha encontrado un posible error ortográfico. (13022) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  hablamos de \textit{middleware} nos referimos a un
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L102C418-L102C427[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [2;33m[comunican] [0m[39m[49m(13105) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ntas aplicaciones se comunitan entre si por intern
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L102C434-L102C436[0m[39m[49m Como pronombre personal reflexivo, se escribe con tilde.. 
+  Suggestions: [2;33m[sí] [0m[39m[49m(13121) [2;33m[lt:es:SI] [0m[39m[49m
+[1;37m   aplicaciones se comunitan entre si por internet. 
+                                   [1;31m^^^[0m[39m[49m
+[1;33m* L104C13-L105C18[0m[39m[49m Posible error: repetición de una palabra. Suggestions: 
+  [2;33m[Firebase] [0m[39m[49m(13140) [2;33m[lt:es:SPANISH_WORD_REPEAT_RULE] [0m[39m[49m
+[1;37m  \subsection{Firebase}
+              [1;31m^^^^^^[0m[39m[49m
+[1;33m* L105C40-L105C292[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [BAJAS, BALAS, BAYAS, BASAS, BAZAS, BOAS, BATAS, BABAS, BAOS, 
+  BACAS, BAÑAS, BAGAS, BAAL, BLAS, ABAÁS, BAGÁS, BAJÁS, BALÁS, BAS, BASÁS, 
+  BAÑÁS, BÚAS, PaaS, SaaS] (13167) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  s hagan usos de sus servicios y se centren en desa
+  [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L109C171-L109C176[0m[39m[49m Si es adjetivo o nombre, se escribe con tilde.. 
+  Suggestions: [2;33m[línea] [0m[39m[49m(13756) [2;33m[lt:es:DIACRITICS_00] [0m[39m[49m
+[1;37m   real y se mantiene en linea incluso cuando la apl
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L110C45-L110C53[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [costear, mostear, postear, hoste ar] (13835) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ng}: Permite \textit{hostear} aplicaciones web de 
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L114C9-L114C13[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [GB, GLS] (13994) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textbf{GLB} (\textit{.glb}) es un formato de arch
+          [1;31m^^^^^[0m[39m[49m
+[1;33m* L114C24-L114C28[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [GB, GLS] (14000) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textbf{GLB} (\textit{.glb}) es un formato de arch
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L114C218-L114C220[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [EL, AL, ÉL, GOL, GIL, GEL, GAL, GB, GPL, GR, GO, SL, CL, DL, G, 
+  GE, GU, HL, L, LL, ML, GLS, GM, GQ, LG] (14185) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  glas significan \textit{GL Transsmission Format Bi
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L114C221-L114C234[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [2;33m[Transmisión] [0m[39m[49m(14188) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nifican \textit{GL Transsmission Format Binary Fil
+                     [1;31m^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L114C235-L114C241[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [Forma, Forman, Formar, Formas, Formato, Formal, Formad, 
+  Formate, Formá, Formás, Fórmate] (14202) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  xtit{GL Transsmission Format Binary File}. Fue int
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L114C242-L114C248[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [Binaria, Binario, Binar, Binara, Binare, Binará, Binaré, Binar 
+  y] (14209) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   Transsmission Format Binary File}. Fue introducid
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L114C249-L114C254[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [Fiel, Film, Filme, Fila, Filo, Fije, Fine, Figle, Fijé, Fíe, 
+  Hile, Afile, Afilé, Bilé, Dile, Fiale, Fice, Ficé, Fie, Filié, Filmé, Filíe, 
+  Finé, Fiñe, Fíale, Fíele, Gilé, Hilé, Pile, Pilé, Rile, Rilé, Tile, Fi le] 
+  (14216) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  smission Format Binary File}. Fue introducido en 2
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L114C345-L114C350[0m[39m[49m Se ha encontrado un posible error ortográfico.. 
+  Suggestions: [alto, alta, gato, golf, gota, gata, jet, jota, glifo, glía, 
+  jote, jeta, jata, jato, juta, GIF, OLAF, Olaf, Olt, bluf, geta, geto, gley, 
+  guti, jate, jeto, jets, joto, álef, GEXF, GLS, LF, LT, LTE, RTF] (14294) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  textbf{GLTF} (\textit{.gltf}), un formato basado e
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L114C404-L114C409[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [utilizado, 
+  empleado] (14343) [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  ción \textit{JSON} muy usado en aplicaciones web y
+                         [1;31m^^^^^^[0m[39m[49m
+secciones/06_implementacion.tex
+
+[1;33m* L1C2-L1C9[0m[39m[49m This section is very short (about 47 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \chapter{Implementación}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L5C77-?[0m[39m[49m You should not break lines manually in a paragraph. Either start a 
+  new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  e han ido incorporando al software a lo largo de s
+                                                                 [1;31m[0m[39m[49m
+[1;33m* L3C57-L3C63[0m[39m[49m Probablemente sobra la coma entre el sujeto y el predicado.. 
+  Suggestions: [2;33m[Estos] [0m[39m[49m(72) [2;33m[lt:es:COMA_SUJETO_PREDICADO] [0m[39m[49m
+[1;37m  ha dividido en hitos. Estos, han sido definidos en
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L3C86-L3C86[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [GitHub, GitLab, GitWeb] (101) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  dido en hitos. Estos, han sido definidos en Github
+                                              [1;31m^[0m[39m[49m
+[1;33m* L4C50-L4C57[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [sigues, iglúes, sitúes, cisques, fisgues, instes, insumes, irgues, misses, 
+  sifués, siques, sisees, sises, tisúes, yaqués] (149) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e un grupo de \textit{issues} que se corresponden 
+                        [1;31m^^^^^^^^[0m[39m[49m
+secciones/02_descripcion.tex
+
+[1;33m* L1C2-L1C9[0m[39m[49m This section is very short (about 1 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \chapter{Descripción del problema}
+   [1;31m^^^^^^^^[0m[39m[49m
+secciones/04_planificacion.tex
+
+[1;33m* L3C2-L3C9[0m[39m[49m If a section has sub-sections, it should have more than one such 
+  sub-section. [2;33m[sh:nsubdiv] [0m[39m[49m
+[1;37m  \section{Metodología utilizada}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L3C2-L3C9[0m[39m[49m This section is very short (about 2 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \section{Metodología utilizada}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L17C2-L17C9[0m[39m[49m This section is very short (about 0 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \section{Seguimiento del desarrollo}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L15C2-L15C9[0m[39m[49m This section is very short (about 2 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \section{Temporización}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L1C2-L1C9[0m[39m[49m This section is very short (about 3 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \chapter{Planificación}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L3C2-L3C9[0m[39m[49m Avoid stacked headings, i.e. consecutive headings without text in 
+  between. [2;33m[sh:stacked] [0m[39m[49m
+[1;37m  \section{Metodología utilizada}
+   [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L5C2-L5C12[0m[39m[49m Avoid stacked headings, i.e. consecutive headings without text in 
+  between. [2;33m[sh:stacked] [0m[39m[49m
+[1;37m  \subsection{Metodologías de desarrollo ágil}
+   [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L17C2-L17C9[0m[39m[49m Avoid stacked headings, i.e. consecutive headings without text 
+  in between. [2;33m[sh:stacked] [0m[39m[49m
+[1;37m  \section{Seguimiento del desarrollo}
+   [1;31m^^^^^^^^[0m[39m[49m
+prefacios/prefacio.tex
+
+[1;33m* L4C25-L4C27[0m[39m[49m You should not break lines manually in a paragraph. Either start 
+  a new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  {\large\bfseries EditAR \\ Editor 3D web para esce
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L7C20-?[0m[39m[49m You should not break lines manually in a paragraph. Either start a 
+  new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  Pablo Millán Cubero\\
+                     [1;31m[0m[39m[49m
+[1;33m* L16C26-?[0m[39m[49m You should not break lines manually in a paragraph. Either start a 
+  new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  \noindent\textbf{Resumen}\\
+                           [1;31m[0m[39m[49m
+[1;33m* L28C26-L28C28[0m[39m[49m You should not break lines manually in a paragraph. Either 
+  start a new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  {\large\bfseries EditAR \\ Web editor for Augmente
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L31C21-?[0m[39m[49m You should not break lines manually in a paragraph. Either start a 
+  new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  	Pablo Millán Cubero\\
+                      [1;31m[0m[39m[49m
+[1;33m* L37C27-?[0m[39m[49m You should not break lines manually in a paragraph. Either start a 
+  new paragraph or stay in the current one. [2;33m[sh:nobreak] [0m[39m[49m
+[1;37m  \noindent\textbf{Abstract}\\
+                            [1;31m[0m[39m[49m
+[1;33m* L79C68-L79C69[0m[39m[49m Use `` and '' instead of "". [2;33m[sh:d:008] [0m[39m[49m
+[1;37m  ena, que tanto presume de "su nieto el ingeniero".
+                            [1;31m^^[0m[39m[49m
+[1;33m* L79C90-L79C91[0m[39m[49m Use `` and '' instead of "". [2;33m[sh:d:008] [0m[39m[49m
+[1;37m  ena, que tanto presume de "su nieto el ingeniero".
+                                                  [1;31m^^[0m[39m[49m
+[1;33m* L81C12-L81C13[0m[39m[49m Use `` and '' instead of "". [2;33m[sh:d:008] [0m[39m[49m
+[1;37m  A mis tíos "los franceses".
+             [1;31m^^[0m[39m[49m
+[1;33m* L81C26-L81C27[0m[39m[49m Use `` and '' instead of "". [2;33m[sh:d:008] [0m[39m[49m
+[1;37m  A mis tíos "los franceses".
+                           [1;31m^^[0m[39m[49m
+[1;33m* L51C41-L51C44[0m[39m[49m There should not be a space before the period at the end of a 
+  sentence. [2;33m[sh:d:003] [0m[39m[49m
+[1;37m  D. \textbf{Tutora/e(s)}, Profesor(a) del ...
+                                          [1;31m^^^^[0m[39m[49m
+[1;33m* L4C9-L4C17[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [series, feries, vocerías, aseries, boiseries, enseries, vecerías, voceríos] 
+  (4) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\large\bfseries EditAR \\ Editor 3D web para esce
+          [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L4C18-L4C24[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Editar, Evitar, Editor, Edita, Editan, Meditar, Editará, Editara, Editas, 
+  Editad, Editare, Editaré, Editá, Editás, Enditar, Estar, Editado, Editó, 
+  Citar, Editada, Emitir, Evita, Dedicar, Dictar, Dotar, Editaron, Editora, 
+  Educar, Evitan, Imitar, Quitar, Datar, Editarse, Gritar, Mediar, Agitar, 
+  Dinar, Editaba, Editaría, Guitar, Odiar, Recitar, Reeditar, Editarlo, Edito, 
+  Emita, Emitan, Evitara, Evitará, Excitar, Levitar, Medita, Auditar, Editarla, 
+  Edite, Pitar, Distar, Editaran, Editarán, Editase, Editen, Meditan, Medicar, 
+  Edites, Edité, Emitas, Erizar, Evitas, Exilar, Editarle, Evitad, Meritar, 
+  Espitar, Evitare, Evitaré, Meditara, Meditas, Edgar, Egibar, Abitar, Adietar, 
+  Ahitar, Coeditar, Debitar, Dita, Ditas, Ditá, Ditás, Diñar, Edictal, Editaje, 
+  Editala, Editale, Editalo, Editame, Editaos, Editaras, Editaren, Editares, 
+  Editarme, Editaros, Editarte, Editarás, Editate, Editáis, Edítala, Edítale, 
+  Edítalo, Edítame, Edítate, Endita, Enditad, Enditan, Enditara, Enditare, 
+  Enditará, Enditaré, Enditas, Enditá, Enditás, Endiñar, Erutar, Evitá, Evitás, 
+  Hitar, Meditad, Meditare, Meditará, Meditaré, Meditá, Meditás, Redilar, 
+  Redituar, Sitar, Tediar, Édgar, Éibar] (13) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\large\bfseries EditAR \\ Editor 3D web para esce
+                   [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L17C395-L17C402[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Pokémon] [0m[39m[49m(495) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  etición, o incluso en videojuegos como Pokemon GO.
+                                         [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L19C259-L19C266[0m[39m[49m Esta locución se escribe normalmente entre comas.. 
+  Suggestions: [2;33m[embargo,] [0m[39m[49m(766) [2;33m[lt:es:COMMA_MARCADOR_DISCURSIVO] [0m[39m[49m
+[1;37m  dos muy vistosos. Sin embargo en la mayoría de exp
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L21C147-L21C169[0m[39m[49m Error de concordancia.. Suggestions: [esta transformación, 
+  estas transformaciones] (1065) [2;33m[lt:es:AGREEMENT_DET_NOUN] [0m[39m[49m
+[1;37m   aplicarles a estos transformaciones como translac
+                [1;31m^^^^^^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L21C584-L21C591[0m[39m[49m Esta palabra ya ha aparecido en una de las frases 
+  inmediatamente anteriores. Puede usar un sinónimo para hacer más interesante 
+  el texto, excepto si la repetición es intencionada.. Suggestions: [generadas, 
+  producidas, originadas, ocasionadas, suscitadas, difundidas, gestadas] (1502) 
+  [2;33m[lt:es:ES_REPEATEDWORDS] [0m[39m[49m
+[1;37m  id cargar sus escenas creadas y reproducirlas, pud
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L25C2-L25C2[0m[39m[49m Se ha encontrado un posible error ortográfico. (1613) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \cleardoublepage
+   [1;31m^[0m[39m[49m
+[1;33m* L28C10-L28C18[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [series, feries, vocerías, aseries, boiseries, enseries, vecerías, voceríos] 
+  (1633) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  	{\large\bfseries EditAR \\ Web editor for Augment
+           [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L28C19-L28C25[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Editar, Evitar, Editor, Edita, Editan, Meditar, Editará, Editara, Editas, 
+  Editad, Editare, Editaré, Editá, Editás, Enditar, Estar, Editado, Editó, 
+  Citar, Editada, Emitir, Evita, Dedicar, Dictar, Dotar, Editaron, Editora, 
+  Educar, Evitan, Imitar, Quitar, Datar, Editarse, Gritar, Mediar, Agitar, 
+  Dinar, Editaba, Editaría, Guitar, Odiar, Recitar, Reeditar, Editarlo, Edito, 
+  Emita, Emitan, Evitara, Evitará, Excitar, Levitar, Medita, Auditar, Editarla, 
+  Edite, Pitar, Distar, Editaran, Editarán, Editase, Editen, Meditan, Medicar, 
+  Edites, Edité, Emitas, Erizar, Evitas, Exilar, Editarle, Evitad, Meritar, 
+  Espitar, Evitare, Evitaré, Meditara, Meditas, Edgar, Egibar, Abitar, Adietar, 
+  Ahitar, Coeditar, Debitar, Dita, Ditas, Ditá, Ditás, Diñar, Edictal, Editaje, 
+  Editala, Editale, Editalo, Editame, Editaos, Editaras, Editaren, Editares, 
+  Editarme, Editaros, Editarte, Editarás, Editate, Editáis, Edítala, Edítale, 
+  Edítalo, Edítame, Edítate, Endita, Enditad, Enditan, Enditara, Enditare, 
+  Enditará, Enditaré, Enditas, Enditá, Enditás, Endiñar, Erutar, Evitá, Evitás, 
+  Hitar, Meditad, Meditare, Meditará, Meditaré, Meditá, Meditás, Redilar, 
+  Redituar, Sitar, Tediar, Édgar, Éibar] (1642) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  	{\large\bfseries EditAR \\ Web editor for Augment
+                    [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L28C40-L28C43[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [fuer, por, fue, fuera, flor, foro, fuero, fuere, fuel, sor, mor, fuet, Flor, 
+  Ford, Fort, Fox, Foz, fo, fon, fox, vor, ñor] (1661) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  es EditAR \\ Web editor for Augmented Reality scen
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L28C44-L28C53[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Aumente, Aumenten, Aumentad, Aumentes, Aumenté] (1665) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  itAR \\ Web editor for Augmented Reality scenes}\\
+                         [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L28C62-L28C62[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [sienes, sienés, sueñes, cenes, suenes, s cenes] (1683) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  itAR \\ Web editor for Augmented Reality scenes}\\
+                                           [1;31m^[0m[39m[49m
+[1;33m* L38C1-L38C10[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Aumente, Aumenten, Aumentad, Aumentes, Aumenté] (1719) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  Augmented Reality technologies let us merge virtua
+  [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C19-L38C31[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tecnologías, tecnologices] (1737) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  Augmented Reality technologies let us merge virtua
+                    [1;31m^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C32-L38C38[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [le tus] (1750) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   Reality technologies let us merge virtual element
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L38C39-L38C44[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [emerge, morgue, mere, merme, mengüe, meré, Hergé, Meige, emergé, mergo, 
+  mermé, margue, margué, mengue, mengüé, merque, merqué, yergue] (1757) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ty technologies let us merge virtual elements with
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L38C53-L38C61[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [elementos, elemento, Clements, elementa, elementas, elemente, elementes, 
+  elementá, elementás, elementé, elementó] (1771) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  let us merge virtual elements with camera footage 
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L38C62-L38C66[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [bits, cita, mito, hito, rito, Tito, bit, sito, Rita, byte, citó, kit, sita, 
+  wiki, pita, pito, cito, mita, tití, cite, cité, pitó, lita, pite, tita, vito, 
+  hite, City, ITV, OIT, Ritz, Roth, Ruth, Smith, VIH, Vich, Vita, Vito, White, 
+  Zita, bita, citá, dita, dite, ditá, hit, hita, hits, hitá, hité, hitó, kits, 
+  nit, nito, nits, pitá, pité, titi, tito, watt, wifi, MIT, Twitch] (1780) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  merge virtual elements with camera footage in real
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L38C74-L38C81[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [montaje, follaje, voltaje, forraje, potaje, fogaje, flotase, contaje, 
+  flocaje, flotale, flotame, flotare, flotaré, flotate, flótale, flótame, 
+  flótate, formaje, fouetté, frotale, frotame, frotare, frotaré, frotase, 
+  frotate, frutaje, frótale, frótame, frótate, pontaje, portaje, postaje, 
+  rotaje, abotague, abotagué] (1792) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   elements with camera footage in real time, lettin
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L38C82-L38C84[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (1800) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nts with camera footage in real time, letting us c
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L38C89-L38C94[0m[39m[49m Si es pasado, se escribe con tilde. Si es imperativo, puede 
+  que falte una coma.. Suggestions: [ timé, , time] (1807) 
+  [2;33m[lt:es:SUBJUNTIVO_PASADO] [0m[39m[49m
+[1;37m   camera footage in real time, letting us create ex
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L38C96-L38C103[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [letrina, leasing, lectina, lemming, leptina, lifting, renting, sexting] 
+  (1814) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  footage in real time, letting us create experience
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L38C104-L38C106[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [un, es, su, sus, uso, u, usa, as, usó, bus, tus, USB, USD, use, pus, mus, 
+  usé, UD, UE, UV, cus, gus, ms, os, s, uf, uh, ui, usá, uy, ñus, úes, JS, UBS, 
+  UPS] (1822) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e in real time, letting us create experiences for 
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L38C107-L38C113[0m[39m[49m Forma correcta si se usa voseo. Si no, utilice una forma 
+  alternativa.. Suggestions: [2;33m[créate] [0m[39m[49m(1825) [2;33m[lt:es:VOSEO] [0m[39m[49m
+[1;37m  real time, letting us create experiences for many 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L38C114-L38C125[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [experiencia, experiencias, expedientes, experimentes] (1832) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  , letting us create experiences for many fields; m
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C126-L38C129[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [fuer, por, fue, fuera, flor, foro, fuero, fuere, fuel, sor, mor, fuet, Flor, 
+  Ford, Fort, Fox, Foz, fo, fon, fox, vor, ñor] (1844) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  g us create experiences for many fields; makeup fi
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L38C130-L38C134[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [mano, maní, mana, maná, maño, maña, mane, manó, manir, mané, Dani, Mali, 
+  Man, Mari, Mary, Mavi, mami, manid, manió, mini, muni] (1848) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  create experiences for many fields; makeup filters
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L38C135-L38C141[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [fieles, fíelas, fíeles, fíelos] (1853) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   experiences for many fields; makeup filters for s
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L38C143-L38C149[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [maqueta, maque, maqueo, maques, maquetó, maqué, maquea, maquead, maquean, 
+  maquear, maqueas, maquee, maqueen, maquees, maquen, maquete, maqueto, 
+  maquetá, maqueté, maqueá, maqueás, maqueé, maqueó, maquéis, máquela, máquele, 
+  máquelo, máqueme, máqueos, máquese, máquete] (1861) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nces for many fields; makeup filters for social ne
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L38C150-L38C157[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[filtres] [0m[39m[49m(1868) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  r many fields; makeup filters for social network p
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L38C158-L38C161[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [fuer, por, fue, fuera, flor, foro, fuero, fuere, fuel, sor, mor, fuet, Flor, 
+  Ford, Fort, Fox, Foz, fo, fon, fox, vor, ñor] (1876) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   fields; makeup filters for social network photos,
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L38C169-L38C176[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [neto, meteoro, netos, nécora, retor, Néstor, entore, metéoro, negror, 
+  newton, newtons, rétor, Upwork, eToro, fit2work, fit4work] (1887) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  up filters for social network photos, preview new 
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L38C177-L38C183[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [chotos, hotos, potos] (1895) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  rs for social network photos, preview new furnitur
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L38C185-L38C192[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [previa, previo, previas, previos, prevé, prever, previene, previó, prevén, 
+  previno, precie, prevea, premie, previera, precien, premien, previese, 
+  precies, precié, premier, premies, premié, preved, preveo, previere, previne, 
+  prevés, preví] (1903) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ocial network photos, preview new furniture for yo
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L38C193-L38C196[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [neo, Ned] (1911) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  network photos, preview new furniture for your liv
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L38C197-L38C206[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[fornitura] [0m[39m[49m(1915) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   photos, preview new furniture for your livingroom
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C207-L38C210[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [fuer, por, fue, fuera, flor, foro, fuero, fuere, fuel, sor, mor, fuet, Flor, 
+  Ford, Fort, Fox, Foz, fo, fon, fox, vor, ñor] (1925) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  , preview new furniture for your livingroom, draw 
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L38C211-L38C215[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tour, yogur] (1929) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  view new furniture for your livingroom, draw the t
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L38C216-L38C226[0m[39m[49m Se ha encontrado un posible error ortográfico. (1934) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   furniture for your livingroom, draw the trayector
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C228-L38C232[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Dra, Dras, dram, DAW] (1946) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e for your livingroom, draw the trayectory of the 
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L38C233-L38C236[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (1951) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  r your livingroom, draw the trayectory of the ball
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L38C237-L38C247[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[trayectoria] [0m[39m[49m(1955) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ivingroom, draw the trayectory of the ball in a fo
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C248-L38C250[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [o, CF, oh, oí, O₂, fo, oa, ok, os, ox, uf, ó, LF] (1966) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  om, draw the trayectory of the ball in a football 
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L38C251-L38C254[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (1969) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   draw the trayectory of the ball in a football mat
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L38C255-L38C259[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [hay, valle, bala, vale, vaya, vals, voy, baya, valla, baúl, bey, valí, val, 
+  bayo, lay, bale, balo, valló, balé, baló, vallo, Baal, Baell, Bali, Bell, 
+  Bill, balá, bayú, boy, gay, hall, vallá, vallé, valé, ba ll] (1973) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   the trayectory of the ball in a football match re
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L38C260-L38C262[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (1978) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   trayectory of the ball in a football match replay
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L38C265-L38C273[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[softball] [0m[39m[49m(1983) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ory of the ball in a football match replay, or eve
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L38C280-L38C286[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [reglas, regla, relax, reglar, reptar, repelan, repelar, reptan, reglan, 
+  repela, repta, repipi, Play, Velay, pepla, peplas, reala, realas, reglad, 
+  reglá, regláis, reglás, repelad, repelas, repelá, repeláis, repelás, replana, 
+  reptad, reptas, reptá, reptáis, reptás, repula, repulan, repulas, repuláis, 
+  REPL, Replit] (1998) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  l in a football match replay, or even in videogame
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L38C288-L38C295[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [ore ven] (2006) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ootball match replay, or even in videogames like P
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L38C296-L38C298[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (2014) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  l match replay, or even in videogames like Pokemon
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L38C299-L38C309[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[videotapes] [0m[39m[49m(2017) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  tch replay, or even in videogames like Pokemon GO.
+                         [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L38C315-L38C322[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Pokémon] [0m[39m[49m(2033) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  tch replay, or even in videogames like Pokemon GO.
+                                         [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L40C1-L40C5[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Bits, Cita, Mito, Hito, Rito, Tito, Bit, Sito, Rita, Byte, Citó, Kit, Sita, 
+  Wiki, Pita, Pito, Cito, Mita, Tití, Cite, Cité, Pitó, Lita, Pite, Tita, Vito, 
+  Hite, City, ITV, OIT, Ritz, Roth, Ruth, Smith, VIH, Vich, Vita, White, Zita, 
+  Bita, Citá, Dita, Dite, Ditá, Hit, Hita, Hits, Hitá, Hité, Hitó, Kits, Nit, 
+  Nito, Nits, Pitá, Pité, Titi, Watt, Wifi, MIT, Twitch] (2046) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  With the improvement of smartphone's cameras and p
+  [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C6-L40C9[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2051) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  With the improvement of smartphone's cameras and p
+       [1;31m^^^^[0m[39m[49m
+[1;33m* L40C10-L40C21[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[ímprobamente] [0m[39m[49m(2055) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  With the improvement of smartphone's cameras and p
+           [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C22-L40C24[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [o, CF, oh, oí, O₂, fo, oa, ok, os, ox, uf, ó, LF] (2067) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  With the improvement of smartphone's cameras and p
+                       [1;31m^^^[0m[39m[49m
+[1;33m* L40C38-L40C45[0m[39m[49m Revise la concordancia de «cameras» con los nombres 
+  precedentes o revise la puntuación.. Suggestions: [camero, cameros, cameros] 
+  (2083) [2;33m[lt:es:AGREEMENT_POSTPONED_ADJ] [0m[39m[49m
+[1;37m  ement of smartphone's cameras and processing power
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L40C46-L40C49[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [año, Ana, anda, ande, ando, Andy, Ann, ana, andá, ano, aña, land, rand, AMD] 
+  (2091) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  of smartphone's cameras and processing power in th
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L40C50-L40C60[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[pressing] [0m[39m[49m(2095) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  phone's cameras and processing power in the last d
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C61-L40C66[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Power, poder, poner, póker, por, puede, pueden, posee, pone, comer, pobre, 
+  poseer, mover, polar, ponen, puedes, querer, coger, polen, cocer, coser, 
+  moler, pose, posea, prócer, bóer, oponer, polea, posar, poses, póquer, 
+  póster, bóxer, oler, pote, pómez, toser, podar, poleo, pones, posen, potes, 
+  pólder, roer, doler, pacer, pode, podes, pope, poseo, posé, púber, plóter, 
+  pocero, poden, podre, popes, páter, poned, potero, gomer, poded, Bowen, 
+  Boyer, Cover, Dover, Gowers, Oger, Owen, Peter, Peyer, Poe, Popea, Popper, 
+  Porter, Potter, Roger, cover, foyer, joder, moer, moher, oxer, peder, peer, 
+  podé, podés, polera, pomar, poné, ponés, popel, popés, posera, posero, poseé, 
+  poseí, potera, póleo, soler, tóner, vómer] (2106) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  cameras and processing power in the last decade, t
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L40C67-L40C69[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (2112) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  as and processing power in the last decade, this e
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L40C70-L40C73[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2115) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  and processing power in the last decade, this expe
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L40C74-L40C78[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [las, lasa, laso, laste, lasta, lasto, lastá, lasté, lastó, lat, lats] (2119) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  rocessing power in the last decade, this experienc
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C79-L40C85[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [década, decide, decae, decapé, decaed, decape, decaé, écade] (2124) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ing power in the last decade, this experiences are
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L40C87-L40C91[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tris, Tais, Taís, Thais, Thaís, chis, tais, thais] (2132) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  er in the last decade, this experiences are know w
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C92-L40C103[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [experiencia, experiencias, expedientes, experimentes] (2137) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e last decade, this experiences are know within ev
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C103-L40C107[0m[39m[49m Si es pasado, se escribe con tilde. Si es imperativo, puede 
+  que falte una coma.. Suggestions: [ aré, , are] (2148) 
+  [2;33m[lt:es:SUBJUNTIVO_PASADO] [0m[39m[49m
+[1;37m  ecade, this experiences are know within everybody'
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C108-L40C112[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [no, año, años, uno, unos, nos, kW, non, Noé, anos, anón, Enoc, Klenow, ano, 
+  anoa, chow, enol, kaón, kion, kiowa, show, snob, ño, ñor, ños] (2153) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  , this experiences are know within everybody's rea
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C113-L40C119[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [mitin, Python, bichín, pichín] (2158) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   experiences are know within everybody's reach if 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L40C120-L40C129[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[beriberi] [0m[39m[49m(2165) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nces are know within everybody's reach if you have
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C132-L40C137[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Reich, React] (2177) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  now within everybody's reach if you have a basic d
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L40C138-L40C140[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [y, ya, ir, yo, CF, id, IFS, CIF, GIF, IA, ID, IP, IU, NIF, fi, i, kif, uf, 
+  ye, Ía, Ío, IG, LF, TIF] (2183) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ithin everybody's reach if you have a basic device
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L40C141-L40C144[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [yo, ion, COU, Jou, bou, yod, yol, yos, yo u, iOS] (2186) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  in everybody's reach if you have a basic device. H
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L40C145-L40C149[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [hace, haber, nave, sabe, cabe, ave, hable, haba, haré, hablé, cave, habré, 
+  lave, hube, cavé, lavé, AVE, Dave, cabé, hacé, hale, halé, havo, háber, rave, 
+  sabé, h ave, ha ve, Haxe] (2190) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  erybody's reach if you have a basic device. Howeve
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C158-L40C164[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Devic, debite, debité, devine] (2203) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  h if you have a basic device. However, the mayorit
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L40C166-L40C173[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Weber] [0m[39m[49m(2211) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   have a basic device. However, the mayority of Aug
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L40C175-L40C178[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2220) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   basic device. However, the mayority of Augmented 
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L40C179-L40C187[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [mayoría, mayorías, mayorista, mayorcita, mayorcito] (2224) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  device. However, the mayority of Augmented Reality
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L40C188-L40C190[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [o, CF, oh, oí, O₂, fo, oa, ok, os, ox, uf, ó, LF] (2233) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  . However, the mayority of Augmented Reality exper
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L40C191-L40C200[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Aumente, Aumenten, Aumentad, Aumentes, Aumenté] (2236) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ver, the mayority of Augmented Reality experiences
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C209-L40C220[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [experiencia, experiencias, expedientes, experimentes] (2254) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  f Augmented Reality experiences are based in the p
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C220-L40C224[0m[39m[49m Si es pasado, se escribe con tilde. Si es imperativo, puede 
+  que falte una coma.. Suggestions: [ aré, , are] (2265) 
+  [2;33m[lt:es:SUBJUNTIVO_PASADO] [0m[39m[49m
+[1;37m  ted Reality experiences are based in the pasive co
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L40C225-L40C233[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [base din] (2270) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  lity experiences are based in the pasive comsumpti
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L40C234-L40C237[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2279) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  xperiences are based in the pasive comsumption of 
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L40C238-L40C244[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [pasiva, pasible, pasivo] (2283) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  nces are based in the pasive comsumption of conten
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L40C245-L40C256[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [combustión, consumación, consumición] (2290) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  based in the pasive comsumption of content pregene
+                      [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C257-L40C259[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [o, CF, oh, oí, O₂, fo, oa, ok, os, ox, uf, ó, LF] (2302) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   the pasive comsumption of content pregenerated by
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L40C260-L40C267[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [contento, contenta, cuenten, contentó, contente, contentá, contenté, 
+  contené, contén] (2305) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  pasive comsumption of content pregenerated by deve
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L40C268-L40C280[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [regenerate, regenérate] (2313) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  comsumption of content pregenerated by developers.
+                         [1;31m^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L40C281-L40C283[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [bi, vi, y, si, ni, mi, va, ve, vio, di, be, ti, vid, bit, voy, bis, ay, bey, 
+  pi, vil, vis, ji, Ibi, ba, boy, bu, fi, hi, i, ui, uvi, uy, vip, xi, BC, BP] 
+  (2326) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  comsumption of content pregenerated by developers.
+                                      [1;31m^^^[0m[39m[49m
+[1;33m* L40C284-L40C294[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [debelales, debelareis, debelares, debelaréis, debelaseis, debelases, 
+  debeles, debelos, debeléis, debélales, debéleles, debéleos, debéleseos, 
+  develales, develareis, develares, develaréis, develaseis, develases, develes, 
+  develices, develicéis, develéis, develíceos, devélales, devéleles, devéleos, 
+  devéleseos, débeles, débelos, envelopes, rebelones] (2329) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  comsumption of content pregenerated by developers.
+                                         [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C1-L42C4[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Te, He, TVE, Té, Che, Toe, Toé, TAE] (2342) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  The proposed web application lets the user load mu
+  [1;31m^^^^[0m[39m[49m
+[1;33m* L42C5-L42C13[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[proponed] [0m[39m[49m(2346) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  The proposed web application lets the user load mu
+      [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L42C18-L42C29[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[aplicación] [0m[39m[49m(2359) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  The proposed web application lets the user load mu
+                   [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C30-L42C34[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [les, leas, lees, jets, lats, leds, leus, levs, leés, sets] (2371) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  oposed web application lets the user load multiple
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C35-L42C38[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2376) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ed web application lets the user load multiple 3D 
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C39-L42C43[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [ser, usar, use, usen, uses, usé, Aser, SER, UER, Usher, usier, u ser, Uber] 
+  (2380) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  b application lets the user load multiple 3D model
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C49-L42C57[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [múltiple, múltiples, múltiplo, multiplex, múltipla, múltiplex] (2390) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  n lets the user load multiple 3D models with textu
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L42C61-L42C67[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [modelo, modelos, modela, modeló, módems, modele, modeles, modelas, modelá, 
+  modelás, modelé, modems, modes] (2402) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  user load multiple 3D models with textures and ani
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C68-L42C72[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [bits, cita, mito, hito, rito, Tito, bit, sito, Rita, byte, citó, kit, sita, 
+  wiki, pita, pito, cito, mita, tití, cite, cité, pitó, lita, pite, tita, vito, 
+  hite, City, ITV, OIT, Ritz, Roth, Ruth, Smith, VIH, Vich, Vita, Vito, White, 
+  Zita, bita, citá, dita, dite, ditá, hit, hita, hits, hitá, hité, hitó, kits, 
+  nit, nito, nits, pitá, pité, titi, tito, watt, wifi, MIT, Twitch] (2409) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  oad multiple 3D models with textures and animation
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C73-L42C81[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[texturas] [0m[39m[49m(2414) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  tiple 3D models with textures and animations, appl
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L42C82-L42C85[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [año, Ana, anda, ande, ando, Andy, Ann, ana, andá, ano, aña, land, rand, AMD] 
+  (2423) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  3D models with textures and animations, apply tran
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C86-L42C96[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [animación, animaciones, anímatenos] (2427) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  s with textures and animations, apply transformati
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C98-L42C103[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Apple] [0m[39m[49m(2439) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  xtures and animations, apply transformations like 
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L42C104-L42C119[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [transformación, transformaciones, transformativos, transformativas, 
+  transfórmatenos] (2445) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  animations, apply transformations like translation
+                    [1;31m^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C125-L42C137[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [translación, translaciones, translativas, translativos] (2466) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ansformations like translations, rotations and sca
+                     [1;31m^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C139-L42C148[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [rotación, rotaciones, rotativos, rotativas, probations, rotarios, rótatenos] 
+  (2480) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  s like translations, rotations and scales, and pla
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C149-L42C152[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [año, Ana, anda, ande, ando, Andy, Ann, ana, andá, ano, aña, land, rand, AMD] 
+  (2490) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  translations, rotations and scales, and play audio
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C153-L42C159[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [sales, cales, calés, escales, Scalea, ocales, sacales, secales, siales, 
+  sácales, séales, sécales, s cales] (2494) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ations, rotations and scales, and play audio track
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C161-L42C164[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [año, Ana, anda, ande, ando, Andy, Ann, ana, andá, ano, aña, land, rand, AMD] 
+  (2502) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  , rotations and scales, and play audio tracks. All
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C165-L42C169[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Play, plan, playa, lay, pali, playo, la, las, hay, ley, paz, plaza, alas, 
+  par, plano, plata, plazo, ala, clan, pan, placa, plato, playas, fray, ola, 
+  olas, palo, pila, pilar, plana, polar, palio, pilas, plaga, Eloy, alar, pala, 
+  palas, plagio, plató, plus, púas, ay, lady, pi, púa, flan, pela, pelar, puya, 
+  pías, lar, pelan, plagió, poni, pía, guay, laya, llar, paya, payo, peas, 
+  pelas, playón, alá, palió, pian, plagia, plagó, piar, plañir, pula, pían, 
+  clac, plagie, plago, ples, pulan, Alain, Alaiz, Alan, Albi, Altai, Alàs, Alá, 
+  Alán, Bali, Blair, Blas, Eli, LAN, Laia, Mali, OLAF, Olaf, Olao, Olaya, PAC, 
+  POA, Palau, Pals, Pan, Pat, Pau, Paz, Pelaya, Pelayo, Pilar, Pili, Plana, 
+  Pola, Praia, Prat, Pía, VLAN, Velay, ali, balay, bla, blao, cali, chai, flag, 
+  flap, flui, gay, glayo, gley, gray, jai, lat, laye, layo, lays, layá, layé, 
+  layó, moái, okay, oláis, pacay, paf, palia, palie, palis, paliá, palié, 
+  palpi, palé, papi, payé, pea, peal, pean, pelad, peli, pelvi, pelá, peláis, 
+  pelás, peri, peáis, peán, pia, piad, piais, pial, pias, pilad, pilaf, pilan, 
+  pilá, piláis, pilás, pipi, place, plació, placé, plací, plagiá, plagié, 
+  plagá, playos, plaña, plañe, plañid, plaño, plañí, plañó, ple, plié, poa, 
+  poas, poli, poya, prao, psi, pulas, puláis, spray, tai, thai, wali, FLAC, 
+  PSA, PaaS, Plex, PyPi, eBay] (2506) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ations and scales, and play audio tracks. All this
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C176-L42C182[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tracas, traces, cracks] (2517) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  cales, and play audio tracks. All this in an easy 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C184-L42C187[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Ay, Al, Allí, Allá, Ala, Aya, Ayo, Alá, ARL, Alp, Alí, Ale, Ali, Aló, Hall, 
+  Ll, Uy, A ll, Al l, AOL] (2525) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   and play audio tracks. All this in an easy and in
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C188-L42C192[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tris, Tais, Taís, Thais, Thaís, chis, tais, thais] (2529) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  play audio tracks. All this in an easy and intuiti
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C193-L42C195[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (2534) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   audio tracks. All this in an easy and intuitive e
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L42C196-L42C198[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, a, un, al, año, han, aún, tan, van, ADN, aun, dan, Ana, as, pan, san, 
+  can, fan, ah, ay, kan, AI, AM, AP, ARN, Ann, Aín, Dan, Ian, LAN, Man, NN, 
+  Pan, aC, aj, ana, ano, ar, ax, aña, jan, Å] (2537) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  dio tracks. All this in an easy and intuitive edit
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L42C199-L42C203[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [casi, tasi, Etsy] (2540) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  tracks. All this in an easy and intuitive editor t
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C204-L42C207[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [año, Ana, anda, ande, ando, Andy, Ann, ana, andá, ano, aña, land, rand, AMD] 
+  (2545) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ks. All this in an easy and intuitive editor that 
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C208-L42C217[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [intuitiva, intuitivo] (2549) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   this in an easy and intuitive editor that anyone 
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C225-L42C229[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [chat, thai] (2566) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  y and intuitive editor that anyone can use without
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C230-L42C236[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [anión, aniones] (2571) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  intuitive editor that anyone can use without previ
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C240-L42C244[0m[39m[49m Si es pasado, se escribe con tilde. Si es imperativo, puede 
+  que falte una coma.. Suggestions: [ usé, , use] (2581) 
+  [2;33m[lt:es:SUBJUNTIVO_PASADO] [0m[39m[49m
+[1;37m   editor that anyone can use without previous knowl
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C245-L42C252[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Bitot, Python, pithos, BitClout, GitHub, stdout] (2586) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  r that anyone can use without previous knowledge. 
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L42C253-L42C261[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[previos] [0m[39m[49m(2594) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  yone can use without previous knowledge. The resul
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L42C262-L42C271[0m[39m[49m Se ha encontrado un posible error ortográfico. (2603) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  use without previous knowledge. The resultant 3D s
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C273-L42C276[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Te, He, TVE, Té, Che, Toe, Toé, TAE] (2614) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  out previous knowledge. The resultant 3D scene can
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C277-L42C286[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [resultan, resultante] (2618) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  vious knowledge. The resultant 3D scene can be eit
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C290-L42C295[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [suene, cene, sueñe, Skene, cené, s cene] (2631) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  edge. The resultant 3D scene can be either downloa
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L42C303-L42C309[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Esther] [0m[39m[49m(2644) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ltant 3D scene can be either downloaded or uploade
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C310-L42C320[0m[39m[49m Se ha encontrado un posible error ortográfico. (2651) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  scene can be either downloaded or uploaded to a we
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C321-L42C323[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [por, o, ir, oro, Dr, oír, oh, ora, oró, ro, sor, mor, ore, oí, oré, GR, O₂, 
+  QR, Sr, ar, oa, ok, orá, orí, os, ox, vor, ñor, ó, CR] (2662) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  an be either downloaded or uploaded to a web serve
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L42C324-L42C332[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [poded, euploide, euploides, placed] (2665) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  either downloaded or uploaded to a web server asoc
+                       [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L42C333-L42C335[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [lo, no, o, do, te, tu, yo, tío, ti, té, tú, so, ta, tos, ton, ató, jo, ro, 
+  toa, ato, tao, toe, toé, toó, DO, Go, Oto, TC, TV, Teo, Tom, fo, oto, too, 
+  top, toá, Ío, ño, ó] (2674) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   downloaded or uploaded to a web server asociated 
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L42C342-L42C348[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [servir, sorber, cerner, cerbero, Sever, ser ver, SemVer] (2683) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   or uploaded to a web server asociated to an user 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C349-L42C358[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [asociate, asóciate] (2690) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  aded to a web server asociated to an user account.
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C359-L42C364[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[toan] [0m[39m[49m(2700) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  a web server asociated to an user account. Adition
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L42C365-L42C369[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [ser, usar, use, usen, uses, usé, Aser, SER, UER, Usher, usier, u ser, Uber] 
+  (2706) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  server asociated to an user account. Aditionaly, t
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C370-L42C377[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[axón] [0m[39m[49m(2711) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   asociated to an user account. Aditionaly, the use
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L42C379-L42C389[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Adicional, Adicionala, Adicionale, Adicionalo, Adiciónala, Adiciónale, 
+  Adiciónalo] (2720) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  to an user account. Aditionaly, the user can load 
+                      [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L42C391-L42C394[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2732) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  er account. Aditionaly, the user can load the crea
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C395-L42C399[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [ser, usar, use, usen, uses, usé, Aser, SER, UER, Usher, usier, u ser, Uber] 
+  (2736) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  count. Aditionaly, the user can load the created s
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C409-L42C412[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [te, he, TVE, té, che, toe, toé, Che, TAE] (2750) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  naly, the user can load the created scenes within 
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C413-L42C420[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [create, créate] (2754) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  the user can load the created scenes within an And
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L42C421-L42C427[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [sienes, sienés, sueñes, cenes, suenes, s cenes] (2762) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   can load the created scenes within an Android app
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C428-L42C434[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [mitin, Python, bichín, pichín] (2769) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ad the created scenes within an Android app and pl
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C435-L42C437[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, a, un, al, año, han, aún, tan, van, ADN, aun, dan, Ana, as, pan, san, 
+  can, fan, ah, ay, kan, AI, AM, AP, ARN, Ann, Aín, Dan, Ian, LAN, Man, NN, 
+  Pan, aC, aj, ana, ano, ar, ax, aña, jan, Å] (2776) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  e created scenes within an Android app and play th
+                          [1;31m^^^[0m[39m[49m
+[1;33m* L42C450-L42C453[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [año, Ana, anda, ande, ando, Andy, Ann, ana, andá, ano, aña, land, rand, AMD] 
+  (2791) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  s within an Android app and play them with their d
+                          [1;31m^^^^[0m[39m[49m
+[1;33m* L42C454-L42C458[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Play, plan, playa, lay, pali, playo, la, las, hay, ley, paz, plaza, alas, 
+  par, plano, plata, plazo, ala, clan, pan, placa, plato, playas, fray, ola, 
+  olas, palo, pila, pilar, plana, polar, palio, pilas, plaga, Eloy, alar, pala, 
+  palas, plagio, plató, plus, púas, ay, lady, pi, púa, flan, pela, pelar, puya, 
+  pías, lar, pelan, plagió, poni, pía, guay, laya, llar, paya, payo, peas, 
+  pelas, playón, alá, palió, pian, plagia, plagó, piar, plañir, pula, pían, 
+  clac, plagie, plago, ples, pulan, Alain, Alaiz, Alan, Albi, Altai, Alàs, Alá, 
+  Alán, Bali, Blair, Blas, Eli, LAN, Laia, Mali, OLAF, Olaf, Olao, Olaya, PAC, 
+  POA, Palau, Pals, Pan, Pat, Pau, Paz, Pelaya, Pelayo, Pilar, Pili, Plana, 
+  Pola, Praia, Prat, Pía, VLAN, Velay, ali, balay, bla, blao, cali, chai, flag, 
+  flap, flui, gay, glayo, gley, gray, jai, lat, laye, layo, lays, layá, layé, 
+  layó, moái, okay, oláis, pacay, paf, palia, palie, palis, paliá, palié, 
+  palpi, palé, papi, payé, pea, peal, pean, pelad, peli, pelvi, pelá, peláis, 
+  pelás, peri, peáis, peán, pia, piad, piais, pial, pias, pilad, pilaf, pilan, 
+  pilá, piláis, pilás, pipi, place, plació, placé, plací, plagiá, plagié, 
+  plagá, playos, plaña, plañe, plañid, plaño, plañí, plañó, ple, plié, poa, 
+  poas, poli, poya, prao, psi, pulas, puláis, spray, tai, thai, wali, FLAC, 
+  PSA, PaaS, Plex, PyPi, eBay] (2795) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  hin an Android app and play them with their device
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C459-L42C463[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[hem] [0m[39m[49m(2800) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  n Android app and play them with their device's ca
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C464-L42C468[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [bits, cita, mito, hito, rito, Tito, bit, sito, Rita, byte, citó, kit, sita, 
+  wiki, pita, pito, cito, mita, tití, cite, cité, pitó, lita, pite, tita, vito, 
+  hite, City, ITV, OIT, Ritz, Roth, Ruth, Smith, VIH, Vich, Vita, Vito, White, 
+  Zita, bita, citá, dita, dite, ditá, hit, hita, hits, hitá, hité, hitó, kits, 
+  nit, nito, nits, pitá, pité, titi, tito, watt, wifi, MIT, Twitch] (2805) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  roid app and play them with their device's camera,
+                         [1;31m^^^^^[0m[39m[49m
+[1;33m* L42C469-L42C474[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [huir, herir, reír, tapir, teñir, freír, teyo, Teià, Thais, Thaís, Thor, 
+  cheira, heñir, ter, teya, thai, thais, theta, toéis, tupir] (2810) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  app and play them with their device's camera, plac
+                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L42C475-L42C481[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Devic, debite, debité, devine] (2816) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   play them with their device's camera, placing it 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C484-L42C490[0m[39m[49m Revise la concordancia de «camera» con los nombres 
+  precedentes o revise la puntuación.. Suggestions: [camero, cameros, cameros] 
+  (2825) [2;33m[lt:es:AGREEMENT_POSTPONED_ADJ] [0m[39m[49m
+[1;37m  m with their device's camera, placing it in their 
+                        [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L42C492-L42C499[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [platino, platina, plácida, plácido, Pacini, Plácida, Plácido, placen, 
+  placida, placido, plació, plací, placía, placían, placías, planning, platine, 
+  platiná, platiné, platinó, plácica, plácico, plácito] (2833) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  heir device's camera, placing it in their environm
+                        [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L42C500-L42C502[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [y, ya, ir, yo, ti, bit, id, kit, IA, ID, IP, ITV, IU, OIT, hit, i, nit, ye, 
+  Ía, Ío, FT, IG, IoT, LT, MIT, RT] (2841) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   device's camera, placing it in their environment.
+                            [1;31m^^^[0m[39m[49m
+[1;33m* L42C503-L42C505[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [en, y, un, sin, ya, fin, ni, ir, yo, INE, id, ion, DIN, pin, yen, yin, gin, 
+  Aín, IA, ID, ING, INS, IP, IU, Ian, Ion, NN, din, i, rin, ye, Ía, Ío, IG, 
+  INI] (2844) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   device's camera, placing it in their environment.
+                               [1;31m^^^[0m[39m[49m
+[1;33m* L42C506-L42C511[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [huir, herir, reír, tapir, teñir, freír, teyo, Teià, Thais, Thaís, Thor, 
+  cheira, heñir, ter, teya, thai, thais, theta, toéis, tupir] (2847) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   device's camera, placing it in their environment.
+                                  [1;31m^^^^^^[0m[39m[49m
+[1;33m* L42C512-L42C523[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [embíquenme, embíquenmela, embíquenmele, embíquenmelo] (2853) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m   device's camera, placing it in their environment.
+                                        [1;31m^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L45C2-L45C2[0m[39m[49m Se ha encontrado un posible error ortográfico. (2869) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \cleardoublepage
+   [1;31m^[0m[39m[49m
+[1;33m* L59C51-L59C58[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Chef] [0m[39m[49m(2975) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  resente trabajo, titulado \textit{\textbf{Chief}},
+                                            [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L65C70-L65C75[0m[39m[49m Los meses del año se escriben en minúsculas, excepto si forman 
+  parte de un nombre propio.. Suggestions: [2;33m[junio] [0m[39m[49m(3181) [2;33m[lt:es:MIN_MESES] [0m[39m[49m
+[1;37m  an el presente informe en Granada a Junio de 2018.
+                                      [1;31m^^^^^^[0m[39m[49m
+[1;33m* L81C1-L81C2[0m[39m[49m Tres frases consecutivas comienzan con la misma palabra. 
+  Considere reescribir la frase o usar un sinónimo. (3411) 
+  [2;33m[lt:es:SPANISH_WORD_REPEAT_BEGINNING_RULE] [0m[39m[49m
+[1;37m  A mis tíos "los franceses".
+  [1;31m^^[0m[39m[49m
+[1;33m* L83C1-L83C2[0m[39m[49m Tres frases consecutivas comienzan con la misma palabra. 
+  Considere reescribir la frase o usar un sinónimo. (3440) 
+  [2;33m[lt:es:SPANISH_WORD_REPEAT_BEGINNING_RULE] [0m[39m[49m
+[1;37m  A mis amigos del Krustáceo Krujiente, Juan, Antoni
+  [1;31m^^[0m[39m[49m
+[1;33m* L83C18-L83C27[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [2;33m[Crustáceo] [0m[39m[49m(3457) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  A mis amigos del Krustáceo Krujiente, Juan, Antoni
+                   [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L83C28-L83C37[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Crujiente, Rugiente] (3467) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  amigos del Krustáceo Krujiente, Juan, Antonio, y m
+                       [1;31m^^^^^^^^^^[0m[39m[49m
+[1;33m* L83C90-L83C94[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Fin, Fina, Fino, Fine, Fían, Finó, Fíen, Finen, Finan, Finá, Finé, Fiñe] 
+  (3529) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  ompañeros de trinchera Pepe, Finn, Moisés y Pablo.
+                               [1;31m^^^^^[0m[39m[49m
+secciones/05_analisis.tex
+
+[1;33m* L1C2-L1C9[0m[39m[49m This section is very short (about 0 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \chapter{Análisis del problema}
+   [1;31m^^^^^^^^[0m[39m[49m
+proyecto.tex
+
+[1;33m* L62C2-L62C2[0m[39m[49m If you are writing a research paper, do not force page breaks. 
+  [2;33m[sh:nonp] [0m[39m[49m
+[1;37m  	\newpage
+   [1;31m^[0m[39m[49m
+[1;33m* L66C2-L66C2[0m[39m[49m If you are writing a research paper, do not force page breaks. 
+  [2;33m[sh:nonp] [0m[39m[49m
+[1;37m  	\newpage
+   [1;31m^[0m[39m[49m
+[1;33m* L71C2-L71C2[0m[39m[49m If you are writing a research paper, do not force page breaks. 
+  [2;33m[sh:nonp] [0m[39m[49m
+[1;37m  	\newpage
+   [1;31m^[0m[39m[49m
+[1;33m* L111C2-L111C2[0m[39m[49m If you are writing a research paper, do not force page breaks. 
+  [2;33m[sh:nonp] [0m[39m[49m
+[1;37m  	\newpage
+   [1;31m^[0m[39m[49m
+[1;33m* L63C3-L63C3[0m[39m[49m Se ha encontrado un posible error ortográfico. (11) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  	\tableofcontents
+    [1;31m^[0m[39m[49m
+[1;33m* L67C3-L67C3[0m[39m[49m Se ha encontrado un posible error ortográfico. (32) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  	\listoffigures
+    [1;31m^[0m[39m[49m
+[1;33m* L70C3-L70C15[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [historiables, listonadles, listonales, listonarles, listónales, 
+  listónateles] (49) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  	\listoftables 
+    [1;31m^^^^^^^^^^^^^[0m[39m[49m
+portada/portada.tex
+
+[1;33m* L1C8-L1C8[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tutelaje, billetaje, talepate, telepate, telepeaje, titeale, titeame, 
+  titeare, titearé, titease, titeate, titéale, titéame, titéate] (0) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \begin{titlepage}
+         [1;31m^[0m[39m[49m
+[1;33m* L2C13-L2C13[0m[39m[49m Se ha encontrado un posible error ortográfico. (11) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \newlength{\centeroffset}
+              [1;31m^[0m[39m[49m
+[1;33m* L3C13-L3C27[0m[39m[49m Se ha encontrado un posible error ortográfico. (25) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \setlength{\centeroffset}{-0.5\oddsidemargin}
+              [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L3C32-L3C32[0m[39m[49m Se ha encontrado un posible error ortográfico. (42) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \setlength{\centeroffset}{-0.5\oddsidemargin}
+                                 [1;31m^[0m[39m[49m
+[1;33m* L4C15-L4C32[0m[39m[49m Se ha encontrado un posible error ortográfico. (57) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \addtolength{\centeroffset}{0.5\evensidemargin}
+                [1;31m^^^^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L4C33-L4C33[0m[39m[49m Se ha encontrado un posible error ortográfico. (73) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \addtolength{\centeroffset}{0.5\evensidemargin}
+                                  [1;31m^[0m[39m[49m
+[1;33m* L9C2-L9C2[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [catering, centrina, senserina] (93) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \centering
+   [1;31m^[0m[39m[49m
+[1;33m* L12C40-L12C45[0m[39m[49m Falta un espacio antes de la unidad.. Suggestions: [2;33m[0.2 cm] [0m[39m[49m
+  (128) [2;33m[lt:es:SPACE_UNITIES] [0m[39m[49m
+[1;37m  \textsc{ \Large TRABAJO FIN DE GRADO\\[0.2cm]}
+                                         [1;31m^^^^^^[0m[39m[49m
+[1;33m* L13C19-L13C29[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [INGENIERÍA, INGENIERÍAS, INGENIERA, INGENIERIL, INGENIARÍA] (145) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textsc{ GRADO EN INGENIERIA INFORMATICA}\\[1cm]
+                    [1;31m^^^^^^^^^^^[0m[39m[49m
+[1;33m* L13C30-L13C44[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [INFORMÁTICA, INFORMÁTICO, INFORMATIVA, INFORMÁTICAS, INFORMATIZA, 
+  INFORMATICE, INFORMATICÉ, INFORMATIZÁ] (156) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textsc{ GRADO EN INGENIERIA INFORMATICA}\\[1cm]
+                               [1;31m^^^^^^^^^^^^^^^[0m[39m[49m
+[1;33m* L13C45-L13C48[0m[39m[49m Falta un espacio antes de la unidad.. Suggestions: [2;33m[1 cm] [0m[39m[49m
+  (168) [2;33m[lt:es:SPACE_UNITIES] [0m[39m[49m
+[1;37m  \textsc{ GRADO EN INGENIERIA INFORMATICA}\\[1cm]
+                                              [1;31m^^^^[0m[39m[49m
+[1;33m* L15C8-L15C16[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [series, feries, vocerías, aseries, boiseries, enseries, vecerías, voceríos] 
+  (175) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\Huge\bfseries EditAR (working tittle) \\}
+         [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L15C17-L15C23[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Editar, Evitar, Editor, Edita, Editan, Meditar, Editará, Editara, Editas, 
+  Editad, Editare, Editaré, Editá, Editás, Enditar, Estar, Editado, Editó, 
+  Citar, Editada, Emitir, Evita, Dedicar, Dictar, Dotar, Editaron, Editora, 
+  Educar, Evitan, Imitar, Quitar, Datar, Editarse, Gritar, Mediar, Agitar, 
+  Dinar, Editaba, Editaría, Guitar, Odiar, Recitar, Reeditar, Editarlo, Edito, 
+  Emita, Emitan, Evitara, Evitará, Excitar, Levitar, Medita, Auditar, Editarla, 
+  Edite, Pitar, Distar, Editaran, Editarán, Editase, Editen, Meditan, Medicar, 
+  Edites, Edité, Emitas, Erizar, Evitas, Exilar, Editarle, Evitad, Meritar, 
+  Espitar, Evitare, Evitaré, Meditara, Meditas, Edgar, Egibar, Abitar, Adietar, 
+  Ahitar, Coeditar, Debitar, Dita, Ditas, Ditá, Ditás, Diñar, Edictal, Editaje, 
+  Editala, Editale, Editalo, Editame, Editaos, Editaras, Editaren, Editares, 
+  Editarme, Editaros, Editarte, Editarás, Editate, Editáis, Edítala, Edítale, 
+  Edítalo, Edítame, Edítate, Endita, Enditad, Enditan, Enditara, Enditare, 
+  Enditará, Enditaré, Enditas, Enditá, Enditás, Endiñar, Erutar, Evitá, Evitás, 
+  Hitar, Meditad, Meditare, Meditará, Meditaré, Meditá, Meditás, Redilar, 
+  Redituar, Sitar, Tediar, Édgar, Éibar] (184) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\Huge\bfseries EditAR (working tittle) \\}
+                  [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L15C25-L15C32[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [lorquino, lorquina, Booking, parking, párquing] (192) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\Huge\bfseries EditAR (working tittle) \\}
+                          [1;31m^^^^^^^^[0m[39m[49m
+[1;33m* L15C33-L15C39[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [titule, titulé, Little, titile, titilé] (200) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\Huge\bfseries EditAR (working tittle) \\}
+                                  [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L17C9-L17C17[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [series, feries, vocerías, aseries, boiseries, enseries, vecerías, voceríos] 
+  (212) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  {\large\bfseries Editor de escenas de Realidad Aum
+          [1;31m^^^^^^^^^[0m[39m[49m
+[1;33m* L22C19-L22C19[0m[39m[49m Se ha encontrado un posible error ortográfico. (267) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \begin{minipage}{\textwidth}
+                    [1;31m^[0m[39m[49m
+[1;33m* L23C2-L23C2[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [catering, centrina, senserina] (278) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \centering
+   [1;31m^[0m[39m[49m
+[1;33m* L25C42-L25C47[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [látex, sílex, ápex, Alex, Essex, códex, ex, pírex, telex, télex, típex, 
+  Álex, Amex, DEX, FedEx, Jagex, LaTeX, PEMEX, Pemex, Plex, Rolex, WebEx, 
+  Webex] (315) [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \textbf{Autor}\\ {Pablo Millán Cubero}\\[2.5ex]
+                                           [1;31m^^^^^^[0m[39m[49m
+[1;33m* L26C46-L26C52[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [Sus, Ruso, Rusa, Bus, Tus, Res, Ras, Pus, Mus, Rúa, Ros, Rúas, RUC, RUT, 
+  Reus, Rut, Urús, Cus, Gus, Rúe, Rúes, Ñus, RSS] (355) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  f{Director}\\ {Francisco Javier Melero Rus}\\[2cm]
+                                         [1;31m^^^^^^^[0m[39m[49m
+[1;33m* L26C53-L26C56[0m[39m[49m Falta un espacio antes de la unidad.. Suggestions: [2;33m[2 cm] [0m[39m[49m
+  (359) [2;33m[lt:es:SPACE_UNITIES] [0m[39m[49m
+[1;37m  f{Director}\\ {Francisco Javier Melero Rus}\\[2cm]
+                                                [1;31m^^^^[0m[39m[49m
+[1;33m* L30C10-L30C15[0m[39m[49m Los meses del año se escriben en minúsculas, excepto si forman 
+  parte de un nombre propio.. Suggestions: [2;33m[julio] [0m[39m[49m(452) [2;33m[lt:es:MIN_MESES] [0m[39m[49m
+[1;37m  Granada, Julio de 2023
+           [1;31m^^^^^^[0m[39m[49m
+[1;33m* L32C6-L32C6[0m[39m[49m Se ha encontrado un posible error ortográfico.. Suggestions: 
+  [tutelaje, billetaje, talepate, telepate, telepeaje, titeale, titeame, 
+  titeare, titearé, titease, titeate, titéale, titéame, titéate] (467) 
+  [2;33m[lt:es:MORFOLOGIK_RULE_ES] [0m[39m[49m
+[1;37m  \end{titlepage}
+       [1;31m^[0m[39m[49m
+secciones/07_conclusiones.tex
+
+[1;33m* L1C2-L1C9[0m[39m[49m This section is very short (about 1 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \chapter{Conclusiones y trabajos futuros}
+   [1;31m^^^^^^^^[0m[39m[49m
+secciones/03_estado_de_ra.tex
+
+[1;33m* L1C2-L1C9[0m[39m[49m This section is very short (about 22 words). You should consider 
+  merging it with another section or make it longer. [2;33m[sh:seclen] [0m[39m[49m
+[1;37m  \chapter{Estado de la Realidad Aumentada}
+   [1;31m^^^^^^^^[0m[39m[49m
